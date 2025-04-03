@@ -1,0 +1,19 @@
+rm -rf node_modules
+rm package-lock.json
+npm install
+npm install get-intrinsic
+npm update
+npm dedupe
+npm cache clean --force
+
+
+Add a background image at public/images/about-bg.jpg
+
+Add team photos (name them accordingly):
+
+public/images/team/john-doe.jpg
+
+public/images/team/jane-smith.jpg
+
+public/images/team/alex-johnson.jpg
+

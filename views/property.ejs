@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= property.title %> - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .property-header {
+      margin-bottom: 2rem;
+    }
+    .price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .property-details {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .main-image {
+      grid-column: span 2;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .thumbnail {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .spec-item {
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    .contact-form {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="container">
+    <div class="property-header">
+      <h1><%= property.title %></h1>
+      <p class="location"><%= property.location %></p>
+      <p class="price"><%= property.price %></p>
+    </div>
+    
+    <div class="gallery">
+      <img src="<%= property.images[0] %>" alt="Main view" class="main-image" id="main-image">
+      <% property.images.slice(1).forEach((image, index) => { %>
+        <img src="<%= image %>" alt="View <%= index + 2 %>" class="thumbnail" onclick="document.getElementById('main-image').src = '<%= image %>'">
+      <% }); %>
+    </div>
+
+    <div class="property-details">
+      <div class="left-column">
+        <h2>Property Description</h2>
+        <p><%= property.description %></p>
+        
+        <h2>Features</h2>
+        <div class="features">
+          <% property.features.forEach(feature => { %>
+            <span class="feature"><%= feature %></span>
+          <% }); %>
+        </div>
+
+        <h2>Specifications</h2>
+        <div class="specs">
+          <div class="spec-item">
+            <h3>Area</h3>
+            <p><%= property.area %></p>
+          </div>
+          <div class="spec-item">
+            <h3>Bedrooms</h3>
+            <p><%= property.bedrooms %></p>
+          </div>
+          <div class="spec-item">
+            <h3>Bathrooms</h3>
+            <p><%= property.bathrooms %></p>
+          </div>
+          <div class="spec-item">
+            <h3>Year Built</h3>
+            <p><%= property.yearBuilt %></p>
+          </div>
+          <div class="spec-item">
+            <h3>Energy Rating</h3>
+            <p><%= property.energyRating %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="contact-form">
+          <h2>Schedule a Viewing</h2>
+          <form action="/contact" method="POST">
+            <input type="hidden" name="property" value="<%= property.id %>">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit">Request Viewing</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

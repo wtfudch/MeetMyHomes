@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arco Apartment - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+      position: relative;
+    }
+    #map-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8f9fa;
+      z-index: 1;
+    }
+    .open-in-maps {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #4285F4;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <!-- Image Carousel Section -->
+  <section class="image-carousel">
+    <div class="main-image">
+      <img src="" alt="Property Image" id="main-image">
+    </div>
+    <div class="thumbnail-container">
+      <div class="thumbnails" id="thumbnails">
+        <!-- Thumbnails will be dynamically added here -->
+      </div>
+      <button id="more-pictures">More Pictures</button>
+    </div>
+  </section>
+
+  <!-- Host Description Section -->
+  <section class="host-description">
+    <h2>Hosted by Maria Neves</h2>
+    <p>Superhost · 3 years hosting</p>
+    <div class="amenities">
+      <h3>What this place offers</h3>
+      <ul>
+        <li>Free Wi-Fi</li>
+        <li>Kitchen</li>
+        <li>Air Conditioning</li>
+        <li>Balcony</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Review Section -->
+  <section class="reviews">
+    <h2>Reviews</h2>
+    <div class="review-card">
+      <p><strong>Alice Johnson</strong> - "Amazing apartment with a great view!"</p>
+    </div>
+    <div class="review-card">
+      <p><strong>Bob Brown</strong> - "The location is perfect and the host is very responsive."</p>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map">
+    <h2>Location</h2>
+    <div id="map">
+      <div id="map-loading">Loading map...</div>
+    </div>
+    <a href="https://www.google.com/maps/place/32.71394729614258,-17.147069931030273" target="_blank" class="open-in-maps">
+      Open in Google Maps
+    </a>
+  </section>
+
+  <!-- Place Description Section -->
+  <section class="place-description">
+    <h2>About this place</h2>
+    <p>This modern apartment is located in the heart of the city, offering stunning views and easy access to local attractions.</p>
+  </section>
+
+  <!-- Host Details Section -->
+  <section class="host-details">
+    <h2>About the host</h2>
+    <p>Jane Smith is a Superhost with over 3 years of experience. She is dedicated to ensuring her guests have a comfortable and enjoyable stay.</p>
+  </section>
+
+  <!-- House Rules Section -->
+  <section class="house-rules">
+    <h2>House Rules</h2>
+    <ul>
+      <li>No smoking</li>
+      <li>No parties</li>
+      <li>Check-in after 2 PM</li>
+      <li>Check-out before 10 AM</li>
+    </ul>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <script src="/js/maps.js"></script>
+  <script src="/js/arcoApartment.js"></script>
+</body>
+</html>

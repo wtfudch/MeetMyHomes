@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 3rem 0;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      min-width: 200px;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 3rem 0;
+    }
+    .team-member {
+      text-align: center;
+      max-width: 200px;
+    }
+    .team-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #4285F4;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="about-hero">
+    <div class="container">
+      <h1>About MeetMyHomes</h1>
+      <p class="lead">Your trusted partner in finding the perfect home</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section>
+      <h2>Our Story</h2>
+      <p>Founded in <%= companyInfo.founded %>, <%= companyInfo.name %> began with a simple mission: 
+      <em>"<%= companyInfo.mission %>"</em>. What started as a small team with big dreams has grown into 
+      a trusted name in real estate across Portugal.</p>
+    </section>
+
+    <section>
+      <h2>By The Numbers</h2>
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number"><%= companyInfo.stats.propertiesSold %></div>
+          <div class="stat-label">Properties Sold</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><%= companyInfo.stats.happyClients %></div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><%= companyInfo.stats.citiesCovered %></div>
+          <div class="stat-label">Cities Covered</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Meet Our Team</h2>
+      <div class="team-container">
+        <% companyInfo.team.forEach(member => { %>
+          <div class="team-member">
+            <img src="/images/team/<%= member.name.toLowerCase().replace(' ', '-') %>.jpg" 
+                 alt="<%= member.name %>" 
+                 class="team-photo">
+            <h3><%= member.name %></h3>
+            <p><%= member.role %></p>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to find your dream home?</h2>
+      <a href="/properties" class="cta-button">View Our Properties</a>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
