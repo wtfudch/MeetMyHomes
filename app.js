@@ -1,23 +1,46 @@
+require('dotenv').config(); // Add this at the top
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/realestate')
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Failed to connect to MongoDB', err));
+// Enhanced MongoDB Connection
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/realestate', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000 // Fail fast if no connection
+    });
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+    process.exit(1); // Exit process with failure
+  }
+};
+connectDB();
+
+// Database connection events
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose connected to DB');
+});
+
+mongoose.connection.on('error', (err) => {
+  console.error('Mongoose connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('Mongoose disconnected');
+});
 
 // Set up EJS
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// Serve static files
+// Middleware
 app.use(express.static('public'));
-
-// Parse form data
 app.use(express.urlencoded({ extended: true }));
 
-// Set Content Security Policy (CSP) headers
+// Enhanced CSP Headers
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
@@ -32,26 +55,35 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Routes
 app.use('/', require('./routes/homeRoutes'));
 app.use('/contact', require('./routes/contactRoutes'));
 app.use('/listings', require('./routes/listingsRoutes'));
 app.use('/about', require('./routes/aboutRoutes'));
 app.use('/', require('./routes/casaNevesRoutes')); 
-app.use('/', require('./routes/arcoApartmentRoutes')); 
-
-app.use('/properties', require('./routes/propertyRoutes')); // Changed to plural for RESTful convention
+app.use('/', require('./routes/arcoApartmentRoutes'));
+app.use('/properties', require('./routes/propertyRoutes'));
 
 // Property Details Route
 app.get('/property/:id', (req, res) => {
-    const propertyId = req.params.id;
-    // For now, just render a placeholder property page
-    res.render('property', { propertyId });
+  const propertyId = req.params.id;
+  res.render('property', { propertyId });
 });
 
-// Start the server
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
+});
+
+// Graceful shutdown
+process.on('SIGINT', async () => {
+  await mongoose.connection.close();
+  process.exit(0);
 });

@@ -1,0 +1,28 @@
+# Update your .gitignore
+cat > .gitignore << 'EOF'
+# Environment
+.env
+
+# Dependencies
+node_modules/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts
+dist/
+build/
+
+# Temporary/backup files
+*~
+*.bak
+* 2.*
+EOF
