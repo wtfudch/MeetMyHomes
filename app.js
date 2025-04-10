@@ -6,15 +6,13 @@ const app = express();
 // Enhanced MongoDB Connection
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/realestate', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 5000 // Fail fast if no connection
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000 // Fail after 5s instead of 30s
     });
     console.log('MongoDB connected');
   } catch (err) {
-    console.error('MongoDB connection error:', err);
-    process.exit(1); // Exit process with failure
+    console.error('MongoDB connection error:', err.message);
+    process.exit(1); // Exit with failure
   }
 };
 connectDB();
@@ -78,7 +76,7 @@ app.use((err, req, res, next) => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '35.160.120.126', () => {
   console.log(`Server running on port ${PORT}`);
 });
 
