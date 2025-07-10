@@ -1,0 +1,659 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap'); /* Ensure 900 weight */
+
+:root {
+  --primary-color: #3a5a78;  /* Sophisticated blue */
+  --secondary-color: #e37222; /* Vibrant orange */
+  --accent-color: #66b9bf;   /* Soft teal */
+  --light-bg: #f8f9fa;
+  --dark-text: #2c3e50;     /* Dark blue for text */
+  --light-text: #ffffff;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo img {
+  max-height: 40px;
+  max-width: 150px;
+  height: auto;
+  vertical-align: middle;
+}
+
+body {
+  color: var(--dark-text);
+  line-height: 1.6;
+  background-color: var(--light-bg);
+  font-family: 'Roboto', Arial, sans-serif; /* Fallback to Arial */
+}
+
+/* General Styles */
+body {
+  background-color: #E5E3DC;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E5E3DC;
+  padding: 1rem 2rem;
+  color: black;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav .nav-links a {
+  color: black;
+  text-decoration: none;
+}
+
+nav .nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('https://via.placeholder.com/1200x400');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: black;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: black;
+}
+
+.hero-content button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-content button:hover {
+  background-color: #e65c00;
+}
+
+/* Language Switch */
+.language-select {
+  padding: 0.3rem 1rem 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #E5E3DC;
+  border-radius: 4px;
+  cursor: pointer;
+  appearance: none;
+  background: #E5E3DC url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.3rem center;
+  background-size: 12px;
+  width: auto;
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: #FF385C;
+  box-shadow: 0 0 5px rgba(255, 56, 92, 0.3);
+}
+
+/* Property Grid Section */
+.property-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.property-grid h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.property-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.property-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-card button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.property-card button:hover {
+  background-color: #e65c00;
+}
+
+.feature {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.terrain-info {
+  padding: 0.5rem;
+  background: #f5f5f5;
+  border-top: 1px solid #eee;
+}
+
+.zoning-type {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.terrain-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  background: #3a5a78; /* Match primary color */
+  color: white;
+}
+
+.terrain-badge.rural {
+  background: #f44336;
+}
+
+/* About Page Specific Styles */
+.about-hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/about-bg.jpg');
+  background-size: cover;
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 0;
+  margin: 3rem 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #4285F4;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #3367d6;
+}
+
+/* Listings Section */
+.listings {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.listings h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.listings-container {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+/* Left Side: Property Images */
+.property-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.image-controls button {
+  padding: 0.5rem 1rem;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image-controls button:hover {
+  background-color: #e65c00;
+}
+
+/* Right Side: Property Details */
+.property-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Custom bold class */
+p .bold-text {
+  font-weight: 900 !important; /* High weight */
+  font-family: 'Roboto', Arial, sans-serif; /* Ensure font support */
+  color: var(--dark-text) !important; /* Match body text color */
+  border: 1px solid red; /* Temporary border for debugging */
+}
+
+/* Prevent parent styles from overriding */
+.property-description {
+  font-weight: normal !important; /* Reset to normal for non-bold text */
+}
+
+.property-description p {
+  font-weight: normal !important; /* Ensure paragraphs aren’t forced bold */
+  color: var(--dark-text); /* Ensure p text is dark blue */
+}
+
+/* Add to styles.css */
+.property-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.property-type-badge {
+  background: #3f51b5;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.property-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.property-card .description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.property-card .location {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.property-card .type {
+  font-size: 1rem;
+  color: #333;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.see-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.feature-item {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Footer */
+footer {
+  background-color: #E5E3DC;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* Contact Section */
+.contact {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-intro p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.contact-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2,
+.contact-form h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.contact-form {
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #e65c00;
+}
+
+/* Image Carousel Section */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
+  background-color: #f5f5f5;
+}
+
+.image-carousel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.thumbnails img {
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#more-pictures {
+  padding: 0.5rem 1rem;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#more-pictures:hover {
+  background-color: #e65c00;
+}
+
+/* Host Description Section */
+.host-description {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.amenities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.amenities li {
+  margin: 0.5rem 0;
+}
+
+/* Review Section */
+.reviews {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-card {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Map Section */
+
+/* Map Controls */
+.gm-control-active {
+  background: white !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+}
+
+/* Map Container */
+.property-map {
+  border: 1px solid #e0e0e0;
+}
+
+.map-fallback {
+  padding: 20px;
+  background: #f8d7da;
+  color: #721c24;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.map-fallback a {
+  color: #721c24;
+  text-decoration: underline;
+}
+
+/* Place Description Section */
+.place-description {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Host Details Section */
+.host-details {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* House Rules Section */
+.house-rules {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.house-rules ul {
+  list-style: none;
+  padding: 0;
+}
+
+.house-rules li {
+  margin: 0.5rem 0;
+}

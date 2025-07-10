@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="contact-intro">
+      <p>You can contact us through the following:</p>
+    </div>
+
+    <div class="contact-container">
+      <!-- Left Side: Contact Information -->
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> geral@meetmyhomes.com</p>
+        <p><strong>Phone:</strong> (+351) 964 696 600</p>
+        <p><strong>Address:</strong> Rua Padre José Eduardo Faria nº30, Funchal, Portugal</p>
+      </div>
+
+      <!-- Right Side: Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="/contact" method="POST">
+          <div class="form-group">
+            <label for="name">Name (required)</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email (required)</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (required)</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+          </div>
+
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

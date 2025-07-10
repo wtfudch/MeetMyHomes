@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    p { font-size: 1.1rem; }
+
+    /* Hero Section */
+    .about-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .about-hero .lead {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* Story Section */
+    section {
+      padding: 3rem 0;
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Stats Section */
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 2rem;
+      min-width: 200px;
+      background-color: #f1f1f1;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    /* Team Section */
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .team-member {
+      text-align: center;
+      max-width: 200px;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+
+    .team-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #4285F4;
+      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+    }
+
+    .team-member h3 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-member p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 3rem 0;
+      background-color: #e9ecef;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #FF385C;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #E61E4D;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="about-hero">
+    <div class="container">
+      <h1>About MeetMyHomes</h1>
+      <p class="lead">Your trusted partner in finding the perfect home</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section>
+      <h2>Our Story</h2>
+      <p>Founded in <%= companyInfo.founded %>, <%= companyInfo.name %> began with a simple mission: 
+      <em>"<%= companyInfo.mission %>"</em>. What started as a small team with big dreams has grown into 
+      a trusted name in real estate across Portugal.</p>
+    </section>
+
+    <section>
+      <h2>By The Numbers</h2>
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number"><%= companyInfo.stats.propertiesSold %></div>
+          <div class="stat-label">Properties Sold</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><%= companyInfo.stats.happyClients %></div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><%= companyInfo.stats.citiesCovered %></div>
+          <div class="stat-label">Cities Covered</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Meet Our Team</h2>
+      <div class="team-container">
+        <% companyInfo.team.forEach(member => { %>
+          <div class="team-member">
+            <img src="/images/team/<%= member.name.toLowerCase().replace(' ', '-') %>.jpg" 
+                 alt="<%= member.name %>" 
+                 class="team-photo">
+            <h3><%= member.name %></h3>
+            <p><%= member.role %></p>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Ready to find your dream home?</h2>
+      <a href="/properties" class="cta-button">View Our Properties</a>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

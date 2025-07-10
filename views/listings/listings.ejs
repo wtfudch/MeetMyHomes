@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vacation Rentals - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANA6a0rUnsATDz8ewvfuj_ZV6oTXmuxmc&loading=async&libraries=marker&callback=initMap" async defer></script>
+  <script src="/js/maps.js"></script>
+  <style>
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .page-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    
+    .listing-container {
+      display: flex;
+      margin-bottom: 40px;
+      gap: 30px;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+    
+    .listing-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .image-section {
+      flex: 1;
+      min-width: 400px;
+      position: relative;
+    }
+    
+    .main-image-container {
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    
+    .main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      overflow-x: auto;
+    }
+    
+    .thumbnail {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    
+    .thumbnail.active {
+      border-color: #FF385C;
+    }
+    
+    .image-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    
+    .image-controls button {
+      position: absolute;
+      background: rgba(255,255,255,0.7);
+      border: none;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .image-controls .prev-image-btn {
+      left: 10px; /* Pin to left edge */
+    }
+    
+    .image-controls .next-image-btn {
+      right: 10px; /* Pin to right edge */
+    }
+    
+    .image-controls button:hover {
+      background: rgba(255,255,255,1);
+    }
+    
+    .details-section {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .property-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+    
+    .property-title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .property-rating {
+      display: flex;
+      align-items: center;
+    }
+    
+    .property-rating i {
+      color: #FF385C;
+      margin-right: 4px;
+    }
+    
+    .property-meta {
+      color: #717171;
+      margin-bottom: 15px;
+    }
+    
+    .property-price {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 15px 0;
+    }
+    
+    .price-period {
+      color: #717171;
+      font-size: 1rem;
+    }
+    
+    .superhost-badge {
+      display: inline-block;
+      background: #FF385C;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .amenities {
+      margin: 20px 0;
+    }
+    
+    .amenity-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    
+    .view-details-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #FF385C;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    
+    .view-details-btn:hover {
+      background: #E61E4D;
+    }
+    
+    .no-properties {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #717171;
+      padding: 40px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .listing-container {
+        flex-direction: column;
+      }
+      
+      .image-section {
+        min-width: 100%;
+      }
+      
+      .image-controls button {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <div class="page-container">
+    <h1 class="page-title">Vacation Rentals</h1>
+
+    <% if (listings && listings.length > 0) { %>
+      <% listings.forEach(listing => { %>
+        <div class="listing-container" id="listing-<%= listing.id %>" data-images='<%= JSON.stringify(listing.images) %>'>
+          <!-- Left Side - Image Gallery -->
+          <div class="image-section">
+            <div class="main-image-container">
+              <img src="<%= listing.images[0] %>" alt="<%= listing.title %>" class="main-image">
+              <div class="image-controls">
+                <button class="prev-image-btn" data-listing-id="<%= listing.id %>"><</button>
+                <button class="next-image-btn" data-listing-id="<%= listing.id %>">></button>
+              </div>
+            </div>
+            
+            <div class="thumbnail-container">
+              <% listing.images.forEach((image, index) => { %>
+                <img src="<%= image %>" 
+                     alt="Thumbnail <%= index + 1 %>" 
+                     class="thumbnail <%= index === 0 ? 'active' : '' %>"
+                     data-index="<%= index %>"
+                     data-listing-id="<%= listing.id %>">
+              <% }); %>
+            </div>
+          </div>
+          
+          <!-- Right Side - Details -->
+          <div class="details-section">
+            <div class="property-header">
+              <h2 class="property-title"><%= listing.title %></h2>
+              <% if (listing.rating) { %>
+                <div class="property-rating">
+                  <i class="fas fa-star"></i>
+                  <span><%= listing.rating %></span>
+                </div>
+              <% } %>
+            </div>
+            
+            <p class="property-meta"><%= listing.location %> · <%= listing.type %></p>
+            
+            <% if (listing.superhost) { %>
+              <span class="superhost-badge">Superhost</span>
+            <% } %>
+            
+            <div class="property-price">
+              <span><%= listing.pricePerNight %></span>
+              <span class="price-period"> / night</span>
+            </div>
+            
+            <div class="amenities">
+              <h3>Main Features</h3>
+              <% if (listing.bedrooms) { %>
+                <div class="amenity-item">
+                  <i class="fas fa-bed"></i>
+                  <span><%= listing.bedrooms %> bedrooms</span>
+                </div>
+              <% } %>
+              <% if (listing.bathrooms) { %>
+                <div class="amenity-item">
+                  <i class="fas fa-bath"></i>
+                  <span><%= listing.bathrooms %> bathrooms</span>
+                </div>
+              <% } %>
+              <% if (listing.guests) { %>
+                <div class="amenity-item">
+                  <i class="fas fa-user-friends"></i>
+                  <span>Sleeps <%= listing.guests %></span>
+                </div>
+              <% } %>
+            </div>
+            
+            <p class="description"><%= listing.description.substring(0, 100) %>...</p>
+            
+            <a href="/listings/<%= listing.id %>" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p class="no-properties">No properties available at the moment. Please check back later!</p>
+    <% } %>
+  </div>
+
+  <%- include('../partials/footer') %>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize all listing carousels
+      document.querySelectorAll('.listing-container').forEach(container => {
+        const listingId = container.id.replace('listing-', '');
+        const mainImage = container.querySelector('.main-image');
+        const prevBtn = container.querySelector('.prev-image-btn');
+        const nextBtn = container.querySelector('.next-image-btn');
+        const thumbnails = container.querySelectorAll('.thumbnail');
+        
+        console.log('Buttons:', prevBtn, nextBtn); // Debug button elements
+        
+        // Use data-images attribute
+        const images = JSON.parse(container.dataset.images);
+        let currentIndex = 0;
+        
+        if (images.length <= 1) {
+          container.querySelector('.image-controls').style.display = 'none';
+        }
+        
+        // Update the displayed image
+        const updateImage = (index) => {
+          currentIndex = index;
+          mainImage.src = images[currentIndex];
+          
+          // Update active thumbnail
+          thumbnails.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === currentIndex);
+          });
+        };
+        
+        // Previous button click
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const newIndex = (currentIndex - 1 + images.length) % images.length;
+          updateImage(newIndex);
+        });
+        
+        // Next button click
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const newIndex = (currentIndex + 1) % images.length;
+          updateImage(newIndex);
+        });
+        
+        // Thumbnail click
+        thumbnails.forEach(thumb => {
+          thumb.addEventListener('click', (e) => {
+            const index = parseInt(e.target.dataset.index);
+            updateImage(index);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

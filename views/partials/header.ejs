@@ -1,0 +1,104 @@
+<nav>
+  <a href="/" class="logo"><img src="../images/mmhlogo.png" alt="MeetMyHomes Logo"></a>
+  <ul class="nav-links">
+    <li>
+      <select id="language-select" class="language-select" onchange="changeLanguage(this.value)">
+        <option value="en">🇬🇧 English</option>
+        <option value="pt-PT">🇵🇹 Portuguese (Portugal)</option>
+        <option value="pt">🇧🇷 Portuguese (Brazil)</option>
+        <option value="es">🇪🇸 Spanish</option>
+        <option value="fr">🇫🇷 French</option>
+        <option value="de">🇩🇪 German</option>
+        <option value="it">🇮🇹 Italian</option>
+        <option value="nl">🇳🇱 Dutch</option>
+        <option value="sv">🇸🇪 Swedish</option>
+        <option value="da">🇩🇰 Danish</option>
+        <option value="no">🇳🇴 Norwegian</option>
+        <option value="fi">🇫🇮 Finnish</option>
+        <option value="pl">🇵🇱 Polish</option>
+        <option value="ru">🇷🇺 Russian</option>
+        <option value="zh-CN">🇨🇳 Chinese (Simplified)</option>
+        <option value="ja">🇯🇵 Japanese</option>
+        <option value="ko">🇰🇷 Korean</option>
+        <option value="ar">🇸🇦 Arabic</option>
+        <option value="hi">🇮🇳 Hindi</option>
+        <option value="tr">🇹🇷 Turkish</option>
+        <option value="el">🇬🇷 Greek</option>
+      </select>
+    </li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/properties">Properties</a></li>
+    <li><a href="/listings">AL</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Google Translate element div in HTML -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<script type="text/javascript">
+  let translateInitialized = false;
+  let comboBoxReady = false;
+  let retryCount = 0;
+  const maxRetries = 30; // ~15 seconds
+
+  // Initialize Google Translate
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,pt-PT,pt,es,fr,de,it,nl,sv,da,no,fi,pl,ru,zh-CN,ja,ko,ar,hi,tr,el',
+      layout: google.translate.TranslateElement.InlineLayout.DEFAULT,
+      autoDisplay: false
+    }, 'google_translate_element');
+    translateInitialized = true;
+
+    // Check for combo box with a maximum retry limit
+    const checkComboBox = setInterval(() => {
+      const googleCombo = document.querySelector('.goog-te-combo');
+      if (googleCombo) {
+        clearInterval(checkComboBox);
+        comboBoxReady = true;
+        // Apply initial language from URL if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('hl');
+        if (lang && lang !== 'en') {
+          changeLanguage(lang);
+        }
+      } else if (retryCount >= maxRetries) {
+        clearInterval(checkComboBox);
+      } else {
+        retryCount++;
+      }
+    }, 500); // Check every 500ms
+  }
+
+  // Function to change language
+  function changeLanguage(lang) {
+    if (!comboBoxReady || !translateInitialized || !window.google || !window.google.translate) {
+      setTimeout(() => changeLanguage(lang), 500); // Retry after 500ms
+      return;
+    }
+
+    // Find the Google Translate combo box
+    const googleCombo = document.querySelector('.goog-te-combo');
+    if (googleCombo) {
+      googleCombo.value = lang; // Use the selected lang directly (e.g., pt-PT or pt)
+      googleCombo.dispatchEvent(new Event('change')); // Trigger the change event to apply translation
+    }
+
+    // Update URL parameter with the original selected value
+    window.history.replaceState({}, document.title, window.location.pathname + '?hl=' + lang);
+
+    // Hide default Google Translate UI
+    var frames = document.getElementsByClassName('goog-te-banner-frame');
+    for (var i = 0; i < frames.length; i++) {
+      frames[i].style.display = 'none';
+    }
+  }
+
+  // Load Google Translate API
+  var googleTranslateScript = document.createElement('script');
+  googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(googleTranslateScript);
+</script>
