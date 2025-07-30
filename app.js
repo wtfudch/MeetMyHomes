@@ -1,3 +1,4 @@
+// app.js
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -34,31 +35,31 @@ app.use((req, res, next) => {
     "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com https://cdnjs.cloudflare.com;" +
     "img-src 'self' https://*.googleapis.com https://*.gstatic.com https://www.google.com data:; " + 
-    "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; " + // Added https://cdnjs.cloudflare.com
+    "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; " + 
     "connect-src 'self' https://maps.googleapis.com https://translate.googleapis.com https://translate-pa.googleapis.com; " +
     "media-src 'self'; " +
-    "frame-src https://www.google.com http://localhost:3000;" // For local development
+    "frame-src https://www.google.com http://localhost:3000;"
   );
   next();
 });
 
-
 // Routes
 app.use('/', require('./routes/homeRoutes'));
 app.use('/contact', require('./routes/contactRoutes'));
-app.use('/listings', require('./routes/listingsRoutes'));
+app.use('/listings', require('./routes/listingsRoutes')); // Ensure this handles /listings/:id
 app.use('/about', require('./routes/aboutRoutes'));
-
-
-app.use('/properties', require('./routes/propertyRoutes')); // Changed to plural for RESTful convention
+app.use('/privacy-policy', require('./routes/privacyRoutes'));
+app.use('/terms-of-service', require('./routes/termsRoutes'));
+app.use('/properties', require('./routes/propertyRoutes'));
 
 // Property Details Route
 app.get('/property/:id', (req, res) => {
     const propertyId = req.params.id;
-    // For now, just render a placeholder property page
     res.render('property', { propertyId });
 });
+
 app.set('view cache', false);
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

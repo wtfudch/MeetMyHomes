@@ -32,13 +32,13 @@ const properties = {
         ]
       },
       location: 'Caminho do Lombo da Atouguia, s/n',
-      coordinates:{
+      coordinates: {
         latitude: 32.73759010465314,
         longitude: -17.151411087160103
       },
-      images: Array.from({length: 20}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 1}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 4}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 20}, (_, i) => `/images/terreno-atouguia/terreno-atouguia-${i+1}.jpg`),
+      plants: Array.from({length: 1}, (_, i) => `/plants/terreno-atouguia/terreno-atouguia-${i+1}.jpg`),
+      videos: Array.from({length: 4}, (_, i) => `/videos/terreno-atouguia/terreno-atouguia-${i+1}.mp4`),
       propertyType: 'terrain',
       isUrban: true
     },
@@ -74,13 +74,13 @@ const properties = {
         ]
       },
       location: 'Rua da Capela, s/n',
-      coordinates:{
+      coordinates: {
         latitude: 32.82976190146658,
         longitude: -17.22806895767973
       },
-      images: Array.from({length: 13}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 0}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 4}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 13}, (_, i) => `/images/terreno-capela/terreno-capela-${i+1}.jpg`),
+      plants: Array.from({length: 0}, () => []),
+      videos: Array.from({length: 4}, (_, i) => `/videos/terreno-capela/terreno-capela-${i+1}.mp4`),
       propertyType: 'terrain',
       isUrban: false,
       isUrbanizable: true
@@ -98,7 +98,7 @@ const properties = {
         A localização privilegiada permite a edificação de uma moradia de luxo ou um refúgio personalizado, com potencial para construir uma casa grande ou várias habitações, sempre respeitando as licenças e regulamentos municipais.
 
         Seja para investidores ou particulares com visão e criatividade, esta é uma oportunidade imperdível! Não perca a chance de transformar este espaço em algo verdadeiramente especial. Venha conhecer e deixe-se encantar pela beleza e potencial deste terreno!
-    ` .trim(), 
+    `.trim(), 
       detailedFeatures: {
         specific: [
           'Superfície total do terreno 1745 m²',
@@ -110,7 +110,7 @@ const properties = {
           'Terreno urbanizável',
           'Viabilidade para routra'
         ],
-        equipamento:[
+        equipamento: [
           'Água',
           'Calçadas'
         ],
@@ -119,18 +119,17 @@ const properties = {
         ]
       },
       location: 'Caminho dos Picos, s/n',
-      coordinates:{
+      coordinates: {
         latitude: 32.750298208973184,
         longitude: -17.20805738030026
       },
-      images: Array.from({length: 30}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 0}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 0}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 30}, (_, i) => `/images/terreno-picos/terreno-picos-${i+1}.jpg`),
+      plants: Array.from({length: 0}, () => []),
+      videos: Array.from({length: 0}, () => []),
       propertyType: 'terrain',
       isUrban: false,
       isUrbanizable: true
     },
-
     'terreno-chiqueiros': {
       id: 'terreno-chiqueiros',
       title: 'Terreno à venda em Chiqueiros',
@@ -156,7 +155,7 @@ const properties = {
         Não perca esta oportunidade única de investimento num terreno versátil, fértil e com enorme potencial, seja para fins pessoais ou comerciais.
 
         Entre em contacto connosco para mais informações ou para agendar a sua visita!
-    `   .trim(), 
+    `.trim(), 
       detailedFeatures: {
         specific: [
           'Superfície total do terreno 2030 m²',
@@ -170,13 +169,13 @@ const properties = {
         ]
       },
       location: 'Chiqueiros, s/n',
-      coordinates:{
+      coordinates: {
         latitude: 32.696631549511444,
         longitude: -17.104452771272985
       },
-      images: Array.from({length: 0}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 0}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 0}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 11}, () => []),
+      plants: Array.from({length: 0}, () => []),
+      videos: Array.from({length: 0}, () => []),
       propertyType: 'terrain',
       isUrban: false,
       isUrbanizable: false
@@ -192,7 +191,7 @@ const properties = {
         Terreno com 200 m² de area bruta 
 
         Entre em contacto connosco para mais informações ou para agendar a sua visita!
-    `   .trim(), 
+    `.trim(), 
       detailedFeatures: {
         specific: [
           'Superfície total do terreno 200 m²',
@@ -206,17 +205,16 @@ const properties = {
         ]
       },
       location: 'Caminho Lombo do Salão 83, Calheta',
-      coordinates:{
+      coordinates: {
         latitude: 32.728288816736494,
         longitude: -17.174326532135876
       },
-      images: Array.from({length: 39}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 0}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 4}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 39}, (_, i) => `/images/casa-lombo-salao/casa-lombo-salao-${i+1}.jpg`),
+      plants: Array.from({length: 0}, () => []),
+      videos: Array.from({length: 4}, (_, i) => `/videos/casa-lombo-salao/casa-lombo-salao-${i+1}.mp4`),
       propertyType: 'house',
       yearBuilt: 1995,
       energyRating: 'C',
-      propertyType: 'house',
       isUrban: true,
       isUrbanizable: true
     },
@@ -237,7 +235,7 @@ const properties = {
         Não perca esta oportunidade única de investir num terreno versátil e tranquilo, perfeito para fins pessoais ou sustentáveis.
 
         Entre em contacto connosco para mais informações ou para agendar a sua visita!
-    `   .trim(), 
+    `.trim(), 
       detailedFeatures: {
         specific: [
           'Superfície total do terreno 2030 m²',
@@ -251,13 +249,13 @@ const properties = {
         ]
       },
       location: 'ER 222 s/n, Fajã da Ovelha',
-      coordinates:{
+      coordinates: {
         latitude: 32.78265863857103,
         longitude: -17.232071034748284
       },
-      images: Array.from({length: 6}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 0}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 0}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 6}, (_, i) => `/images/terreno-faja-ovelha/terreno-faja-ovelha-${i+1}.jpg`),
+      plants: Array.from({length: 0}, () => []),
+      videos: Array.from({length: 0}, () => []),
       propertyType: 'terrain',
       isUrban: false,
       isUrbanizable: false
@@ -289,7 +287,7 @@ const properties = {
         Se procura um imóvel com potencial de valorização e liberdade para criar um espaço único, esta é uma excelente oportunidade no coração da Calheta.
 
         Fale connosco para mais informações ou para agendar a sua visita ao local.
-    `   .trim(), 
+    `.trim(), 
       detailedFeatures: {
         specific: [
           'Superfície total do terreno 407 m²',
@@ -305,19 +303,19 @@ const properties = {
         ]
       },
       location: 'Caminho Lombo das Laranjeiras 60, Calheta',
-      coordinates:{
+      coordinates: {
         latitude: 32.73055264887412,
         longitude: -17.17473604544298
       },
-      images: Array.from({length: 0}, (_, i) => `/images/${this.id}/${this.id}-${i+1}.jpg`),
-      plants: Array.from({length: 0}, (_, i) => `/plants/${this.id}/${this.id}-${i+1}.jpg`),
-      videos: Array.from({length: 0}, (_, i) => `/videos/${this.id}/${this.id}-${i+1}.mp4`),
+      images: Array.from({length: 24}, () => []),
+      plants: Array.from({length: 2}, () => []),
+      videos: Array.from({length: 0}, () => []),
       propertyType: 'house',
       yearBuilt: 2005,
       energyRating: 'B'
     }
-  };
-  
+};
+
 const getAllProperties = (req, res) => {
     res.render('properties', { 
       title: 'Our Properties',
@@ -332,8 +330,8 @@ const getPropertyById = (req, res) => {
   }
   res.render('property', { 
     title: property.title,
-    property  // This is crucial
+    property
   });
 };
   
-module.exports = { getAllProperties, getPropertyById };
+module.exports = { getAllProperties, getPropertyById, properties }; // Export properties object

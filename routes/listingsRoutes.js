@@ -1,14 +1,9 @@
+// routes/listingsRoutes.js
 const express = require('express');
 const router = express.Router();
-const listingsController = require('../controllers/listingController');
+const listingController = require('../controllers/listingController');
 
-
-// GET /properties - Show all properties
-router.get('/', listingsController.getAllListings);
-
-// GET /properties/:id - Show specific property
-router.get('/:id', listingsController.getListingById);
-
-
+router.get('/', listingController.getAllListings);
+router.get('/:id', listingController.getListingById);
 
 module.exports = router;

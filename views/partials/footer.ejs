@@ -1,3 +1,30 @@
 <footer>
-    <p>&copy; 2025 MeetMyHomes. All rights reserved.</p>
-  </footer>
+  <div class="container">
+    <p>© 2025 MeetMyHomes. All rights reserved. | <a href="/terms-of-service">Terms of Service</a> | <a href="/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: black;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      footer {
+        border-radius: 15px 15px 0 0;
+      }
+    }
+  </style>
+</footer>

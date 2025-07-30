@@ -11,7 +11,7 @@
       font-family: 'Arial', sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f9f9f9;
+      background-color: #E5E3DC;
     }
 
     .container {
@@ -38,9 +38,29 @@
       padding: 6rem 0;
       text-align: center;
       margin-bottom: 4rem;
+      border-radius: 20px;
     }
 
     .about-hero .lead {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* About Us Hero Section */
+    .about-us-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/home-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+      margin-bottom: 4rem;
+      border-radius: 20px;
+    }
+
+    .about-us-hero .lead {
       font-size: 1.3rem;
       max-width: 800px;
       margin: 0 auto;
@@ -51,13 +71,13 @@
     section {
       padding: 3rem 0;
       background-color: #fff;
-      border-radius: 8px;
+      border-radius: 20px;
       margin-bottom: 2rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    /* Stats Section */
-    .stats-container {
+    /* Guarantee Section */
+    .guarantee-container {
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
@@ -65,77 +85,43 @@
       margin: 2rem 0;
     }
 
-    .stat-card {
+    .guarantee-card {
       text-align: center;
       padding: 2rem;
       min-width: 200px;
-      background-color: #f1f1f1;
-      border-radius: 8px;
+      border-radius: 20px;
       transition: transform 0.3s ease;
+      flex: 1 1 calc(33.33% - 2rem); /* Three cards per row, accounting for gap */
     }
 
-    .stat-card:hover {
+    .guarantee-card:hover {
       transform: translateY(-5px);
     }
 
-    .stat-number {
+    .guarantee-emoji {
       font-size: 2.5rem;
-      font-weight: bold;
-      color: #2c3e50;
       margin-bottom: 0.5rem;
     }
 
-    .stat-label {
+    .guarantee-label {
       font-size: 1.1rem;
       color: #666;
+      margin-bottom: 0.5rem;
     }
 
-    /* Team Section */
-    .team-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin: 2rem 0;
+    .guarantee-description {
+      font-size: 0.9rem;
+      color: #333;
     }
 
-    .team-member {
-      text-align: center;
-      max-width: 200px;
-      transition: transform 0.3s ease;
-    }
 
-    .team-member:hover {
-      transform: translateY(-5px);
-    }
-
-    .team-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid #4285F4;
-      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
-    }
-
-    .team-member h3 {
-      font-size: 1.3rem;
-      color: #2c3e50;
-      margin-bottom: 0.3rem;
-    }
-
-    .team-member p {
-      font-size: 1rem;
-      color: #666;
-    }
 
     /* CTA Section */
     .cta-section {
       text-align: center;
       padding: 3rem 0;
       background-color: #e9ecef;
-      border-radius: 8px;
+      border-radius: 20px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
@@ -154,56 +140,155 @@
     .cta-button:hover {
       background-color: #E61E4D;
     }
+
+    /* Sobre Nós Section */
+    .sobre-nos {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .sobre-nos-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .sobre-nos-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sobre-nos-content {
+      flex: 2;
+      min-width: 400px;
+    }
+
+    .sobre-nos-contact-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .sobre-nos-contact-box a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #4285F4;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .sobre-nos-contact-box a:hover {
+      background-color: #3267D6;
+    }
+
+    @media (max-width: 768px) {
+      .sobre-nos {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sobre-nos-image,
+      .sobre-nos-content {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .sobre-nos-image img {
+        margin-bottom: 1rem;
+      }
+
+      .about-hero {
+        border-radius: 15px;
+      }
+
+      section {
+        border-radius: 15px;
+      }
+
+      .guarantee-card {
+        border-radius: 15px;
+        flex: 1 1 calc(50% - 1rem); /* Two cards per row on mobile */
+      }
+
+      .cta-section {
+        border-radius: 15px;
+      }
+
+      .about-us-hero {
+        border-radius: 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <%- include('partials/header') %>
 
-  <section class="about-hero">
+  <section class="about-us-hero">
     <div class="container">
-      <h1>About MeetMyHomes</h1>
-      <p class="lead">Your trusted partner in finding the perfect home</p>
+      <h1>About Us</h1>
+      <p class="lead">Discover the heart and soul of MeetMyHomes</p>
     </div>
   </section>
 
   <main class="container">
-    <section>
-      <h2>Our Story</h2>
-      <p>Founded in <%= companyInfo.founded %>, <%= companyInfo.name %> began with a simple mission: 
-      <em>"<%= companyInfo.mission %>"</em>. What started as a small team with big dreams has grown into 
-      a trusted name in real estate across Portugal.</p>
-    </section>
-
-    <section>
-      <h2>By The Numbers</h2>
-      <div class="stats-container">
-        <div class="stat-card">
-          <div class="stat-number"><%= companyInfo.stats.propertiesSold %></div>
-          <div class="stat-label">Properties Sold</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number"><%= companyInfo.stats.happyClients %></div>
-          <div class="stat-label">Happy Clients</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number"><%= companyInfo.stats.citiesCovered %></div>
-          <div class="stat-label">Cities Covered</div>
+    <section class="sobre-nos">
+      <div class="sobre-nos-image">
+        <img src="/images/about-us-image.jpg" alt="About Us Image">
+      </div>
+      <div class="sobre-nos-content">
+        <h2>Sobre Nós</h2>
+        <p>Somos um casal jovem, apaixonado pelo imobiliário, pela hospitalidade e por ajudar pessoas a concretizarem os seus sonhos. Unimos as nossas competências para criar uma empresa que oferece um serviço completo e de confiança nas áreas de mediação imobiliária, gestão de alojamento local e intermediação de crédito.</p>
+        <p>Com sede na Ilha da Madeira, trabalhamos com dedicação e proximidade, garantindo um acompanhamento personalizado em todas as etapas — seja na compra ou venda de um imóvel, na rentabilização de propriedades através do alojamento local ou na obtenção do crédito ideal.</p>
+        <p>Acreditamos que cada cliente é único, por isso oferecemos soluções à medida, com total transparência, profissionalismo e um toque de calor humano que faz a diferença.</p>
+        <p>Na nossa empresa, aliamos uma visão jovem e inovadora a um profundo conhecimento do mercado local. Trabalhamos diariamente para criar valor, gerar confiança e proporcionar experiências marcantes, tanto a quem investe como a quem visita a nossa ilha.</p>
+        <p>Se procura uma equipa dedicada, acessível e que se preocupa genuinamente com os seus objetivos, fale connosco. Estamos aqui para simplificar processos, maximizar resultados e acompanhá-lo em cada passo.</p>
+        <div class="sobre-nos-contact-box">
+          <a href="/contact">Contacte-nos</a>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Meet Our Team</h2>
-      <div class="team-container">
-        <% companyInfo.team.forEach(member => { %>
-          <div class="team-member">
-            <img src="/images/team/<%= member.name.toLowerCase().replace(' ', '-') %>.jpg" 
-                 alt="<%= member.name %>" 
-                 class="team-photo">
-            <h3><%= member.name %></h3>
-            <p><%= member.role %></p>
-          </div>
-        <% }); %>
+      <div class="guarantee-container">
+        <div class="guarantee-card">
+          <div class="guarantee-emoji">🏆</div>
+          <div class="guarantee-label">Excelência</div>
+          <div class="guarantee-description">Buscamos qualidade e alto nível de serviço em tudo o que fazemos.</div>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-emoji">📈</div>
+          <div class="guarantee-label">Resultados</div>
+          <div class="guarantee-description">Somos movidos pelo desempenho e conquistas para criar valor sustentável.</div>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-emoji">🤝</div>
+          <div class="guarantee-label">Integridade</div>
+          <div class="guarantee-description">Atuamos com ética, respeito e compromisso, mantendo relações sólidas.</div>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-emoji">🔍</div>
+          <div class="guarantee-label">Transparência</div>
+          <div class="guarantee-description">Garantimos comunicação clara e decisões responsáveis em todas as áreas.</div>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-emoji">⚙️</div>
+          <div class="guarantee-label">Melhoria Contínua</div>
+          <div class="guarantee-description">Inovamos e aprimoramos processos constantemente para sempre oferecer o melhor.</div>
+        </div>
+        <div class="guarantee-card">
+          <div class="guarantee-emoji">🎯</div>
+          <div class="guarantee-label">Foco no Cliente</div>
+          <div class="guarantee-description">Colocamos as necessidades dos nossos clientes em primeiro lugar, garantindo uma experiência personalizada e um suporte de excelência.</div>
+        </div>
       </div>
     </section>
 

@@ -226,12 +226,15 @@ nav .nav-links a:hover {
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: #4285F4;
-  color: white;
+  background-color: white;
+  color: black;
   text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
   transition: background-color 0.3s;
+  border: 2px solid #79a9ee;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button:hover {

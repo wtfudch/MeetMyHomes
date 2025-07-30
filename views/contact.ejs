@@ -5,16 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - MeetMyHomes</title>
   <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #E5E3DC;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    p { font-size: 1.1rem; }
+
+    /* Contact Hero Section */
+    .contact-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/home-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+      margin-bottom: 4rem;
+      border-radius: 20px;
+    }
+
+    .contact-hero .lead {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 3rem 0;
+      background-color: #fff;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-info h2 {
+      color: #2c3e50;
+    }
+
+    .contact-info p {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info strong {
+      color: #4285F4;
+    }
+
+    .contact-map {
+      margin-top: 1.5rem;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 200px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    .contact-form h2 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button[type="submit"] {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background-color: #FF385C;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #E61E4D;
+    }
+
+    @media (max-width: 768px) {
+      .contact-hero {
+        border-radius: 15px;
+      }
+
+      .contact {
+        border-radius: 15px;
+      }
+
+      .contact-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-info,
+      .contact-form {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .contact-form button[type="submit"] {
+        width: 100%;
+      }
+
+      .contact-map iframe {
+        height: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
   <%- include('partials/header') %>
 
-  <!-- Contact Section -->
-  <section class="contact">
-    <div class="contact-intro">
-      <p>You can contact us through the following:</p>
+  <section class="contact-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p class="lead">Get in touch with MeetMyHomes today</p>
     </div>
+  </section>
 
+  <section class="contact">
     <div class="contact-container">
       <!-- Left Side: Contact Information -->
       <div class="contact-info">
@@ -22,6 +192,9 @@
         <p><strong>Email:</strong> geral@meetmyhomes.com</p>
         <p><strong>Phone:</strong> (+351) 964 696 600</p>
         <p><strong>Address:</strong> Rua Padre José Eduardo Faria nº30, Funchal, Portugal</p>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12788.0493823165!2d-17.1471027!3d32.7138017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQyJzUwLjYiTiAxN8KwMDgnNDguNCJX!5e0!3m2!1sen!2spt!4v1721813440!5m2!1sen!2spt&markers=color:red%7C32.7139554697555,-17.147203658280024" allowfullscreen="" loading="lazy"></iframe>
+        </div>
       </div>
 
       <!-- Right Side: Contact Form -->

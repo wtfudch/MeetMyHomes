@@ -27,10 +27,10 @@
       color: white;
       margin-bottom: 3rem;
       animation: fadeIn 1.5s ease-in-out;
-      display: flex; /* Use flexbox to stack children */
-      flex-direction: column; /* Stack vertically */
-      align-items: center; /* Center horizontally */
-      justify-content: center; /* Center vertically within padding */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     @keyframes fadeIn {
@@ -69,18 +69,18 @@
     .hero .cta-button {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background-color: #f8f9fa; /* Lighter background color */
-      color: #2c3e50; /* Dark text for contrast */
+      background-color: #f8f9fa;
+      color: #2c3e50;
       text-decoration: none;
       border-radius: 25px;
       font-size: 1.2rem;
       font-weight: 600;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      border: 2px solid #79a9ee; /* Optional border for definition */
+      border: 2px solid #79a9ee;
     }
 
     .hero .cta-button:hover {
-      background-color: #dfe6e9; /* Even lighter on hover */
+      background-color: #dfe6e9;
       transform: translateY(-2px);
     }
 
@@ -167,39 +167,16 @@
       background-color: #dfe6e9;
     }
 
-    .terrain-info {
-      padding: 1.2rem;
-      background: #f1f1f1;
-      text-align: center;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-    }
-
-    .zoning-type {
-      font-weight: 600;
-      color: #2c3e50;
-      margin-right: 0.8rem;
-    }
-
-    .terrain-badge {
-      padding: 0.3rem 0.8rem;
-      border-radius: 12px;
-      color: white;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .terrain-badge.rural {
-      background-color: #e74c3c;
-    }
-
-    .terrain-badge:not(.rural) {
-      background-color: #2ecc71;
-    }
-
     a {
       text-decoration: none;
       color: inherit;
+    }
+
+    .no-properties {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #717171;
+      padding: 20px 0;
     }
 
     @media (max-width: 768px) {
@@ -250,11 +227,6 @@
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
       }
-
-      .terrain-info {
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-      }
     }
 
     @media (max-width: 480px) {
@@ -300,11 +272,6 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
       }
-
-      .terrain-info {
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-      }
     }
   </style>
 </head>
@@ -320,65 +287,63 @@
 
     <h1>Featured Properties</h1>
     <section class="properties-grid">
-      <!-- Property 1: Casa Lombo do Salão -->
-      <div class="property-card">
-        <a href="/properties/casa-lombo-salao">
-          <img src="../images/casa-lombo-salao/casa-lombo-salao-1.jpg" alt="Moradia independente em Caminho Lombo do Salão" class="property-image" loading="lazy" onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
-          <div class="property-info">
-            <div class="price">€194,000</div>
-            <h2>Moradia independente em Caminho Lombo do Salão</h2>
-            <p>Caminho Lombo do Salão 83, Calheta</p>
-            <div class="features">
-              <span class="feature">200 m²</span>
-              <span class="feature">4 beds</span>
-              <span class="feature">1 bath</span>
-            </div>
+      <!-- Property 1 -->
+      <% let propertyIds = ["casa-lombo-salao", "terreno-atouguia", "terreno-picos"]; %>
+      <% propertyIds.forEach(propertyId => { %>
+        <% if (properties && properties[propertyId]) { %>
+          <div class="property-card">
+            <a href="/properties/<%= propertyId %>">
+              <img src="<%= properties[propertyId].images[0] || '/images/fallback.jpg' %>" alt="<%= properties[propertyId].title || 'Property Image' %>" class="property-image" loading="lazy">
+              <div class="property-info">
+                <div class="price"><%= properties[propertyId].price || 'N/A' %></div>
+                <h2><%= properties[propertyId].title || 'Untitled Property' %></h2>
+                <p><%= properties[propertyId].location || 'Location N/A' %></p>
+                <div class="features">
+                  <% (properties[propertyId].features || []).forEach(feature => { %>
+                    <span class="feature"><%= feature %></span>
+                  <% }); %>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-        <div class="terrain-info">
-          <span class="zoning-type">Urbano</span>
-        </div>
-      </div>
-
-      <!-- Property 2: Example Villa -->
-      <div class="property-card">
-        <a href="/properties/terreno-atouguia">
-          <img src="../images/terreno-atouguia/terreno-atouguia-1.jpg" alt="Luxury Villa in Funchal" class="property-image" loading="lazy" onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
-          <div class="property-info">
-            <div class="price">€315,000</div>
-            <h2>Terreno à venda no caminho do Lombo da Atouguia</h2>
-            <p>Caminho do Lombo da Atouguia, s/n</p>
-            <div class="features">
-              <span class="feature">1032 m²</span>
-              <span class="feature">Great view</span>
-            </div>
-          </div>
-        </a>
-        <div class="terrain-info">
-          <span class="zoning-type">Rural</span>
-          <span class="terrain-badge">Urbanizável</span>
-        </div>
-      </div>
-
-      <!-- Property 3: Example Terrain -->
-      <div class="property-card">
-        <a href="/properties/terreno-picos">
-          <img src="../images/terreno-picos/terreno-picos-1.jpg" alt="Prime Terrain in Machico" class="property-image" loading="lazy" onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
-          <div class="property-info">
-            <div class="price">€220,000</div>
-            <h2>Terreno à venda no caminho dos Picos</h2>
-            <p>Caminho dos Picos, s/n</p>
-            <div class="features">
-              <span class="feature">1745 m²</span>
-            </div>
-          </div>
-        </a>
-        <div class="terrain-info">
-          <span class="zoning-type">Terreno</span>
-          <span class="terrain-badge">Urbanizável</span>
-        </div>
-      </div>
+        <% } else { %>
+          <p class="no-properties">Property data for <%= propertyId %> not available.</p>
+        <% } %>
+      <% }); %>
     </section>
+    <div style="text-align: center; margin: 2rem 0;">
+      <a href="/properties" class="cta-button">View More</a>
+    </div>
+
+    <h1>Featured Listings</h1>
+    <section class="properties-grid">
+      <!-- Listing 1 -->
+      <% let listingIds = ["casa-neves", "arco-apartment", "green-house"]; %> <!-- Updated with your new IDs -->
+      <% listingIds.forEach(listingId => { %>
+        <% if (listings && listings[listingId]) { %>
+          <div class="property-card">
+            <a href="/listings/<%= listingId %>">
+              <img src="<%= listings[listingId].images[0] || '/images/fallback.jpg' %>" alt="<%= listings[listingId].title || 'Listing Image' %>" class="property-image" loading="lazy">
+              <div class="property-info">
+                <div class="price"><%= listings[listingId].pricePerNight || 'N/A' %></div>
+                <h2><%= listings[listingId].title || 'Untitled Listing' %></h2>
+                <p><%= listings[listingId].location || 'Location N/A' %></p>
+                <div class="features">
+                  <% (listings[listingId].amenities || []).forEach(feature => { %>
+                    <span class="feature"><%= feature %></span>
+                  <% }); %>
+                </div>
+              </div>
+            </a>
+          </div>
+        <% } else { %>
+          <p class="no-properties">Listing data for <%= listingId %> not available.</p>
+        <% } %>
+      <% }); %>
+    </section>
+    <div style="text-align: center; margin: 2rem 0;">
+      <a href="/listings" class="cta-button">View More</a>
+    </div>
   </main>
 
   <%- include('partials/footer') %>
