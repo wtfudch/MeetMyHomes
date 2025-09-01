@@ -26,11 +26,11 @@
         <option value="el">🇬🇷 Greek</option>
       </select>
     </li>
-    <li><a href="/">Home</a></li>
-    <li><a href="/properties">For Sale</a></li>
-    <li><a href="/listings">Home Rentals</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
+    <li><a href="/?hl=<%= getCurrentLanguage() %>" class="nav-link">Home</a></li>
+    <li><a href="/properties?hl=<%= getCurrentLanguage() %>" class="nav-link">For Sale</a></li>
+
+    <li><a href="/about?hl=<%= getCurrentLanguage() %>" class="nav-link">About</a></li>
+    <li><a href="/contact?hl=<%= getCurrentLanguage() %>" class="nav-link">Contact</a></li>
   </ul>
 </nav>
 
@@ -59,12 +59,11 @@
       if (googleCombo) {
         clearInterval(checkComboBox);
         comboBoxReady = true;
-        // Apply initial language from URL if present
-        const urlParams = new URLSearchParams(window.location.search);
-        const lang = urlParams.get('hl');
-        if (lang && lang !== 'en') {
-          changeLanguage(lang);
-        }
+        // Set initial language from server or localStorage
+        const lang = '<%= getCurrentLanguage() %>'; // From server
+        const storedLang = localStorage.getItem('selectedLanguage') || lang;
+        document.getElementById('language-select').value = storedLang;
+        changeLanguage(storedLang);
       } else if (retryCount >= maxRetries) {
         clearInterval(checkComboBox);
       } else {
@@ -83,12 +82,13 @@
     // Find the Google Translate combo box
     const googleCombo = document.querySelector('.goog-te-combo');
     if (googleCombo) {
-      googleCombo.value = lang; // Use the selected lang directly (e.g., pt-PT or pt)
-      googleCombo.dispatchEvent(new Event('change')); // Trigger the change event to apply translation
+      googleCombo.value = lang;
+      googleCombo.dispatchEvent(new Event('change'));
     }
 
-    // Update URL parameter with the original selected value
+    // Update URL and localStorage
     window.history.replaceState({}, document.title, window.location.pathname + '?hl=' + lang);
+    localStorage.setItem('selectedLanguage', lang);
 
     // Hide default Google Translate UI
     var frames = document.getElementsByClassName('goog-te-banner-frame');
@@ -96,6 +96,16 @@
       frames[i].style.display = 'none';
     }
   }
+
+  // Set initial language on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = '<%= getCurrentLanguage() %>'; // From server
+    const storedLang = localStorage.getItem('selectedLanguage') || lang;
+    document.getElementById('language-select').value = storedLang;
+    if (comboBoxReady && translateInitialized) {
+      changeLanguage(storedLang);
+    }
+  });
 
   // Load Google Translate API
   var googleTranslateScript = document.createElement('script');

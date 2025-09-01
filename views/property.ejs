@@ -348,6 +348,7 @@
       text-decoration: none;
       display: inline-block;
       margin-top: 15px;
+      margin-bottom: 10px;
       padding: 10px 20px;
       background-color: #4285F4;
       color: white;
@@ -406,186 +407,200 @@
   <div class="property-container">
     <!-- Navigation Tabs -->
     <div class="nav-tabs">
-      <div class="nav-tab active" data-tab="overview">Visão Geral</div>
-      <div class="nav-tab" data-tab="gallery">Galeria</div>
+      <div class="nav-tab active" data-tab="overview">Overview</div>
+      <div class="nav-tab" data-tab="gallery">Galery</div>
       <% if (property.plants && property.plants.length > 0) { %>
-        <div class="nav-tab" data-tab="plants">Plantas</div>
+        <div class="nav-tab" data-tab="plants">Blueprints</div>
       <% } %>
       <% if (property.videos && property.videos.length > 0) { %>
-        <div class="nav-tab" data-tab="videos">Vídeos</div>
+        <div class="nav-tab" data-tab="videos">Videos</div>
       <% } %>
-      <a href="/properties" class="go-back-button">← Voltar</a>
+      <a href="/properties" class="go-back-button">← Back</a>
     </div>
 
-    <!-- Overview Section -->
-    <div id="overview-section" class="tab-content active">
-      <div class="main-image-container">
-        <h2><%= property.title %></h2>
-        <img 
-          src="../images/<%= property.id %>/<%= property.id %>-1.jpg" 
-          alt="<%= property.title %>" 
-          class="main-image" 
-          id="main-image" 
-          loading="lazy" 
-          onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
-      </div>
-      <div class="quick-info">
-        <div class="info-box">
-          <h3>Preço</h3>
-          <p class="price"><%= property.price %></p>
-        </div>
-        <div class="info-box">
-          <h3>Área</h3>
-          <p><%= property.area %></p>
-        </div>
-        <div class="info-box">
-          <h3>Tipologia</h3>
-          <p><%= property.bedrooms ? 'T' + property.bedrooms : 'Terreno' %></p>
-        </div>
-        <div class="info-box">
-          <h3>Localização</h3>
-          <p><%= property.location %></p>
-          <a href="#overview-map-section" class="view-map">Ver no mapa</a>
-        </div>
-      </div>
 
-      <div class="description-section">
-        <h2>Descrição</h2>
-        <div class="property-description">
-          <% const paragraphs = property.description.split('\n\n'); %>
-          <% paragraphs.forEach(para => { %>
-            <% if (para.startsWith('**') && para.endsWith('**')) { %>
-              <h3 class="description-subheader"><%= para.replace(/\*\*/g, '') %></h3>
-            <% } else if (para.startsWith('- ')) { %>
-              <ul class="description-features">
-                <% para.split('\n').forEach(item => { %>
-                  <li><%= item.replace('- ', '') %></li>
-                <% }); %>
-              </ul>
-            <% } else { %>
-              <p><%= para %></p>
-            <% } %>
-          <% }); %>
-        </div>
+  <!-- Overview Section -->
+  <div id="overview-section" class="tab-content active">
+    <div class="main-image-container">
+      <h2><%= property.title %></h2>
+      <img 
+        src="../images/<%= property.id %>/<%= property.id %>-1.jpg" 
+        alt="<%= property.title %>" 
+        class="main-image" 
+        id="main-image" 
+        loading="lazy" 
+        onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
+    </div>
+    <div class="quick-info">
+      <div class="info-box">
+        <h3><%= { 'en': 'Price', 'pt-PT': 'Preço', 'es': 'Precio', 'fr': 'Prix' }[getCurrentLanguage()] %></h3>
+        <p class="price"><%= property.price %></p>
       </div>
+      <div class="info-box">
+        <h3><%= { 'en': 'Area', 'pt-PT': 'Área', 'es': 'Área', 'fr': 'Superficie' }[getCurrentLanguage()] %></h3>
+        <p><%= property.area %></p>
+      </div>
+      <div class="info-box">
+        <h3><%= { 'en': 'Typology', 'pt-PT': 'Tipologia', 'es': 'Tipología', 'fr': 'Typologie' }[getCurrentLanguage()] %></h3>
+        <p><%= property.bedrooms ? 'T' + property.bedrooms : { 'en': 'Land', 'pt-PT': 'Terreno', 'es': 'Terreno', 'fr': 'Terrain' }[getCurrentLanguage()] %></p>
+      </div>
+      <div class="info-box">
+        <h3><%= { 'en': 'Localization', 'pt-PT': 'Localização', 'es': 'Ubicación', 'fr': 'Localisation' }[getCurrentLanguage()] %></h3>
+        <p><%= property.location %></p>
+        <a href="#overview-map-section" class="view-map"><%= { 'en': 'See in Map', 'pt-PT': 'Ver no Mapa', 'es': 'Ver en Mapa', 'fr': 'Voir sur la Carte' }[getCurrentLanguage()] %></a>
+      </div>
+    </div>
 
-      <div class="detailed-features">
-        <%
-          const featureCategories = [
-            { key: 'specific', title: 'Características específicas' },
-            { key: 'urban', title: 'Situação urbanística' },
-            { key: 'equipment', title: 'Equipamento' },
-            { key: 'energy', title: 'Certificado energético' }
-          ];
-        %>
-        <% featureCategories.forEach(category => { %>
-          <% if (property.detailedFeatures[category.key] && property.detailedFeatures[category.key].length > 0) { %>
-            <div class="feature-category">
-              <h3><%= category.title %></h3>
-              <ul>
-                <% property.detailedFeatures[category.key].forEach(item => { %>
+    <div class="description-section">
+    <h2><%= { 'en': 'Description', 'pt-PT': 'Descrição', 'es': 'Descripción', 'fr': 'Description' }[getCurrentLanguage()] %></h2>
+    <div class="property-description">
+      <% const paragraphs = property.description.split('\n\n'); %>
+      <% paragraphs.forEach(para => { %>
+        <% if (para.startsWith('**') && para.endsWith('**')) { %>
+          <h3 class="description-subheader"><%= para.replace(/\*\*/g, '') %></h3>
+        <% } else if (para.startsWith('- ')) { %>
+          <ul class="description-features">
+            <% para.split('\n').forEach(item => { %>
+              <li><%= item.replace('- ', '') %></li>
+            <% }); %>
+          </ul>
+        <% } else { %>
+          <p><%= para %></p>
+        <% } %>
+      <% }); %>
+    </div>
+  </div>
+
+  <div class="detailed-features">
+      <%
+        const featureCategories = [
+          { key: 'specific', title: { 'en': 'Specific Features', 'pt-PT': 'Características específicas', 'es': 'Características específicas', 'fr': 'Caractéristiques spécifiques' } },
+          { key: 'urban', title: { 'en': 'Urban Situation', 'pt-PT': 'Situação urbanística', 'es': 'Situación urbanística', 'fr': 'Situation urbanistique' } },
+          { key: 'equipment', title: { 'en': 'Equipment', 'pt-PT': 'Equipamento', 'es': 'Equipamiento', 'fr': 'Équipement' } },
+          { key: 'energy', title: { 'en': 'Energy Certificate', 'pt-PT': 'Certificado energético', 'es': 'Certificado energético', 'fr': 'Certificat énergétique' } }
+        ];
+      %>
+      <% featureCategories.forEach(category => { %>
+        <% if (property.detailedFeatures[category.key] && property.detailedFeatures[category.key].length > 0) { %>
+          <div class="feature-category">
+            <h3><%= category.title[getCurrentLanguage()] %></h3>
+            <ul>
+              <% property.detailedFeatures[category.key].forEach(item => { %>
+                <% if (category.key === 'energy') { %>
+                  <% const rating = item.match(/Class ([A-G])/); %>
+                  <li>
+                    Class: 
+                    <span class="energy-house <%= rating ? 'energy-' + rating[1] : '' %>"><%= rating ? rating[1] : '' %></span>
+                  </li>
+                <% } else { %>
                   <li><%= item %></li>
-                <% }); %>
-              </ul>
-            </div>
-          <% } %>
-        <% }); %>
+                <% } %>
+              <% }); %>
+            </ul>
+          </div>
+        <% } %>
+      <% }); %>
+  </div>
+  <div id="overview-map-section" class="map-section-in-overview">
+      <h2><%= { 'en': 'Localization', 'pt-PT': 'Localização', 'es': 'Ubicación', 'fr': 'Localisation' }[getCurrentLanguage()] %></h2>
+      <div id="overview-map"
+          data-lat="<%= property.coordinates.latitude %>"
+          data-lng="<%= property.coordinates.longitude %>"
+          data-title="<%= property.title %>">
+        <div id="overview-map-loading" class="map-loading"><%= { 'en': 'Loading map...', 'pt-PT': 'Carregando mapa...', 'es': 'Cargando mapa...', 'fr': 'Chargement de la carte...' }[getCurrentLanguage()] %></div>
       </div>
-
-      <section id="overview-map-section" class="map-section-in-overview">
-        <h2>Localização</h2>
-        <div id="overview-map"
-            data-lat="<%= property.coordinates.latitude %>"
-            data-lng="<%= property.coordinates.longitude %>"
-            data-title="<%= property.title %>">
-          <div id="overview-map-loading" class="map-loading">A carregar mapa...</div>
-        </div>
-        <a href="https://maps.google.com/maps?q=<%= property.coordinates.latitude %>,<%= property.coordinates.longitude %>"
-          target="_blank"
-          class="open-in-maps">
-          Abrir no Google Maps
-        </a>
-      </section>
+      <a href="https://maps.google.com/maps?q=<%= property.coordinates.latitude %>,<%= property.coordinates.longitude %>"
+        target="_blank"
+        class="open-in-maps">
+        <%= { 'en': 'Open in Google Maps', 'pt-PT': 'Abrir no Google Maps', 'es': 'Abrir en Google Maps', 'fr': 'Ouvrir dans Google Maps' }[getCurrentLanguage()] %>
+      </a>
     </div>
 
-    <!-- Gallery Section -->
-    <div id="gallery-section" class="tab-content gallery-section">
+  <!-- Gallery Section -->
+  <div id="gallery-section" class="tab-content gallery-section">
+    <h2><%= property.title %></h2>
+    <div class="gallery">
+      <% if (!property.images || property.images.length === 0) { %>
+        <p><%= { 'en': 'No images available.', 'pt-PT': 'Nenhuma imagem disponível.', 'es': 'No hay imágenes disponibles.', 'fr': 'Aucune image disponible.' }[getCurrentLanguage()] %></p>
+      <% } else { %>
+        <% property.images.forEach((image, index) => { %>
+          <img 
+            src="../images/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.jpg" 
+            alt="Imagem <%= index + 1 %> de <%= property.title %>" 
+            class="gallery-item" 
+            loading="lazy" 
+            onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
+        <% }); %>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Plants Section -->
+  <% if (property.plants && property.plants.length > 0) { %>
+    <div id="plants-section" class="tab-content gallery-section">
       <h2><%= property.title %></h2>
       <div class="gallery">
-        <% if (!property.images || property.images.length === 0) { %>
-          <p>Nenhuma imagem disponível.</p>
+        <% property.plants.forEach((plant, index) => { %>
+          <img 
+            src="../plants/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.jpg" 
+            alt="<%= { 'en': 'Plant', 'pt-PT': 'Planta', 'es': 'Planta', 'fr': 'Plan' }[getCurrentLanguage()] %> <%= index + 1 %> de <%= property.title %>" 
+            class="gallery-item" 
+            loading="lazy" 
+            onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
+        <% }); %>
+      </div>
+    </div>
+  <% } %>
+
+  <!-- Videos Section -->
+  <% if (property.videos && property.videos.length > 0) { %>
+    <div id="videos-section" class="tab-content gallery-section">
+      <h2><%= property.title %></h2>
+      <div class="gallery">
+        <% if (!property.videos || property.videos.length === 0) { %>
+          <p><%= { 'en': 'No videos available.', 'pt-PT': 'Nenhum vídeo disponível.', 'es': 'No hay videos disponibles.', 'fr': 'Aucune vidéo disponible.' }[getCurrentLanguage()] %></p>
         <% } else { %>
-          <% property.images.forEach((image, index) => { %>
-            <img 
-              src="../images/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.jpg" 
-              alt="Imagem <%= index + 1 %> de <%= property.title %>" 
-              class="gallery-item" 
+          <% property.videos.forEach((video, index) => { %>
+            <video 
+              controls class="gallery-item video" 
+              preload="metadata" 
               loading="lazy" 
-              onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
+              aria-label="<%= { 'en': 'Video', 'pt-PT': 'Vídeo', 'es': 'Video', 'fr': 'Vidéo' }[getCurrentLanguage()] %> <%= index + 1 %> de <%= property.title %>">
+              <source src="/videos/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.mp4" 
+              type="video/mp4">
+            </video>
           <% }); %>
         <% } %>
       </div>
     </div>
+  <% } %>
 
-    <!-- Plants Section -->
-    <% if (property.plants && property.plants.length > 0) { %>
-      <div id="plants-section" class="tab-content gallery-section">
-        <h2><%= property.title %></h2>
-        <div class="gallery">
-          <% property.plants.forEach((plant, index) => { %>
-            <img 
-              src="../plants/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.jpg" 
-              alt="Planta <%= index + 1 %> de <%= property.title %>" 
-              class="gallery-item" 
-              loading="lazy" 
-              onerror="this.src='/images/fallback.jpg'; this.onerror=null;">
-          <% }); %>
-        </div>
-      </div>
-    <% } %>
-
-    <!-- Videos Section -->
-    <% if (property.videos && property.videos.length > 0) { %>
-      <div id="videos-section" class="tab-content gallery-section">
-        <h2><%= property.title %></h2>
-        <div class="gallery">
-          <% if (!property.videos || property.videos.length === 0) { %>
-            <p>Nenhum vídeo disponível.</p>
-          <% } else { %>
-            <% property.videos.forEach((video, index) => { %>
-              <video 
-                controls class="gallery-item video" 
-                preload="metadata" 
-                loading="lazy" 
-                aria-label="Vídeo <%= index + 1 %> de <%= property.title %>">
-                <source src="/videos/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.mp4" 
-                type="video/mp4">
-              </video>
-            <% }); %>
-          <% } %>
-        </div>
-      </div>
-    <% } %>
-
-    
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" style="display: none;">
-      <span class="close-lightbox" onclick="closeLightbox()">×</span>
-      <img id="lightbox-image" src="" alt="Imagem ampliada">
-    </div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" style="display: none;">
+    <span class="close-lightbox" onclick="closeLightbox()">×</span>
+    <img id="lightbox-image" src="" alt="<%= { 'en': 'Enlarged Image', 'pt-PT': 'Imagem Ampliada', 'es': 'Imagen Ampliada', 'fr': 'Image Agrandie' }[getCurrentLanguage()] %>">
+  </div>
   </div>
 
   <script>
     let overviewMapInitialized = false;
     let tabMapInitialized = false;
 
-    // Initialize Google Maps
+      // Initialize Google Maps
     function initAllMaps() {
       if (typeof initPropertyMap === 'function') {
         initPropertyMap('overview-map', 'overview-map-loading');
         overviewMapInitialized = true;
       }
+    }
+
+    // Energy class function (must be defined before use in EJS)
+    function getEnergyClass(feature) {
+      const rating = feature.match(/Class ([A-G])/);
+      if (rating) {
+        return 'energy-' + rating[1];
+      }
+      return '';
     }
 
     // Tab navigation
@@ -636,8 +651,55 @@
     });
   </script>
 
+    <style>
+      .energy-house {
+        display: inline-block;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        margin-left: 8px;
+        vertical-align: middle;
+        border: 2px solid;
+        border-radius: 4px 4px 0 0; /* Base house shape */
+      }
+
+      /* House roof (triangle) */
+      .energy-house::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 8px solid;
+        transform: translateX(-50%);
+      }
+
+      /* Color classes */
+      .energy-A { border-color: #28a745; background-color: #28a745; } /* Green */
+      .energy-A::before { border-bottom-color: #28a745; }
+      .energy-B { border-color: #28a745; background-color: #28a745; } /* Green */
+      .energy-B::before { border-bottom-color: #28a745; }
+      .energy-C { border-color: #ffc107; background-color: #ffc107; } /* Yellow */
+      .energy-C::before { border-bottom-color: #ffc107; }
+      .energy-D { border-color: #ffc107; background-color: #ffc107; } /* Yellow */
+      .energy-D::before { border-bottom-color: #ffc107; }
+      .energy-E { border-color: #dc3545; background-color: #dc3545; } /* Red */
+      .energy-E::before { border-bottom-color: #dc3545; }
+      .energy-F { border-color: #dc3545; background-color: #dc3545; } /* Red */
+      .energy-F::before { border-bottom-color: #dc3545; }
+      .energy-G { border-color: #dc3545; background-color: #dc3545; } /* Red */
+      .energy-G::before { border-bottom-color: #dc3545; }
+    </style>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANA6a0rUnsATDz8ewvfuj_ZV6oTXmuxmc&loading=async&libraries=marker&v=beta&callback=initAllMaps" async defer></script>
 
   <%- include('partials/footer') %>
-</body>
+  </body>
 </html>

@@ -8,6 +8,62 @@
   <link rel="stylesheet" href="/css/listing.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+    .contact-info {
+      margin-top: 20px;
+    }
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .contact-btn {
+      float: right;
+      
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: 2px solid #79a9ee;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .contact-btn:hover {
+      background-color: #dfe6e9;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <%- include('../partials/header') %>
@@ -49,9 +105,25 @@
           <span><i class="fas fa-star filled"></i> <%= listing.rating %></span>
         <% } %>
       </div>
+      <!-- Price Section -->
       <div class="price-section">
         <span class="price"><%= listing.pricePerNight %></span>
-        <span class="text-muted"> / night</span>
+        <span class="text-muted"> / night </span>
+        <!-- Contact Button to Trigger Pop-up -->
+        <button class="contact-btn" id="contact-btn">Contact Host</button>
+      </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+          <p><strong>Host:</strong> <%= listing.host.name %></p>
+          <p><strong>Email:</strong> <%= listing.host.email || 'example@meetmyhomes.com' %></p>
+          <p><strong>Phone:</strong> <%= listing.host.phone || '+351 912 345 678' %></p>
+        </div>
       </div>
     </div>
 
@@ -166,5 +238,23 @@
   <%- include('../partials/footer') %>
 
   <script src="/js/listing.js"></script>
+  <script>
+    // JavaScript for Contact Modal
+    document.getElementById('contact-btn').addEventListener('click', function() {
+      document.getElementById('contact-modal').style.display = 'block';
+    });
+
+    document.querySelector('.close-modal').addEventListener('click', function() {
+      document.getElementById('contact-modal').style.display = 'none';
+    });
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('contact-modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
