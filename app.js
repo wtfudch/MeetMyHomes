@@ -48,7 +48,6 @@ app.use((req, res, next) => {
   res.locals.getCurrentLanguage = function() {
     const urlParams = new URLSearchParams(req.query);
     let lang = urlParams.get('hl') || req.session?.selectedLanguage || 'en';
-    console.log('Detected language:', lang); // Debug log
     if (['pt-PT', 'pt', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'da', 'no', 'fi', 'pl', 'ru', 'zh-CN', 'ja', 'ko', 'ar', 'hi', 'tr', 'el'].indexOf(lang) === -1) {
       lang = 'en'; // Explicitly set English as default
     }
@@ -56,24 +55,6 @@ app.use((req, res, next) => {
     return lang;
   };
   next();
-});
-
-app.get('/debug-images', (req, res) => {
-  const fs = require('fs');
-  const path = require('path');
-  
-  const imagePath = path.join(__dirname, 'public', 'images');
-  
-  fs.readdir(imagePath, (err, files) => {
-    if (err) {
-      return res.send(`Error reading images directory: ${err.message}`);
-    }
-    res.json({ 
-      message: 'Images in directory',
-      files: files,
-      absolutePath: imagePath
-    });
-  });
 });
 
 // Routes
