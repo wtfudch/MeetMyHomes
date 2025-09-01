@@ -5,7 +5,6 @@ const properties = {
       title: 'Terreno à venda no caminho do Lombo da Atouguia',
       price: '€315,000',
       area: '1032 m²',
-      bedrooms:'4',
       description: {
         'pt-PT': `
         Terreno com Casa para Recuperação à Venda – Atouguia (Calheta) – 1.032 m² – 315.000 €

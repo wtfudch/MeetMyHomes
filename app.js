@@ -58,6 +58,24 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/debug-images', (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const imagePath = path.join(__dirname, 'public', 'images');
+  
+  fs.readdir(imagePath, (err, files) => {
+    if (err) {
+      return res.send(`Error reading images directory: ${err.message}`);
+    }
+    res.json({ 
+      message: 'Images in directory',
+      files: files,
+      absolutePath: imagePath
+    });
+  });
+});
+
 // Routes
 app.use('/', require('./routes/homeRoutes'));
 app.use('/contact', require('./routes/contactRoutes'));
