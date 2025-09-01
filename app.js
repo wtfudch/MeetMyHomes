@@ -31,8 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; " +
-    "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com; " +
+    "default-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+    "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com 'unsafe-eval'; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com https://cdnjs.cloudflare.com;" +
     "img-src 'self' https://*.googleapis.com https://*.gstatic.com https://www.google.com data:; " + 
     "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; " + 
@@ -43,10 +43,25 @@ app.use((req, res, next) => {
   next();
 });
 
+// Middleware to set language on res.locals
+app.use((req, res, next) => {
+  res.locals.getCurrentLanguage = function() {
+    const urlParams = new URLSearchParams(req.query);
+    let lang = urlParams.get('hl') || req.session?.selectedLanguage || 'en';
+    console.log('Detected language:', lang); // Debug log
+    if (['pt-PT', 'pt', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'da', 'no', 'fi', 'pl', 'ru', 'zh-CN', 'ja', 'ko', 'ar', 'hi', 'tr', 'el'].indexOf(lang) === -1) {
+      lang = 'en'; // Explicitly set English as default
+    }
+    if (req.session) req.session.selectedLanguage = lang;
+    return lang;
+  };
+  next();
+});
+
 // Routes
 app.use('/', require('./routes/homeRoutes'));
 app.use('/contact', require('./routes/contactRoutes'));
-app.use('/listings', require('./routes/listingsRoutes')); // Ensure this handles /listings/:id
+app.use('/listings', require('./routes/listingsRoutes'));
 app.use('/about', require('./routes/aboutRoutes'));
 app.use('/privacy-policy', require('./routes/privacyRoutes'));
 app.use('/terms-of-service', require('./routes/termsRoutes'));
