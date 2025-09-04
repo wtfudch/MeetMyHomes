@@ -342,7 +342,7 @@ const properties = {
         latitude: 32.78265863857103,
         longitude: -17.232071034748284
       },
-      images: Array.from({length: 6}, (_, i) => `/images/terreno-faja-ovelha/terreno-faja-ovelha-${i+1}.jpg`),
+      images: Array.from({length: 6}, (_, i) => `/images/terreno-faja-ovelha/terreno-faja-ovelha-${i+1}.JPG`),
       plants: Array.from({length: 0}, () => []),
       videos: Array.from({length: 0}, () => []),
       propertyType: 'terrain',
@@ -417,8 +417,8 @@ const properties = {
         latitude: 32.73055264887412,
         longitude: -17.17473604544298
       },
-      images: Array.from({length: 24}, (_, i) => `/images/casa-laranjeiras/casa-laranjeiras-${i+1}.JPG`),
-      plants: Array.from({length: 2}, () => []),
+      images: Array.from({length: 24}, (_, i) => `/images/casa-laranjeiras/casa-laranjeiras-${i+1}.png`),
+      images: Array.from({length: 24}, (_, i) => `/plants/casa-laranjeiras/casa-laranjeiras-${i+1}.png`),
       videos: Array.from({length: 0}, () => []),
       propertyType: 'house',
       yearBuilt: 2005,
