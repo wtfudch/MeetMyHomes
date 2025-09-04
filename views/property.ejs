@@ -700,6 +700,29 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANA6a0rUnsATDz8ewvfuj_ZV6oTXmuxmc&loading=async&libraries=marker&v=beta&callback=initAllMaps" async defer></script>
 
+<script>
+function handleImageError(img, propertyId, imageNumber) {
+  console.error('Failed to load image:', img.src);
+  
+  // Try alternative extensions
+  const extensions = ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG'];
+  let currentTry = 0;
+  
+  const tryNextExtension = () => {
+    if (currentTry < extensions.length) {
+      img.src = `/images/${propertyId}/${propertyId}-${imageNumber}${extensions[currentTry]}`;
+      currentTry++;
+    } else {
+      // All extensions failed, use fallback
+      img.src = '/images/fallback.jpg';
+      img.onerror = null; // Prevent infinite loop
+    }
+  };
+  
+  img.onerror = tryNextExtension;
+  tryNextExtension();
+}
+</script>
   <%- include('partials/footer') %>
   </body>
 </html>

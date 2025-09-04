@@ -218,7 +218,7 @@ const properties = {
         latitude: 32.696631549511444,
         longitude: -17.104452771272985
       },
-      images: Array.from({length: 11}, () => []),
+      images: Array.from({length: 24}, (_, i) => `/images/casa-laranjeiras/casa-laranjeiras-${i+1}.jpg`),
       plants: Array.from({length: 0}, () => []),
       videos: Array.from({length: 0}, () => []),
       propertyType: 'terrain',

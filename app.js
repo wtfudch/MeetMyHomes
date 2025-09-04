@@ -133,6 +133,33 @@ app.get('/debug-structure', (req, res) => {
   
   res.json(results);
 });
+app.get('/debug-images/:property', (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  const propertyId = req.params.property;
+  
+  const imageDir = path.join(__dirname, 'public', 'images', propertyId);
+  
+  if (!fs.existsSync(imageDir)) {
+    return res.json({
+      error: `Directory not found: ${imageDir}`,
+      exists: false
+    });
+  }
+  
+  const files = fs.readdirSync(imageDir);
+  const imageFiles = files.filter(file => 
+    /\.(jpg|jpeg|png|gif|webp)$/i.test(file)
+  );
+  
+  res.json({
+    property: propertyId,
+    directory: imageDir,
+    totalFiles: files.length,
+    imageFiles: imageFiles,
+    exists: true
+  });
+});
 
 // Parse form data
 app.use(express.urlencoded({ extended: true }));
