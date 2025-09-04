@@ -23,37 +23,34 @@ app.use(express.static('public', {
 }));
 // Serve static files
 app.use(express.static('public'));
-app.use('/images', express.static(path.join(__dirname, 'images'))); 
-app.use('/plants', express.static(path.join(__dirname, 'plants'))); 
-app.use('/videos', express.static(path.join(__dirname, 'videos'))); 
 app.use('/fonts', express.static('node_modules/@fortawesome/fontawesome-free/webfonts'));
 
-app.get('/debug-images', (req, res) => {
+// Debug route to check public folder structure
+app.get('/debug-public', (req, res) => {
   const fs = require('fs');
   const path = require('path');
   
-  const imagesPath = path.join(__dirname, 'images');
+  const publicPath = path.join(__dirname, 'public');
   
-  fs.readdir(imagesPath, (err, folders) => {
+  fs.readdir(publicPath, (err, items) => {
     if (err) {
-      return res.send(`Error reading images directory: ${err.message}`);
+      return res.send(`Error reading public directory: ${err.message}`);
     }
     
-    const imageInfo = folders.map(folder => {
-      const folderPath = path.join(imagesPath, folder);
-      const files = fs.readdirSync(folderPath);
+    const structure = items.map(item => {
+      const itemPath = path.join(publicPath, item);
+      const isDir = fs.statSync(itemPath).isDirectory();
       return {
-        folder,
-        files: files.slice(0, 5), // Show first 5 files
-        total: files.length,
-        accessible: files.map(file => `/images/${folder}/${file}`)
+        name: item,
+        type: isDir ? 'directory' : 'file',
+        path: `/${item}`
       };
     });
     
     res.json({ 
-      message: 'Images directory contents',
-      imagesPath,
-      folders: imageInfo
+      message: 'Public directory contents',
+      publicPath,
+      items: structure
     });
   });
 });

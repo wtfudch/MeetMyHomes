@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= property.title %> - MeetMyHomes</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="preload" href="public/images/<%= property.id %>/<%= property.id %>-1.jpg" as="image">
+  <link rel="preload" href="/images/<%= property.id %>/<%= property.id %>-1.jpg" as="image">
   <style>
     /* Property container */
     .property-container {
@@ -424,7 +424,7 @@
     <div class="main-image-container">
       <h2><%= property.title %></h2>
       <img 
-        src="public/images/<%= property.id %>/<%= property.id %>-1.jpg" 
+        src="/images/<%= property.id %>/<%= property.id %>-1.jpg" 
         alt="<%= property.title %>" 
         class="main-image" 
         id="main-image" 
@@ -525,7 +525,7 @@
       <% } else { %>
         <% property.images.forEach((image, index) => { %>
           <img 
-            src="public/images/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.jpg" 
+            src="/images/<%= property.id %>/<%= property.id %>-<%= index + 1 %>.jpg" 
             alt="Imagem <%= index + 1 %> de <%= property.title %>" 
             class="gallery-item" 
             loading="lazy" 
