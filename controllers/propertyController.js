@@ -99,9 +99,9 @@ const properties = {
         latitude: 32.82976190146658,
         longitude: -17.22806895767973
       },
-      images: Array.from({length: 13}, (_, i) => `/images/terreno-capela/terreno-capela-${i+1}.jpg`),
+      images: Array.from({length: 13}, (_, i) => `public/images/terreno-capela/terreno-capela-${i+1}.jpg`),
       plants: Array.from({length: 0}, () => []),
-      videos: Array.from({length: 4}, (_, i) => `/videos/terreno-capela/terreno-capela-${i+1}.mp4`),
+      videos: Array.from({length: 4}, (_, i) => `public/videos/terreno-capela/terreno-capela-${i+1}.mp4`),
       propertyType: 'terrain',
       isUrban: false,
       isUrbanizable: true
