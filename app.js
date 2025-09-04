@@ -65,15 +65,14 @@ app.use((req, res, next) => {
     "default-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
     "script-src 'self' https://maps.googleapis.com https://maps.gstatic.com 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com 'unsafe-eval'; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com https://cdnjs.cloudflare.com;" +
-    "img-src 'self' https://*.googleapis.com https://*.gstatic.com https://www.google.com data:; " + 
+    "img-src 'self' https://*.googleapis.com https://*.gstatic.com https://www.google.com data: blob:; " + // ← ADDED blob:
     "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; " + 
     "connect-src 'self' https://maps.googleapis.com https://translate.googleapis.com https://translate-pa.googleapis.com; " +
-    "media-src 'self'; " +
-    "frame-src https://www.google.com http://localhost:3000;"
+    "media-src 'self' blob:; " + // ← ADDED blob:
+    "frame-src 'self' https://www.google.com http://localhost:3000 https://meetmyhomes.com;" // ← ADDED your domain
   );
   next();
 });
-
 // Middleware to set language on res.locals
 app.use((req, res, next) => {
   res.locals.getCurrentLanguage = function() {
