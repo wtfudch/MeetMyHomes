@@ -54,6 +54,85 @@ app.get('/debug-public', (req, res) => {
     });
   });
 });
+// Check file existence on server
+app.get('/check-file-existence', (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const testFiles = [
+    path.join(__dirname, 'public', 'images', 'terreno-capela', 'terreno-capela-1.jpg'),
+    path.join(__dirname, 'public', 'images', 'terreno-atouguia', 'terreno-atouguia-1.jpg'),
+    path.join(__dirname, 'public') // Check if public folder exists
+  ];
+  
+  const results = testFiles.map(filePath => {
+    try {
+      const exists = fs.existsSync(filePath);
+      const isDir = exists ? fs.statSync(filePath).isDirectory() : false;
+      return {
+        path: filePath,
+        exists: exists,
+        isDirectory: isDir,
+        files: exists && isDir ? fs.readdirSync(filePath).slice(0, 5) : []
+      };
+    } catch (error) {
+      return {
+        path: filePath,
+        error: error.message
+      };
+    }
+  });
+  
+  res.json(results);
+});
+app.get('/debug-structure', (req, res) => {
+  const fs = require('fs');
+  const path = require('path');
+  
+  const checkPath = (basePath, relativePath = '') => {
+    const fullPath = path.join(basePath, relativePath);
+    try {
+      if (fs.existsSync(fullPath)) {
+        const stats = fs.statSync(fullPath);
+        if (stats.isDirectory()) {
+          return {
+            path: relativePath || '/',
+            type: 'directory',
+            exists: true,
+            contents: fs.readdirSync(fullPath).slice(0, 10)
+          };
+        } else {
+          return {
+            path: relativePath,
+            type: 'file',
+            exists: true,
+            size: stats.size
+          };
+        }
+      } else {
+        return {
+          path: relativePath,
+          exists: false
+        };
+      }
+    } catch (error) {
+      return {
+        path: relativePath,
+        error: error.message
+      };
+    }
+  };
+  
+  const results = {
+    root: checkPath(__dirname),
+    public: checkPath(__dirname, 'public'),
+    images: checkPath(__dirname, 'public/images'),
+    terreno_capela: checkPath(__dirname, 'public/images/terreno-capela'),
+    terreno_atouguia: checkPath(__dirname, 'public/images/terreno-atouguia')
+  };
+  
+  res.json(results);
+});
 
 // Parse form data
 app.use(express.urlencoded({ extended: true }));
