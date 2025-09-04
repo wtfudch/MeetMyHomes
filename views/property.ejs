@@ -723,6 +723,40 @@ function handleImageError(img, propertyId, imageNumber) {
   tryNextExtension();
 }
 </script>
+<script>
+// Function to try different image extensions
+function loadImageWithFallback(img, propertyId, imageNumber) {
+  const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG'];
+  let currentTry = 0;
+  
+  const tryNextExtension = () => {
+    if (currentTry < extensions.length) {
+      img.src = `/images/${propertyId}/${propertyId}-${imageNumber}${extensions[currentTry]}`;
+      currentTry++;
+    } else {
+      // All extensions failed, use fallback
+      img.src = '/images/fallback.jpg';
+      img.onerror = null; // Prevent infinite loop
+    }
+  };
+  
+  img.onerror = tryNextExtension;
+  tryNextExtension();
+}
+
+// Apply to all gallery images
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.gallery-item').forEach(img => {
+    const src = img.src;
+    const matches = src.match(/\/images\/([^\/]+)\/([^\/]+)-(\d+)\.jpg/);
+    if (matches) {
+      const propertyId = matches[1];
+      const imageNumber = matches[3];
+      loadImageWithFallback(img, propertyId, imageNumber);
+    }
+  });
+});
+</script>
   <%- include('partials/footer') %>
   </body>
 </html>
