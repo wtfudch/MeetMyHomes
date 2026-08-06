@@ -38,9 +38,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #E5E3DC;
+  background-color: #ffffff;
   padding: 1rem 2rem;
-  color: black;
+  color: var(--dark-text);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 10;
 }
 
 nav .logo {
@@ -51,16 +54,24 @@ nav .logo {
 nav .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
 }
 
-nav .nav-links a {
-  color: black;
+nav .nav-links a.nav-link {
+  color: var(--dark-text);
   text-decoration: none;
+  padding: 0.55rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-nav .nav-links a:hover {
-  text-decoration: underline;
+nav .nav-links a.nav-link:hover {
+  background-color: var(--light-bg);
+  text-decoration: none;
 }
 
 /* Hero Section */
@@ -559,42 +570,6 @@ footer {
   background-color: #e65c00;
 }
 
-/* Host Description Section */
-.host-description {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.amenities ul {
-  list-style: none;
-  padding: 0;
-}
-
-.amenities li {
-  margin: 0.5rem 0;
-}
-
-/* Review Section */
-.reviews {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.review-card {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
 /* Map Section */
 
 /* Map Controls */
@@ -622,41 +597,3 @@ footer {
   text-decoration: underline;
 }
 
-/* Place Description Section */
-.place-description {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Host Details Section */
-.host-details {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* House Rules Section */
-.house-rules {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.house-rules ul {
-  list-style: none;
-  padding: 0;
-}
-
-.house-rules li {
-  margin: 0.5rem 0;
-}

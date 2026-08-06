@@ -25,6 +25,22 @@
   <%- include('../partials/header') %>
 
   <div class="listing-container">
+    <!-- Basic Info -->
+    <div class="listing-section">
+      <h1><%= listing.title %></h1>
+      <div class="property-meta">
+        <span><i class="fas fa-map-marker-alt"></i> <%= listing.location %></span>
+        <% if (listing.rating) { %>
+          <span><i class="fas fa-star filled"></i> <%= listing.rating %></span>
+        <% } %>
+      </div>
+      <div class="price-section">
+        <span class="price"><%= listing.pricePerNight %></span>
+        <span class="text-muted"> / night</span>
+        <button class="contact-btn" id="contact-btn">Contact Host</button>
+      </div>
+    </div>
+
     <!-- Gallery -->
     <div class="gallery-section">
       <div class="thumbnail-grid">
@@ -51,22 +67,6 @@
 
     <!-- Photo Modal -->
     <%- include('../partials/photo-modal', { images: listing.images, listing: listing }) %>
-
-    <!-- Basic Info -->
-    <div class="listing-section">
-      <h1><%= listing.title %></h1>
-      <div class="property-meta">
-        <span><i class="fas fa-map-marker-alt"></i> <%= listing.location %></span>
-        <% if (listing.rating) { %>
-          <span><i class="fas fa-star filled"></i> <%= listing.rating %></span>
-        <% } %>
-      </div>
-      <div class="price-section">
-        <span class="price"><%= listing.pricePerNight %></span>
-        <span class="text-muted"> / night</span>
-        <button class="contact-btn" id="contact-btn">Contact Host</button>
-      </div>
-    </div>
 
     <!-- Contact Modal -->
     <div id="contact-modal" class="modal">
