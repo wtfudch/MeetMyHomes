@@ -1,11 +1,13 @@
 const listingsData       = require('../data/listings.json');
 const { buildListingMedia } = require('../config/media');
+const { getAmenityIcon } = require('../config/amenityIcons');
 
-// Enrich each listing with generated image URLs once at startup
+// Enrich each listing with generated image URLs and amenity icons once at startup
 const listings = Object.fromEntries(
   Object.entries(listingsData).map(([key, listing]) => {
     const { images } = buildListingMedia(listing.id, listing.media);
-    return [key, { ...listing, images }];
+    const amenities = listing.amenities.map(name => ({ name, icon: getAmenityIcon(name) }));
+    return [key, { ...listing, images, amenities }];
   })
 );
 

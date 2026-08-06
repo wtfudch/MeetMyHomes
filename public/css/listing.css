@@ -157,30 +157,34 @@ h2 {
   font-weight: 600;
 }
 
-.amenities ul, .house-rules ul {
+ul.amenities,
+ul.house-rules {
   list-style: none;
+  margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px 24px;
 }
 
-.amenities li, .house-rules li {
+.amenities li,
+.house-rules li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-}
-/* Specific styles for amenities */
-.amenities li::before {
-  content: "→";
-  margin-right: 10px;
-  color: #FF385C;
+  gap: 14px;
+  padding: 2px 0;
+  color: #222;
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
 
-/* Override Font Awesome icons if needed */
-.amenities li .fa-check {
-  display: none; /* Hide checkmarks if using arrows */
+.amenities li i,
+.house-rules li i {
+  width: 24px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 1.15rem;
+  color: #484848;
 }
 
 .review-card {
@@ -343,7 +347,7 @@ h2 {
 }
 
 .collapsible-list.expanded .hidden-item {
-  display: list-item;
+  display: flex;
 }
 
 .toggle-list-btn {
@@ -389,27 +393,6 @@ h2 {
   mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
 }
 
-/* Style for arrow list items */
-.arrow-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.arrow-list li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.arrow-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #FF385C;
-  font-weight: bold;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .main-image {
@@ -424,12 +407,8 @@ h2 {
     flex-direction: column;
   }
   
-  .amenities ul, .house-rules ul {
+  .amenities, .house-rules {
     grid-template-columns: 1fr;
-  }
-  .arrow-list li {
-    padding-left: 20px;
-    margin-bottom: 8px;
   }
 }
 

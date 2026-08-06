@@ -85,9 +85,12 @@
     <% const amenitiesShown = 8; %>
     <div class="listing-section">
       <h2>What this place offers</h2>
-      <ul class="amenities arrow-list collapsible-list" id="amenities-list">
+      <ul class="amenities collapsible-list" id="amenities-list">
         <% listing.amenities.forEach((amenity, i) => { %>
-          <li class="<%= i >= amenitiesShown ? 'hidden-item' : '' %>"><%= amenity %></li>
+          <li class="<%= i >= amenitiesShown ? 'hidden-item' : '' %>">
+            <i class="fas <%= amenity.icon %>"></i>
+            <span><%= amenity.name %></span>
+          </li>
         <% }); %>
       </ul>
       <% if (listing.amenities.length > amenitiesShown) { %>
@@ -185,15 +188,20 @@
     <% const rulesShown = 4; %>
     <div class="listing-section">
       <h2>House Rules</h2>
-      <ul class="house-rules arrow-list collapsible-list" id="house-rules-list">
+      <ul class="house-rules collapsible-list" id="house-rules-list">
         <% listing.houseRules.forEach((rule, i) => { %>
           <li class="<%= i >= rulesShown ? 'hidden-item' : '' %>">
-            <% if (rule.toLowerCase().includes('smok')) { %><i class="fas fa-smoking-ban"></i>
-            <% } else if (rule.toLowerCase().includes('pet')) { %><i class="fas fa-paw"></i>
-            <% } else if (rule.toLowerCase().includes('check')) { %><i class="fas fa-clock"></i>
-            <% } else if (rule.toLowerCase().includes('guest')) { %><i class="fas fa-users"></i>
+            <% const r = rule.toLowerCase(); %>
+            <% if (r.includes('smok')) { %><i class="fas fa-smoking-ban"></i>
+            <% } else if (r.includes('pet')) { %><i class="fas fa-paw"></i>
+            <% } else if (r.includes('check-in') || r.includes('check in')) { %><i class="fas fa-right-to-bracket"></i>
+            <% } else if (r.includes('check-out') || r.includes('check out')) { %><i class="fas fa-right-from-bracket"></i>
+            <% } else if (r.includes('guest')) { %><i class="fas fa-users"></i>
+            <% } else if (r.includes('part') || r.includes('event')) { %><i class="fas fa-champagne-glasses"></i>
+            <% } else if (r.includes('quiet')) { %><i class="fas fa-volume-xmark"></i>
+            <% } else { %><i class="fas fa-circle-check"></i>
             <% } %>
-            <%= rule %>
+            <span><%= rule %></span>
           </li>
         <% }); %>
       </ul>
