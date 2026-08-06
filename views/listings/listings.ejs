@@ -36,6 +36,66 @@
     .view-details-btn { display:inline-block; padding:12px 20px; background:#FF385C; color:#fff; text-align:center; text-decoration:none; border-radius:8px; border:none; cursor:pointer; font-size:1rem; font-weight:500; margin-top:auto; align-self:flex-start; transition:background .3s; }
     .view-details-btn:hover { background:#E61E4D; }
     @media (max-width:768px) { .listing-container { flex-direction:column; } .image-section { min-width:100%; } }
+
+    /* Search filters */
+    .filters-bar {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    .filters-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      align-items: end;
+    }
+    .filter-field { display: flex; flex-direction: column; gap: 6px; }
+    .filter-field label { font-size: 0.82rem; font-weight: 600; color: #555; }
+    .filter-field select,
+    .filter-field input[type="number"] {
+      padding: 9px 10px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #222;
+      background: #fff;
+    }
+    .filter-field select:focus,
+    .filter-field input[type="number"]:focus {
+      outline: none;
+      border-color: #FF385C;
+    }
+    .price-range-inputs { display: flex; align-items: center; gap: 8px; }
+    .price-range-inputs input { width: 100%; min-width: 0; }
+    .filter-clear-btn {
+      padding: 9px 16px;
+      background: #fff;
+      border: 1.5px solid #222;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #222;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .filter-clear-btn:hover { background: #f2f2f2; }
+
+    .filters-result-count {
+      margin: -10px 0 20px;
+      color: #717171;
+      font-size: 0.95rem;
+    }
+    .no-results-message {
+      display: none;
+      text-align: center;
+      color: #717171;
+      padding: 50px 0;
+      font-size: 1.05rem;
+    }
   </style>
 </head>
 <body>
@@ -44,9 +104,63 @@
   <div class="page-container">
     <h1 class="page-title">Home Rentals</h1>
 
+    <div class="filters-bar" id="filters-bar">
+      <div class="filters-row">
+        <div class="filter-field">
+          <label for="filter-location">Location</label>
+          <select id="filter-location">
+            <option value="">Any location</option>
+            <% filterOptions.locations.forEach(loc => { %>
+              <option value="<%= loc %>"><%= loc %></option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label for="filter-bedrooms">Bedrooms</label>
+          <select id="filter-bedrooms">
+            <option value="0">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label for="filter-guests">Guests</label>
+          <select id="filter-guests">
+            <option value="0">Any</option>
+            <% for (let g = 1; g <= filterOptions.maxGuests; g++) { %>
+              <option value="<%= g %>"><%= g %>+</option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label>Price per night (€)</label>
+          <div class="price-range-inputs">
+            <input type="number" id="filter-price-min" min="0" placeholder="Min">
+            <span>–</span>
+            <input type="number" id="filter-price-max" min="0" placeholder="Max <%= filterOptions.maxPrice %>">
+          </div>
+        </div>
+
+        <button type="button" class="filter-clear-btn" id="filter-clear-btn">Clear filters</button>
+      </div>
+    </div>
+
+    <p class="filters-result-count" id="filters-result-count"></p>
+
     <% if (listings && listings.length > 0) { %>
       <% listings.forEach(listing => { %>
-        <div class="listing-container" id="listing-<%= listing.id %>" data-images='<%= JSON.stringify(listing.images) %>'>
+        <div class="listing-container"
+             id="listing-<%= listing.id %>"
+             data-images='<%= JSON.stringify(listing.images) %>'
+             data-location="<%= listing.location %>"
+             data-price="<%= listing.priceValue %>"
+             data-bedrooms="<%= listing.bedrooms || 0 %>"
+             data-guests="<%= listing.guests || 0 %>">
           <div class="image-section">
             <div class="main-image-container">
               <img src="<%= listing.images[0] || '/images/fallback.jpg' %>" alt="<%= listing.title %>" class="main-image">
@@ -64,7 +178,7 @@
 
           <div class="details-section">
             <div class="property-header">
-              <h2 class="property-title"><%= listing.title %></h2>
+              <h2 class="property-title notranslate" translate="no"><%= listing.title %></h2>
               <% if (listing.rating) { %>
                 <div class="property-rating"><i class="fas fa-star"></i><span><%= listing.rating %></span></div>
               <% } %>
@@ -86,6 +200,7 @@
           </div>
         </div>
       <% }); %>
+      <p class="no-results-message" id="no-results-message">No rentals match your search. Try adjusting or clearing the filters.</p>
     <% } else { %>
       <p style="text-align:center;color:#717171;padding:40px 0">No rentals available at the moment.</p>
     <% } %>
@@ -113,6 +228,64 @@
         container.querySelector('.next-image-btn').addEventListener('click', e => { e.stopPropagation(); update((current + 1) % images.length); });
         thumbs.forEach(t => t.addEventListener('click', () => update(parseInt(t.dataset.index))));
       });
+
+      // ── Search filters ──────────────────────────────────────────────────
+      const cards        = [...document.querySelectorAll('.listing-container')];
+      const locationSel  = document.getElementById('filter-location');
+      const bedroomsSel  = document.getElementById('filter-bedrooms');
+      const guestsSel    = document.getElementById('filter-guests');
+      const priceMinInp  = document.getElementById('filter-price-min');
+      const priceMaxInp  = document.getElementById('filter-price-max');
+      const clearBtn      = document.getElementById('filter-clear-btn');
+      const resultCountEl = document.getElementById('filters-result-count');
+      const noResultsEl   = document.getElementById('no-results-message');
+
+      if (!cards.length || !locationSel) return; // nothing to filter (empty state page)
+
+      function applyFilters() {
+        const location   = locationSel.value;
+        const minBedrooms = parseInt(bedroomsSel.value, 10) || 0;
+        const minGuests    = parseInt(guestsSel.value, 10) || 0;
+        const minPrice     = priceMinInp.value ? parseFloat(priceMinInp.value) : null;
+        const maxPrice     = priceMaxInp.value ? parseFloat(priceMaxInp.value) : null;
+
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const price     = parseFloat(card.dataset.price) || 0;
+          const bedrooms  = parseInt(card.dataset.bedrooms, 10) || 0;
+          const guests    = parseInt(card.dataset.guests, 10) || 0;
+
+          const matches =
+            (!location || card.dataset.location === location) &&
+            bedrooms >= minBedrooms &&
+            guests >= minGuests &&
+            (minPrice === null || price >= minPrice) &&
+            (maxPrice === null || price <= maxPrice);
+
+          card.style.display = matches ? '' : 'none';
+          if (matches) visibleCount++;
+        });
+
+        resultCountEl.textContent = visibleCount === cards.length
+          ? `${cards.length} rentals`
+          : `${visibleCount} of ${cards.length} rentals match your search`;
+        noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+
+      [locationSel, bedroomsSel, guestsSel].forEach(el => el.addEventListener('change', applyFilters));
+      [priceMinInp, priceMaxInp].forEach(el => el.addEventListener('input', applyFilters));
+
+      clearBtn.addEventListener('click', () => {
+        locationSel.value = '';
+        bedroomsSel.value = '0';
+        guestsSel.value = '0';
+        priceMinInp.value = '';
+        priceMaxInp.value = '';
+        applyFilters();
+      });
+
+      applyFilters();
     });
   </script>
 </body>
