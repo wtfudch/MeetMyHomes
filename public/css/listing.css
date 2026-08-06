@@ -384,6 +384,10 @@ ul.house-rules {
   transform: rotate(180deg);
 }
 
+.location-description {
+  margin-top: 20px;
+}
+
 /* Collapsible description */
 .property-description.collapsed {
   max-height: 220px;

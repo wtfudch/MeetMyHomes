@@ -79,17 +79,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ── Collapsible description ──────────────────────────────────────────
-  const readMoreBtn = document.getElementById('read-more-btn');
-  const descriptionBox = document.getElementById('property-description');
-  if (readMoreBtn && descriptionBox) {
-    readMoreBtn.addEventListener('click', () => {
-      const stillCollapsed = descriptionBox.classList.toggle('collapsed');
-      readMoreBtn.classList.toggle('expanded', !stillCollapsed);
-      readMoreBtn.querySelector('.toggle-label').textContent = stillCollapsed ? 'Read more' : 'Show less';
-      if (stillCollapsed) descriptionBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // ── Collapsible text blocks (property description, location description) ──
+  document.querySelectorAll('.toggle-list-btn[data-collapse-target]').forEach(btn => {
+    const box = document.getElementById(btn.dataset.collapseTarget);
+    if (!box) return;
+    btn.addEventListener('click', () => {
+      const stillCollapsed = box.classList.toggle('collapsed');
+      btn.classList.toggle('expanded', !stillCollapsed);
+      btn.querySelector('.toggle-label').textContent = stillCollapsed ? 'Read more' : 'Show less';
+      if (stillCollapsed) box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
-  }
+  });
 });
 
 // ── Google Maps ──────────────────────────────────────────────────────────

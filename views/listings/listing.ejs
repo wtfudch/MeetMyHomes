@@ -121,7 +121,7 @@
         <% }); %>
       </div>
       <% if (isLongDescription) { %>
-        <button class="toggle-list-btn" id="read-more-btn">
+        <button class="toggle-list-btn" data-collapse-target="property-description">
           <span class="toggle-label">Read more</span>
           <i class="fas fa-chevron-down"></i>
         </button>
@@ -142,6 +142,20 @@
            target="_blank" rel="noopener" class="open-in-maps">
           <i class="fas fa-external-link-alt"></i> Open in Google Maps
         </a>
+      <% } %>
+      <% if (listing.locationDescription) { %>
+        <% const isLongLocationDesc = listing.locationDescription.length > 400; %>
+        <div class="property-description location-description <%= isLongLocationDesc ? 'collapsed' : '' %>" id="location-description">
+          <% listing.locationDescription.split('\n\n').forEach(para => { %>
+            <p><%= para %></p>
+          <% }); %>
+        </div>
+        <% if (isLongLocationDesc) { %>
+          <button class="toggle-list-btn" data-collapse-target="location-description">
+            <span class="toggle-label">Read more</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        <% } %>
       <% } %>
     </div>
 
