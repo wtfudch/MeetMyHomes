@@ -337,6 +337,58 @@ h2 {
   cursor: pointer;
   background-color: #f8f9fa;
 }
+/* Collapsible amenities / house rules */
+.collapsible-list .hidden-item {
+  display: none;
+}
+
+.collapsible-list.expanded .hidden-item {
+  display: list-item;
+}
+
+.toggle-list-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: #fff;
+  border: 1.5px solid #222;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #222;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.toggle-list-btn:hover {
+  background: #f2f2f2;
+}
+
+.toggle-list-btn:active {
+  transform: scale(0.98);
+}
+
+.toggle-list-btn i {
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
+
+.toggle-list-btn.expanded i {
+  transform: rotate(180deg);
+}
+
+/* Collapsible description */
+.property-description.collapsed {
+  max-height: 220px;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+}
+
 /* Style for arrow list items */
 .arrow-list {
   list-style: none;

@@ -82,19 +82,29 @@
     </div>
 
     <!-- Amenities -->
+    <% const amenitiesShown = 8; %>
     <div class="listing-section">
       <h2>What this place offers</h2>
-      <ul class="amenities arrow-list">
-        <% listing.amenities.forEach(amenity => { %>
-          <li><%= amenity %></li>
+      <ul class="amenities arrow-list collapsible-list" id="amenities-list">
+        <% listing.amenities.forEach((amenity, i) => { %>
+          <li class="<%= i >= amenitiesShown ? 'hidden-item' : '' %>"><%= amenity %></li>
         <% }); %>
       </ul>
+      <% if (listing.amenities.length > amenitiesShown) { %>
+        <button class="toggle-list-btn" data-target="amenities-list"
+                data-more-label="Show all <%= listing.amenities.length %> amenities"
+                data-less-label="Show less">
+          <span class="toggle-label">Show all <%= listing.amenities.length %> amenities</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      <% } %>
     </div>
 
     <!-- Description -->
+    <% const isLongDescription = listing.description.length > 500; %>
     <div class="listing-section">
       <h2>About this place</h2>
-      <div class="property-description">
+      <div class="property-description <%= isLongDescription ? 'collapsed' : '' %>" id="property-description">
         <% listing.description.split('\n\n').forEach(para => { %>
           <% if (para.startsWith('**') && para.endsWith('**')) { %>
             <h3 class="description-subheader"><%= para.replace(/\*\*/g, '') %></h3>
@@ -107,6 +117,12 @@
           <% } %>
         <% }); %>
       </div>
+      <% if (isLongDescription) { %>
+        <button class="toggle-list-btn" id="read-more-btn">
+          <span class="toggle-label">Read more</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      <% } %>
     </div>
 
     <!-- Map -->
@@ -166,11 +182,12 @@
     <% } %>
 
     <!-- House Rules -->
+    <% const rulesShown = 4; %>
     <div class="listing-section">
       <h2>House Rules</h2>
-      <ul class="house-rules arrow-list">
-        <% listing.houseRules.forEach(rule => { %>
-          <li>
+      <ul class="house-rules arrow-list collapsible-list" id="house-rules-list">
+        <% listing.houseRules.forEach((rule, i) => { %>
+          <li class="<%= i >= rulesShown ? 'hidden-item' : '' %>">
             <% if (rule.toLowerCase().includes('smok')) { %><i class="fas fa-smoking-ban"></i>
             <% } else if (rule.toLowerCase().includes('pet')) { %><i class="fas fa-paw"></i>
             <% } else if (rule.toLowerCase().includes('check')) { %><i class="fas fa-clock"></i>
@@ -180,6 +197,14 @@
           </li>
         <% }); %>
       </ul>
+      <% if (listing.houseRules.length > rulesShown) { %>
+        <button class="toggle-list-btn" data-target="house-rules-list"
+                data-more-label="Show all <%= listing.houseRules.length %> house rules"
+                data-less-label="Show less">
+          <span class="toggle-label">Show all <%= listing.houseRules.length %> house rules</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      <% } %>
     </div>
   </div><!-- /listing-container -->
 

@@ -67,6 +67,29 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     }
   });
+
+  // ── Collapsible amenities / house rules ──────────────────────────────
+  document.querySelectorAll('.toggle-list-btn[data-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const list = document.getElementById(btn.dataset.target);
+      if (!list) return;
+      const expanded = list.classList.toggle('expanded');
+      btn.classList.toggle('expanded', expanded);
+      btn.querySelector('.toggle-label').textContent = expanded ? btn.dataset.lessLabel : btn.dataset.moreLabel;
+    });
+  });
+
+  // ── Collapsible description ──────────────────────────────────────────
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const descriptionBox = document.getElementById('property-description');
+  if (readMoreBtn && descriptionBox) {
+    readMoreBtn.addEventListener('click', () => {
+      const stillCollapsed = descriptionBox.classList.toggle('collapsed');
+      readMoreBtn.classList.toggle('expanded', !stillCollapsed);
+      readMoreBtn.querySelector('.toggle-label').textContent = stillCollapsed ? 'Read more' : 'Show less';
+      if (stillCollapsed) descriptionBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
 });
 
 // ── Google Maps ──────────────────────────────────────────────────────────
