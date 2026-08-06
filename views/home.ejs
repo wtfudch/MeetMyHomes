@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeetMyHomes – Madeira Real Estate & Rentals</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+    .hero {
+      position:relative; text-align:center; padding:6rem 1.5rem;
+      background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('/images/home-hero-bg.jpg') center/cover no-repeat;
+      color:#fff; margin-bottom:3rem; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      animation:fadeIn 1.2s ease-in-out;
+    }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    .hero h1 { font-size:3rem; font-weight:700; margin-bottom:1.5rem; text-shadow:0 2px 4px rgba(0,0,0,.3); }
+    .hero p  { font-size:1.3rem; color:#e0e0e0; max-width:700px; margin:0 auto 2.5rem; line-height:1.6; }
+    .cta-button { display:inline-block; padding:1rem 2.5rem; background:#f8f9fa; color:#2c3e50; border-radius:25px; font-size:1.2rem; font-weight:600; border:2px solid #79a9ee; text-decoration:none; transition:background .3s,transform .2s; }
+    .cta-button:hover { background:#dfe6e9; transform:translateY(-2px); }
+    .section-title { font-size:1.8rem; color:#2c3e50; margin:2rem 0 1rem; }
+    .properties-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2.5rem; margin:2rem 0; }
+    .property-card { border:1px solid #eaeaea; border-radius:12px; overflow:hidden; background:#fff; transition:transform .3s,box-shadow .3s; box-shadow:0 2px 5px rgba(0,0,0,.1); }
+    .property-card:hover { transform:translateY(-8px); box-shadow:0 6px 15px rgba(0,0,0,.15); }
+    .property-image { width:100%; height:250px; object-fit:cover; }
+    .property-info { padding:1.8rem; background:#f8f9fa; }
+    .price { font-size:1.7rem; font-weight:700; color:#2c3e50; margin-bottom:.5rem; }
+    .property-info h2 { font-size:1.4rem; color:#2c3e50; margin:.5rem 0; font-weight:600; }
+    .property-info p  { font-size:1rem; color:#34495e; margin:.3rem 0; }
+    a { text-decoration:none; color:inherit; }
+    .view-all { text-align:center; margin:2rem 0 3rem; }
+    @media (max-width:768px) {
+      .hero h1 { font-size:2rem; } .hero p { font-size:1.1rem; }
+      .properties-grid { grid-template-columns:1fr; gap:1.5rem; }
+      .property-image { height:200px; }
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome to MeetMyHomes</h1>
+      <p>Discover your perfect property on Madeira Island. Real estate for sale and premium vacation rentals.</p>
+      <a href="/properties" class="cta-button">Explore Properties</a>
+    </section>
+
+    <div class="container">
+      <!-- Featured Properties for Sale -->
+      <h2 class="section-title">Featured Properties</h2>
+      <div class="properties-grid">
+        <% ['casa-lombo-salao','terreno-atouguia','terreno-picos'].forEach(id => { %>
+          <% if (properties && properties[id]) { %>
+            <% const prop = properties[id]; %>
+            <div class="property-card">
+              <a href="/properties/<%= id %>">
+                <% const thumb = (prop.images && prop.images[0]) ? prop.images[0] : '/images/fallback.jpg'; %>
+                <img src="<%= thumb %>" alt="<%= prop.title %>" class="property-image" loading="lazy">
+                <div class="property-info">
+                  <div class="price"><%= prop.price %></div>
+                  <h2><%= prop.title %></h2>
+                  <p><%= prop.location %></p>
+                </div>
+              </a>
+            </div>
+          <% } %>
+        <% }); %>
+      </div>
+      <div class="view-all">
+        <a href="/properties" class="cta-button">View All Properties</a>
+      </div>
+
+      <!-- Featured Rentals -->
+      <h2 class="section-title">Featured Rentals</h2>
+      <div class="properties-grid">
+        <% ['casa-neves','green-house','cantinho-da-flor'].forEach(id => { %>
+          <% if (listings && listings[id]) { %>
+            <% const listing = listings[id]; %>
+            <div class="property-card">
+              <a href="/listings/<%= id %>">
+                <% const thumb = (listing.images && listing.images[0]) ? listing.images[0] : '/images/fallback.jpg'; %>
+                <img src="<%= thumb %>" alt="<%= listing.title %>" class="property-image" loading="lazy">
+                <div class="property-info">
+                  <div class="price"><%= listing.pricePerNight %> <span style="font-size:.9rem;font-weight:400">/noite</span></div>
+                  <h2><%= listing.title %></h2>
+                  <p><%= listing.location %></p>
+                </div>
+              </a>
+            </div>
+          <% } %>
+        <% }); %>
+      </div>
+      <div class="view-all">
+        <a href="/listings" class="cta-button">View All Rentals</a>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

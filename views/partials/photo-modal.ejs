@@ -1,0 +1,29 @@
+<div class="photo-modal" id="photo-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 class="modal-title"><%= listing.title %> Photos</h2>
+    
+    <div class="modal-controls">
+      <button class="modal-nav prev" aria-label="Previous photo">&lt;</button>
+      <div class="modal-main-image-container">
+        <img id="modal-main-image" src="" alt="" class="modal-main-image">
+        <div class="image-counter">
+          <span id="current-image">1</span> of <span id="total-images"><%= images.length %></span>
+        </div>
+      </div>
+      <button class="modal-nav next" aria-label="Next photo">&gt;</button>
+    </div>
+
+    <div class="modal-thumbnails">
+      <% images.forEach((image, index) => { %>
+        <div class="modal-thumb-container <%= index === 0 ? 'active' : '' %>">
+          <img src="<%= image %>" 
+               class="modal-thumb"
+               data-index="<%= index %>"
+               alt="Photo <%= index + 1 %>"
+               loading="lazy">
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</div>

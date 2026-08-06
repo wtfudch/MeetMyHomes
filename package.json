@@ -1,0 +1,23 @@
+{
+  "name": "meetmyhomes",
+  "version": "1.0.0",
+  "description": "MeetMyHomes — real estate sales & local accommodation rentals on Madeira Island",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "cloudinary": "^2.5.1",
+    "nodemon": "^3.1.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

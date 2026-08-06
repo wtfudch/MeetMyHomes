@@ -1,0 +1,178 @@
+{
+  "terreno-atouguia": {
+    "id": "terreno-atouguia",
+    "title": "Terreno à venda no caminho do Lombo da Atouguia",
+    "price": "€315,000",
+    "area": "1032 m²",
+    "bedrooms": null,
+    "bathrooms": null,
+    "propertyType": "terrain",
+    "isUrban": true,
+    "isUrbanizable": false,
+    "yearBuilt": null,
+    "energyRating": null,
+    "location": "Caminho do Lombo da Atouguia, s/n",
+    "coordinates": { "latitude": 32.73759010465314, "longitude": -17.151411087160103 },
+    "description": {
+      "pt-PT": "Terreno com Casa para Recuperação à Venda – Atouguia (Calheta) – 1.032 m² – 315.000 €\n\nDescobre esta moradia independente com um vasto terreno de 1.032 m², ideal para quem procura um refúgio rural ou um projeto residencial único. A casa, datada de 1937, está pronta para recuperação e oferece um enorme potencial habitacional, rural e paisagístico. Com um terreno fértil e cultivado, é perfeita para quem deseja explorar a agricultura ou criar um espaço natural produtivo.\n\nA localização tranquila proporciona uma vista privilegiada, com um enquadramento natural deslumbrante que convida ao relaxamento. A proximidade com os serviços e as praias da Calheta torna esta propriedade ainda mais atrativa. A possibilidade de personalização ou transformação em casa de campo abre um leque de opções para investidores ou particulares que buscam um local especial.\n\nCom a possibilidade de construir de raiz, sujeito a licenciamento, esta moradia é uma excelente oportunidade para quem deseja investir no seu futuro. Não perca a chance de adquirir este imóvel por apenas 315.000 €. Venha conhecer e deixe-se encantar por tudo o que este espaço tem para oferecer!\n\nInteressados, contactar para mais informações e visitas.",
+      "en": "Land with House for Recovery for Sale – Atouguia (Calheta) – 1,032 m² – €315,000\n\nDiscover this independent house with a vast 1,032 m² plot, ideal for those seeking a rural retreat or a unique residential project. The house, dating from 1937, is ready for recovery and offers enormous housing, rural, and landscape potential. With fertile and cultivated land, it's perfect for exploring agriculture or creating a productive natural space.\n\nThe tranquil location provides a privileged view with a stunning natural setting that invites relaxation. Proximity to Calheta's services and beaches makes this property even more attractive. The possibility of customization or transformation into a country house opens a range of options for investors or individuals seeking a special place.\n\nWith the possibility of building from scratch, subject to licensing, this house is an excellent opportunity for those wishing to invest in their future. Don't miss the chance to acquire this property for just €315,000. Come visit and let yourself be enchanted by everything this space has to offer!\n\nInterested parties, contact us for more information and visits."
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 1.032 m²", "Superfície mínima à venda 1.032 m²", "Superfície edificável 400 m²", "Acesso por estrada"],
+      "urban": ["Terreno Urbano", "Viabilidade para residencial unifamiliar (moradias)"]
+    },
+    "media": { "imageCount": 25, "imageExt": "jpg", "plantCount": 1, "plantExt": "jpg", "videoCount": 4 }
+  },
+
+  "terreno-capela": {
+    "id": "terreno-capela",
+    "title": "Terreno à venda na rua da Capela",
+    "price": "€100,000",
+    "area": "400 m²",
+    "bedrooms": null,
+    "bathrooms": null,
+    "propertyType": "terrain",
+    "isUrban": false,
+    "isUrbanizable": true,
+    "yearBuilt": null,
+    "energyRating": null,
+    "location": "Rua da Capela, s/n",
+    "coordinates": { "latitude": 32.82976190146658, "longitude": -17.22806895767973 },
+    "description": {
+      "pt-PT": "Terreno à Venda na Ponta do Pargo\n\nDescubra este incrível terreno de 400 m², ideal para quem procura construir a casa dos seus sonhos num ambiente tranquilo e rodeado pela natureza. Com uma classificação urbanizável, este espaço oferece a possibilidade de edificação de até 160 m², perfeito para uma moradia unifamiliar.\n\nLocalizado numa zona calma, o terreno proporciona vistas agradáveis e acesso fácil a miradouros e trilhos, permitindo desfrutar de momentos relaxantes ao ar livre.\n\nCom grande potencial de valorização, este terreno é uma oportunidade imperdível para investidores e famílias que sonham em construir um lar personalizado. Não perca a oportunidade de construir o seu refúgio num dos recantos mais bonitos e serenos da Ilha da Madeira.\n\nAgende já a sua visita!",
+      "en": "Land for Sale in Ponta do Pargo\n\nDiscover this incredible 400 m² plot, ideal for those seeking to build their dream home in a tranquil environment surrounded by nature. With an urbanizable classification, this space offers the possibility of building up to 160 m², perfect for a single-family residence.\n\nLocated in a calm area, the plot provides pleasant views and easy access to viewpoints and trails, allowing you to enjoy relaxing outdoor moments.\n\nWith great potential for appreciation, this plot is an unmissable opportunity for investors and families dreaming of building a personalized home. Don't miss the chance to build your retreat in one of Madeira's most beautiful and serene corners.\n\nSchedule your visit now!"
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 400 m²", "Superfície mínima à venda 400 m²", "Superfície edificável 160 m²", "Acesso por estrada"],
+      "urban": ["Terreno urbanizável", "Viabilidade para residencial unifamiliar (moradias)"]
+    },
+    "media": { "imageCount": 13, "imageExt": "jpg", "plantCount": 0, "plantExt": "jpg", "videoCount": 4 }
+  },
+
+  "terreno-picos": {
+    "id": "terreno-picos",
+    "title": "Terreno à venda no caminho dos Picos",
+    "price": "€220,000",
+    "area": "1745 m²",
+    "bedrooms": null,
+    "bathrooms": null,
+    "propertyType": "terrain",
+    "isUrban": false,
+    "isUrbanizable": true,
+    "yearBuilt": null,
+    "energyRating": null,
+    "location": "Caminho dos Picos, s/n",
+    "coordinates": { "latitude": 32.750298208973184, "longitude": -17.20805738030026 },
+    "description": {
+      "pt-PT": "Terreno à Venda nos Prazeres, Ilha da Madeira\n\nDescubra a oportunidade perfeita para construir o seu sonho nos Prazeres, Ilha da Madeira! Este magnífico terreno de 1.745 m² está à venda por um preço atrativo de 220.000 €. Situado em um ambiente pacífico e natural, oferece uma vista deslumbrante que promete pôr do sol inesquecíveis. Com acesso para carro disponível, o espaço é ideal para quem busca tranquilidade sem abrir mão da conveniência.\n\nA localização privilegiada permite a edificação de uma moradia de luxo ou um refúgio personalizado, com potencial para construir uma casa grande ou várias habitações, sempre respeitando as licenças e regulamentos municipais.\n\nSeja para investidores ou particulares com visão e criatividade, esta é uma oportunidade imperdível! Não perca a chance de transformar este espaço em algo verdadeiramente especial.",
+      "en": "Land for Sale in Prazeres, Madeira Island\n\nDiscover the perfect opportunity to build your dream in Prazeres, Madeira Island! This magnificent 1,745 m² plot is for sale at an attractive price of €220,000. Located in a peaceful and natural environment, it offers a stunning view that promises unforgettable sunsets. With car access available, the space is ideal for those seeking tranquility without sacrificing convenience.\n\nThe privileged location allows for the construction of a luxury residence or a personalized retreat, with potential to build a large house or multiple dwellings, always respecting licenses and municipal regulations.\n\nWhether for investors or individuals with vision and creativity, this is an unmissable opportunity!"
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 1745 m²", "Superfície mínima à venda 1745 m²", "Superfície edificável 1745 m²", "Acesso por estrada"],
+      "urban": ["Terreno urbanizável"]
+    },
+    "media": { "imageCount": 18, "imageExt": "jpg", "plantCount": 0, "plantExt": "jpg", "videoCount": 0 }
+  },
+
+  "terreno-chiqueiros": {
+    "id": "terreno-chiqueiros",
+    "title": "Terreno à venda em Chiqueiros",
+    "price": "€65,000",
+    "area": "2030 m²",
+    "bedrooms": null,
+    "bathrooms": null,
+    "propertyType": "terrain",
+    "isUrban": false,
+    "isUrbanizable": false,
+    "yearBuilt": null,
+    "energyRating": null,
+    "location": "Chiqueiros, s/n",
+    "coordinates": { "latitude": 32.696631549511444, "longitude": -17.104452771272985 },
+    "description": {
+      "pt-PT": "Terreno com 2.030 m² nos Canhas – Zona Alta, Tranquila e Ideal para Agricultura ou Projeto Sustentável\n\nApresentamos este amplo terreno com 2.030 m², localizado na zona dos Canhas, numa área extremamente sossegada e envolta pela natureza, ideal para quem procura privacidade, espaço e contacto direto com o campo.\n\nCom uma incrível diversidade agrícola, este terreno conta com mais de 120 árvores de frutos, incluindo abacateiros, limoeiros, laranjeiras, maracujeiros, pereiras rocha, amoreiras, entre outras espécies.\n\nA propriedade dispõe ainda de um churrasco, sistema de rega instalado e um armazém de apoio à atividade agrícola.\n\nNão perca esta oportunidade única de investimento num terreno versátil, fértil e com enorme potencial.",
+      "en": "2,030 m² Plot in Canhas – High, Tranquil Area Ideal for Agriculture or Sustainable Project\n\nWe present this spacious 2,030 m² plot, located in the Canhas area, in an extremely peaceful zone surrounded by nature, ideal for those seeking privacy, space, and direct contact with the countryside.\n\nWith incredible agricultural diversity, this plot boasts over 120 fruit trees including avocado, lemon, orange and passion fruit.\n\nThe property also includes a barbecue, installed irrigation system, and a storage shed.\n\nDon't miss this unique investment opportunity in a versatile, fertile plot."
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 2030 m²", "Acesso por caminho"],
+      "urban": ["Terreno não urbanizável"]
+    },
+    "media": { "imageCount": 24, "imageExt": "jpg", "plantCount": 0, "plantExt": "jpg", "videoCount": 0 }
+  },
+
+  "casa-lombo-salao": {
+    "id": "casa-lombo-salao",
+    "title": "Moradia independente em Caminho Lombo do Salão",
+    "price": "€194,000",
+    "area": "200 m²",
+    "bedrooms": 4,
+    "bathrooms": 1,
+    "propertyType": "house",
+    "isUrban": true,
+    "isUrbanizable": true,
+    "yearBuilt": 1995,
+    "energyRating": "D",
+    "location": "Caminho Lombo do Salão 83, Calheta",
+    "coordinates": { "latitude": 32.728288816736494, "longitude": -17.174326532135876 },
+    "description": {
+      "pt-PT": "Moradia para Reconstrução com Vista Mar – Calheta – Terreno de 300 m²\n\nOportunidade única no coração da Calheta! Esta moradia, inserida num terreno com cerca de 300 m², oferece uma localização excecional e uma vista soberba sobre a Estrela da Calheta e o oceano Atlântico.\n\nEmbora a casa necessite de reconstrução total, o seu enorme potencial torna-a ideal para quem procura criar uma residência personalizada, um refúgio de férias ou até um projeto de alojamento local, numa das zonas mais procuradas da Madeira.\n\nPrincipais destaques:\n- Moradia para reconstrução total\n- Terreno com cerca de 300 m²\n- Localização central e muito acessível\n- Vista aberta para o mar e para a Estrela da Calheta\n- Ideal para projeto de habitação própria, casa de férias ou investimento turístico\n\nContacta-nos para mais informações ou para agendar uma visita!",
+      "en": "House for Reconstruction with Sea View – Calheta – 300 m² Plot\n\nA unique opportunity in the heart of Calheta! This house, set on a 300 m² plot, offers an exceptional location and a stunning view over Estrela da Calheta and the Atlantic Ocean.\n\nAlthough the house requires total reconstruction, its huge potential makes it ideal for creating a customized residence, a vacation retreat, or even a local accommodation project.\n\nMain highlights:\n- House for total reconstruction\n- Plot of approximately 300 m²\n- Central and highly accessible location\n- Open sea view and Estrela da Calheta\n- Ideal for personal housing, vacation home, or tourist investment\n\nContact us for more information or to schedule a visit!"
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 200 m²", "Acesso por estrada"],
+      "urban": ["Terreno urbano"],
+      "energy": ["Class D"]
+    },
+    "media": { "imageCount": 39, "imageExt": "jpg", "plantCount": 0, "plantExt": "jpg", "videoCount": 4 }
+  },
+
+  "terreno-faja-ovelha": {
+    "id": "terreno-faja-ovelha",
+    "title": "Terreno à venda em ER 222 s/n, Fajã da Ovelha",
+    "price": "€200,000",
+    "area": "2520 m²",
+    "bedrooms": null,
+    "bathrooms": null,
+    "propertyType": "terrain",
+    "isUrban": false,
+    "isUrbanizable": false,
+    "yearBuilt": null,
+    "energyRating": null,
+    "location": "ER 222 s/n, Fajã da Ovelha",
+    "coordinates": { "latitude": 32.78265863857103, "longitude": -17.232071034748284 },
+    "description": {
+      "pt-PT": "Terreno com 2.520 m² em Fajã da Ovelha – Zona Rural e Tranquila, Ideal para Projetos Sustentáveis\n\nApresentamos este espaçoso terreno de 2.520 m², situado na tranquila Fajã da Ovelha, envolto pela natureza, perfeito para quem busca privacidade e um contacto próximo com o campo.\n\nCom acesso por caminho e localizado numa área não urbanizável, este terreno oferece um ambiente sereno, ideal para agricultura ou projetos sustentáveis.\n\nNão perca esta oportunidade única de investir num terreno versátil e tranquilo.",
+      "en": "2,520 m² Plot in Fajã da Ovelha – Rural and Tranquil Area Ideal for Sustainable Projects\n\nWe present this spacious 2,520 m² plot, situated in the tranquil Fajã da Ovelha, surrounded by nature, perfect for those seeking privacy and close contact with the countryside.\n\nWith access by path and located in a non-urbanizable area, this plot offers a serene environment, ideal for agriculture or sustainable projects.\n\nDon't miss this unique investment opportunity."
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 2520 m²", "Acesso por caminho"],
+      "urban": ["Terreno não urbanizável"]
+    },
+    "media": { "imageCount": 6, "imageExt": "jpg", "plantCount": 0, "plantExt": "jpg", "videoCount": 0 }
+  },
+
+  "casa-laranjeiras": {
+    "id": "casa-laranjeiras",
+    "title": "Moradia independente em Lombo das Laranjeiras",
+    "price": "€244,550",
+    "area": "127 m²",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "propertyType": "house",
+    "isUrban": true,
+    "isUrbanizable": true,
+    "yearBuilt": 2005,
+    "energyRating": "D",
+    "location": "Caminho Lombo das Laranjeiras 60, Calheta",
+    "coordinates": { "latitude": 32.73055264887412, "longitude": -17.17473604544298 },
+    "description": {
+      "pt-PT": "Moradia com 407 m² para Reconstrução no Lombo das Laranjeiras – Excelente Localização e Potencial de Investimento\n\nApresentamos esta moradia antiga de dois pisos, situada no Lombo das Laranjeiras, Calheta – uma zona calma, com bons acessos e cada vez mais procurada por quem pretende investir ou criar um refúgio com charme madeirense.\n\nCom um terreno de 407 m² e uma extensa frente de estrada, esta propriedade é ideal para quem procura um projeto de reconstrução, seja para alojamento local, revenda ou mesmo como segunda habitação com identidade própria.\n\nPontos fortes:\n- Moradia de dois pisos para reconstrução total\n- Terreno com 407 m²\n- Ampla frente de estrada, com ótimo acesso\n- Boa vista e excelente orientação solar\n- Ideal para projeto de alojamento local ou reconstrução para revenda\n\nFale connosco para mais informações ou para agendar a sua visita.",
+      "en": "Independent House in Lombo das Laranjeiras for Reconstruction – Excellent Location and Investment Potential\n\nWe present this old two-story house, located in Lombo das Laranjeiras, Calheta – a calm area with good access and increasingly sought after by those looking to invest or create a retreat with Madeiran charm.\n\nWith a 407 m² plot and extensive road frontage, this property is ideal for those seeking a reconstruction project.\n\nProperty strengths:\n- Two-story house for total reconstruction\n- Plot of 407 m²\n- Wide road frontage with excellent access\n- Good view and excellent sun orientation\n- Ideal for local accommodation project or reconstruction for resale\n\nTalk to us for more information or to schedule your visit."
+    },
+    "detailedFeatures": {
+      "specific": ["Superfície total do terreno 407 m²", "Superfície edificável 127 m²", "Acesso por estrada"],
+      "urban": ["Terreno urbano", "Viabilidade para residencial unifamiliar (moradias)"],
+      "energy": ["Class D"]
+    },
+    "media": { "imageCount": 24, "imageExt": "png", "plantCount": 2, "plantExt": "png", "videoCount": 0 }
+  }
+}

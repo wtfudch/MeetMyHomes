@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Page Not Found | MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .error-page { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:60vh; text-align:center; padding:2rem; }
+    .error-code { font-size:8rem; font-weight:700; color:#e0e0e0; line-height:1; margin-bottom:1rem; }
+    .error-page h1 { font-size:2rem; color:#2c3e50; margin-bottom:1rem; }
+    .error-page p { font-size:1.1rem; color:#717171; max-width:500px; margin-bottom:2rem; }
+    .error-links { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .btn { display:inline-block; padding:.85rem 2rem; border-radius:25px; font-size:1rem; font-weight:600; text-decoration:none; transition:transform .2s,background .3s; }
+    .btn-primary { background:#FF385C; color:#fff; }
+    .btn-primary:hover { background:#E61E4D; transform:translateY(-2px); }
+    .btn-secondary { background:#f8f9fa; color:#2c3e50; border:2px solid #79a9ee; }
+    .btn-secondary:hover { background:#dfe6e9; transform:translateY(-2px); }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="error-page">
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for doesn't exist or may have been moved.</p>
+    <div class="error-links">
+      <a href="/"           class="btn btn-primary">Go Home</a>
+      <a href="/properties" class="btn btn-secondary">Properties for Sale</a>
+      <a href="/listings"   class="btn btn-secondary">Rentals</a>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

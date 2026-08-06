@@ -1,0 +1,486 @@
+{
+  "casa-neves": {
+    "id": "casa-neves",
+    "title": "Charming Apartment in Arco da Calheta",
+    "description": "Desfrute de uma casa espaçosa e bem equipada, ideal para famílias ou grupos de até 6 pessoas. São 3 quartos confortáveis, cozinha completa, sala de estar ampla, Wi-Fi e TV. Localizada numa área central, terá fácil acesso a restaurantes, praias e atrações turísticas, tudo a poucos minutos de distância. Perfeita para quem busca conforto e comodidade num ambiente acolhedor.\n\nAcesso por escadas proporcionando uma boa vista do local e do mar.\n\nOutros serviços disponíveis aos hóspedes:\n- Aluguer de carro com seguro completo, não é necessário depósito ou cartão de crédito! (Entrega em qualquer local)\n- Passeio de barco para observação de golfinhos e baleias.\n\nDados do registo\n158948/AL",
+    "location": "Arco da Calheta, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "guests": 6,
+    "pricePerNight": "€120",
+    "rating": 5,
+    "superhost": true,
+    "amenities": ["Wi-Fi", "Kitchen", "Washing Machine", "Free Parking"],
+    "coordinates": { "latitude": 32.71394729614258, "longitude": -17.147069931030273 },
+    "host": {
+      "name": "Maria Neves",
+      "since": 2018,
+      "superhost": true,
+      "description": "I love hosting guests and sharing the beauty of Madeira."
+    },
+    "reviews": [
+      { "author": "Jane Doe",   "rating": 5, "comment": "Great place to stay! Highly recommended.", "date": "March 2025" },
+      { "author": "John Smith", "rating": 4, "comment": "The host was very welcoming and the property was clean.", "date": "February 2025" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 45, "imageExt": "jpeg" }
+  },
+
+  "arco-apartment": {
+    "id": "arco-apartment",
+    "title": "Modern Apartment in City Center",
+    "description": "A modern apartment in the heart of the city with excellent transportation links.",
+    "location": "Funchal, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "guests": 4,
+    "pricePerNight": "€85",
+    "rating": 4.78,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Elevator"],
+    "coordinates": { "latitude": 32.71394729614258, "longitude": -17.147069931030273 },
+    "host": {
+      "name": "Maria Neves",
+      "since": 2020,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Ana Rodrigues", "rating": 5, "comment": "Perfect location and very clean!", "date": "April 2025" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 33, "imageExt": "jpeg" }
+  },
+
+  "green-house": {
+    "id": "green-house",
+    "title": "Green House – Tranquil Home in Calheta",
+    "description": "A modern home in a calm area with excellent views and easy access to beaches and local services.",
+    "location": "Calheta, Madeira",
+    "type": "Entire home",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "guests": 3,
+    "pricePerNight": "€100",
+    "rating": 4.86,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Elevator"],
+    "coordinates": { "latitude": 32.734912783773105, "longitude": -17.171956835767165 },
+    "host": {
+      "name": "João Manuel",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Jesper", "rating": 5, "comment": "Tivemos uma estadia super simpática. As fotos e a descrição do espaço atenderam plenamente às nossas expectativas e a comunicação com o nosso anfitrião foi incrivelmente fácil e rápida. Gostaríamos de voltar noutra altura!", "date": "January 2025" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 42, "imageExt": "jpg" }
+  },
+
+  "white-apartment": {
+    "id": "white-apartment",
+    "title": "White Apartment – Bright & Modern",
+    "description": "A bright, modern apartment with stunning views and all the comfort you need for a perfect stay.",
+    "location": "Caniço, Madeira",
+    "type": "Entire home",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "guests": 3,
+    "pricePerNight": "€186",
+    "rating": 4.86,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Elevator"],
+    "coordinates": { "latitude": 32.64013422844118, "longitude": -16.932653261743692 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Jesper", "rating": 5, "comment": "Tivemos uma estadia super simpática. As fotos e a descrição do espaço atenderam plenamente às nossas expectativas!", "date": "December 2024" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 29, "imageExt": "jpg" }
+  },
+
+  "cantinho-da-flor": {
+    "id": "cantinho-da-flor",
+    "title": "Cantinho da Flor – Garden Apartment",
+    "description": "A charming garden apartment surrounded by flowers and nature. Perfect for couples or small families seeking a peaceful retreat.",
+    "location": "Funchal, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "guests": 3,
+    "pricePerNight": "€186",
+    "rating": 4.86,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Elevator"],
+    "coordinates": { "latitude": 32.700139624214714, "longitude": -17.117577113695408 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Jesper", "rating": 5, "comment": "Tivemos uma estadia super simpática. As fotos e a descrição do espaço atenderam plenamente às nossas expectativas!", "date": "November 2024" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 41, "imageExt": "jpg" }
+  },
+
+  "villa-atlantico-garden-apartment": {
+    "id": "villa-atlantico-garden-apartment",
+    "title": "Villa Atlântico Garden Apartment",
+    "description": "O rés do chão da moradia Villa Atlântico é uma opção acolhedora e confortável para famílias, amigos ou para quem procura uma estadia tranquila na Madeira.\n\nEste espaço inclui cozinha completa, 2 quartos, 2 casas de banho (uma delas privativa num dos quartos), sala de jantar, sala de estar e um espaçoso jardim, oferecendo tudo o que é necessário para uma estadia prática e relaxante.\n\nLocalizada a cerca de 1,5km da praia, é ideal para quem procura conforto, natureza e tranquilidade.\n\nO espaço\nEste alojamento corresponde ao rés do chão da Villa Atlantic, uma moradia espaçosa e cuidadosamente decorada, situada na tranquila zona dos Moledos, na Madalena do Mar - Ponta do Sol. Rodeada de vegetação exuberante e natureza vibrante, a propriedade oferece um ambiente calmo e acolhedor, ideal para uma estadia relaxante na costa mais soalheira da Madeira.\n\nO espaço dispõe de cozinha totalmente equipada, sala de estar e de jantar, 2 quartos confortáveis e 2 casas de banho, sendo uma delas privativa num dos quartos. No exterior, os hóspedes podem desfrutar de um amplo jardim, com flores, árvores de fruto e ervas aromáticas. Ideal para casais, famílias ou pequenos grupos, este alojamento proporciona um ambiente seguro, sossegado e rodeado de natureza — perfeito para descansar, aproveitar o sol da Madeira e explorar a beleza da ilha.\n\nAcesso dos viajantes\nO check-in é feito presencialmente, sendo a chegada acompanhada pelo anfitrião, de forma a dar as boas-vindas, apresentar o espaço e esclarecer qualquer dúvida inicial. A propriedade dispõe ainda de espaço para estacionamento de carro, oferecendo maior comodidade durante a estadia.\n\nOutras coisas a ter em conta\nO alojamento está situado numa zona sossegada da Ponta do Sol, a cerca de 1,5 km da praia, sendo uma excelente opção para quem procura descanso e uma boa base para explorar a Madeira. A apenas 3 minutos a pé, existe um miradouro com uma vista maravilhosa, ideal para apreciar o pôr-do-sol e contemplar Madalena do Mar. Recomendamos o uso de carro para maior comodidade nas deslocações. Pedimos aos hóspedes que respeitem o espaço e a tranquilidade da zona envolvente para garantir uma boa experiência para todos.",
+    "location": "Canhas, Madeira",
+    "type": "Entire home",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "guests": 4,
+    "pricePerNight": "€115",
+    "rating": 5,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Washing Machine", "Dishwasher", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Trash compactor", "Cooking basics", "Dishes and silverware", "BBQ utensils", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Bidet", "Hot water", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Crib", "Heating", "Smoke alarm", "Carbon monoxide alarm", "Fire extinguisher", "First aid kit", "Private entrance", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "BBQ grill", "Sun loungers", "Patio view", "Garden view", "Mountain view", "Valley view"],
+    "coordinates": { "latitude": 32.70747, "longitude": -17.13733 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Arjan", "rating": 5, "comment": "Lugar bonito na Madeira, tive umas boas férias. B e B atenderam a todas as expectativas.", "date": "May 2024" },
+      { "author": "Ian", "rating": 5, "comment": "A Susy é incrível! A casa estava impecável, muito bem equipada e era fácil encontrar tudo. Recomendamos vivamente a Moradia em todos os aspetos.", "date": "March 2023" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "casa-refugio-dos-canhas": {
+    "id": "casa-refugio-dos-canhas",
+    "title": "Casa Refúgio dos Canhas",
+    "description": "Relaxe com toda a família neste alojamento tranquilo!\n\nA 2 minutos a pé do centro dos Canhas, onde encontra centro de saúde, farmácia, mini mercado, restaurante, cafés, florista, cabeleireiro, entre outros.\n\nPode relaxar no jacuzzi e usufruir da vista mar e montanha. Tem jardim e mesa exterior para refeições. Recomendamos que alugue um carro que estaciona na garagem privada.\n\nEstá a 50 minutos do aeroporto.\n\nAs praias mais próximas estão a 10/15min do alojamento e o centro do Funchal a 30 minutos.\n\nDados do registo\n155204/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire home",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "guests": 6,
+    "pricePerNight": "€190",
+    "rating": 5,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Free Street Parking", "Air Conditioning", "Portable fans", "Washing Machine", "Private Hot Tub", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Blender", "Cooking basics", "Dishes and silverware", "BBQ utensils", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Conditioner", "Body soap", "Bidet", "Outdoor shower", "Hot water", "Shower gel", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Sound system", "Crib", "Books and toys for children", "High chair", "Board games", "Outdoor playground", "Fire extinguisher", "First aid kit", "Waterfront", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "BBQ grill", "Sun loungers", "Single-story home", "Long-term stays allowed", "Host greets you"],
+    "coordinates": { "latitude": 32.6993, "longitude": -17.118 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Eric", "rating": 5, "comment": "A partir do momento em que reservámos, a Vanessa estava disponível para responder a todas as perguntas.", "date": "December 2025" },
+      { "author": "Rebekka", "rating": 5, "comment": "O espaço era ótimo, tal como se imagina! A Vanessa é uma super anfitriã, o check-in foi muito flexível.", "date": "October 2025" },
+      { "author": "Beth", "rating": 5, "comment": "Já ficámos em muitos AirBnBs e este é o nosso favorito de sempre! A casa era muito agradável.", "date": "July 2025" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "vista-ventura": {
+    "id": "vista-ventura",
+    "title": "Vista Ventura",
+    "description": "A Vista Ventura é o refúgio ideal para quem procura descanso, natureza e inspiração. Localizada na pitoresca Boa Ventura, em São Vicente, esta moradia térrea oferece uma vista incrível para o oceano e um ambiente super tranquilo. Aqui vai encontrar o equilíbrio perfeito entre conforto e serenidade, com a beleza natural da Madeira sempre presente.\n\nO espaço\nBem-vindo à Vista Ventura, o seu refúgio no paraíso do norte da Madeira. Situada na encantadora Boaventura, em São Vicente, esta moradia térrea combina conforto e autenticidade com um cenário natural de cortar a respiração.\n\nEspaços interiores: 2 quartos confortáveis, sendo um deles suíte com casa de banho privativa e banheira de hidromassagem. 2 casas de banho completas, modernas e funcionais. Sala de estar ampla e luminosa, ideal para convívio em família ou entre amigos. Cozinha espaçosa e equipada, pronta para preparar refeições inesquecíveis.\n\nExterior e envolvente: Vista deslumbrante para o mar, com um horizonte azul só para si. Ambiente calmo e relaxante, em total harmonia com a natureza. Amplo espaço exterior, perfeito para desfrutar do ar puro, do sol e da paisagem envolvente.\n\nLocalização\nA Vista Ventura está situada numa zona serena e autêntica do norte da Madeira, ideal para quem procura tranquilidade sem deixar de estar perto dos pontos mais emblemáticos da região: São Vicente, Porto Moniz, Seixal e as famosas levadas.\n\nSe procura um lugar onde o tempo abranda, a paisagem inspira e o conforto está sempre presente, a Vista Ventura é o destino perfeito para a sua estadia na Madeira.\n\nDados do registo\n169178/AL",
+    "location": "Boaventura, Madeira",
+    "type": "Entire home",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "guests": 4,
+    "pricePerNight": "€160",
+    "rating": 5,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Free Street Parking", "Washing Machine", "Refrigerator", "Freezer", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Blender", "Cooking basics", "Dishes and silverware", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Bidet", "Hot water", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Closet", "TV", "Crib", "Fire extinguisher", "First aid kit", "Waterfront", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "Sea view", "Ocean view", "Mountain view", "Valley view", "Beach view", "Self check-in", "Long-term stays allowed", "Host greets you"],
+    "coordinates": { "latitude": 32.8242, "longitude": -16.9814 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Jay", "rating": 5, "comment": "A casa era incrível e a vista é ABSOLUTAMENTE BONITA!! Um lugar perfeito para relaxar em família.", "date": "February 2026" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "bella-vista-studio": {
+    "id": "bella-vista-studio",
+    "title": "Bella Vista Studio",
+    "description": "Desfrute da serenidade da Ponta do Sol neste quarto acolhedor com entrada independente e vista deslumbrante sobre o mar e as montanhas. O Bella Vista oferece um quarto espaçoso com roupeiro grande, casa de banho privativa e uma pequena kitchenette. Localizado na zona calma dos Canhas, é o refúgio ideal para relaxar e apreciar a natureza da Madeira.\n\nO espaço\nNo meio da natureza dos Canhas, encontra este cantinho acolhedor, relaxante e com uma vista magnífica para o mar e montanhas. Esta suite espaçosa tem uma cama de casal, uma casa de banho completa privativa, sendo fornecidas toalhas de banho e lençóis.\n\nNo quarto, encontra uma kitchenette onde há uma chaleira, máquina de café, frigobar e uma placa de indução portátil para que possa confecionar todas as suas refeições durante as suas férias. Tem ainda alguns pratos, talheres e copos. A mesinha na rua é o ideal para um pequeno almoço com uma vista deslumbrante.\n\nAcesso dos viajantes\nTerá acesso a um grande pátio no exterior com uma vista deslumbrante, assim como de uma suíte espaçosa com casa de banho privativa.\n\nDurante a sua estadia\nEstamos sempre disponíveis via telefone para qualquer coisa que os hóspedes precisarem.\n\nOutras coisas a ter em conta\nExiste estacionamento gratuito nas redondezas. Encontra também cafés e restaurantes a poucos minutos a pé e ainda uma pequena mercearia. A vizinhança é muito amigável e ajudar-vos-ão a conhecer melhor as tradições de uma pequena vila Madeirense.\n\nDados do registo\n170414/AL",
+    "location": "Canhas, Madeira",
+    "type": "Private room",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "guests": 2,
+    "pricePerNight": "€70",
+    "rating": 4.8,
+    "superhost": true,
+    "amenities": ["Wi-Fi", "Free Parking", "Free Street Parking", "Kitchenette", "Refrigerator", "Microwave", "Stove", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Cooking basics", "Dishes and silverware", "Dining table", "Coffee", "Hair dryer", "Shampoo", "Bidet", "Hot water", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Closet", "Heating", "Fire extinguisher", "First aid kit", "Private entrance", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "Sea view", "Mountain view", "Ocean view", "Valley view", "Single-story home", "Self check-in", "Safe", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.7093, "longitude": -17.1161 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": true,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Ronja", "rating": 5, "comment": "Divertimo-nos muito no alojamento decorado com carinho. A Catarina ajudou-nos sempre e estava sempre disponível.", "date": "June 2026" },
+      { "author": "Alberto", "rating": 4, "comment": "Excelente localização e uma vista deslumbrante para o oceano a partir da colina!", "date": "June 2026" },
+      { "author": "Fiona Lynn", "rating": 5, "comment": "Passámos duas semanas maravilhosas no apartamento. É um alojamento simples e acolhedor.", "date": "May 2026" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 2 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "bella-vista-home": {
+    "id": "bella-vista-home",
+    "title": "Bella Vista Home",
+    "description": "Reserve o Bella Vista na sua totalidade e desfrute da propriedade completa. Perfeito para grupos ou famílias que desejam privacidade total, com espaço e conforto para todos.\n\nA casa dispõe de quatro quartos, três casas de banho, duas cozinhas totalmente equipadas, amplas zonas de estar e um jardim com vista deslumbrante sobre o mar. Situada nos Canhas, Ponta do Sol, a poucos minutos da costa e das levadas, é o ponto de partida ideal para explorar o melhor da Madeira.\n\nO espaço\nA Bella Vista é uma moradia espaçosa de dois pisos, rodeada por um jardim que contorna toda a casa e uma varanda frontal ampla com uma vista magnífica sobre o mar e as montanhas da Ponta do Sol.\n\nA moradia combina o conforto moderno com o charme madeirense, oferecendo um ambiente acolhedor, tranquilo e ideal para famílias ou grupos que procuram privacidade total. A casa dispõe de quatro quartos, três casas de banho, uma cozinha totalmente equipada e uma kitchenette, sala de estar, Wi-Fi rápido e estacionamento dentro da propriedade.\n\nA ampla varanda e o jardim oferecem o espaço perfeito para relaxar e apreciar o pôr do sol sobre o Atlântico. Localizada nos Canhas, numa zona muito calma mas com excelentes acessos, a propriedade está a poucos minutos de restaurantes, bares, mini-mercados e das levadas mais bonitas da Madeira.\n\nAcesso dos viajantes\nO acesso à propriedade é feito por um portão privado, com entrada independente e estacionamento. Durante a estadia, os hóspedes usufruem de uso exclusivo de todos os espaços interiores e exteriores. Não são permitidos animais de estimação, festas nem fumar dentro da casa.\n\nDados do registo\n170414/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire home",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "guests": 8,
+    "pricePerNight": "€280",
+    "rating": 5,
+    "superhost": true,
+    "amenities": ["Wi-Fi", "Dedicated workspace", "Kitchen", "Free Parking", "Free Street Parking", "Washing Machine", "Dryer", "Refrigerator", "Mini fridge", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Cooking basics", "Dishes and silverware", "BBQ utensils", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Body soap", "Bidet", "Hot water", "Shower gel", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Crib", "High chair", "Fireplace", "Heating", "Fire extinguisher", "First aid kit", "Private entrance", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "BBQ grill", "Sea view", "Mountain view", "Ocean view", "Valley view", "Self check-in", "Safe", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.7093, "longitude": -17.1161 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": true,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Maciej", "rating": 5, "comment": "A minha estadia em Canhas acabou por ser um verdadeiro sucesso, o local tornou-se o ponto de partida perfeito.", "date": "July 2026" },
+      { "author": "Thea", "rating": 5, "comment": "Uma localização absolutamente fantástica e uma casa muito agradável!", "date": "May 2026" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 8 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "bella-vista-spacious-3-bedroom-home": {
+    "id": "bella-vista-spacious-3-bedroom-home",
+    "title": "Bella Vista - Spacious 3 Bedroom Home",
+    "description": "A Bella Vista House é uma moradia espaçosa e confortável com vista panorâmica sobre o oceano e as encostas verdes da Ponta do Sol. Com três quartos, duas casas de banho, uma cozinha totalmente equipada e uma ampla sala de estar, é o espaço ideal para famílias ou grupos de amigos. A casa oferece acesso direto ao exterior, onde poderá desfrutar de zonas de lazer, estacionamento e da tranquilidade típica dos Canhas.\n\nO espaço\nA moradia desenvolve-se em dois pisos e está rodeada por um jardim com vista para o mar e a montanha. O interior é acolhedor e bem equipado, pensado para proporcionar uma estadia confortável e tranquila. Dispõe de três quartos, duas casas de banho, uma cozinha moderna totalmente equipada, e uma sala de estar com TV e Wi-Fi de alta velocidade. Há estacionamento dentro da propriedade e também disponível nas imediações.\n\nNota: Na mesma moradia encontra-se um pequeno estúdio independente, que pode estar ocupado ao mesmo tempo. O acesso ao jardim e à área exterior é partilhado, mas a moradia e o estúdio têm entradas separadas e total privacidade interior. É possível reservar a casa na sua totalidade, ficando a mesma com 4 quartos de dormir, 3 casas de banho, cozinha completa e kitchenette e sala de estar espaçosa.\n\nAcesso dos viajantes\nOs hóspedes têm acesso exclusivo ao interior da moradia e podem usufruir livremente do jardim e da varanda exterior. O acesso à propriedade é feito por um portão comum, partilhado com o estúdio independente, e cada unidade tem a sua própria porta de entrada. Não são permitidos animais, festas nem fumar dentro da casa.\n\nDados do registo\n170414/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire home",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "guests": 6,
+    "pricePerNight": "€200",
+    "rating": 5,
+    "superhost": true,
+    "amenities": ["Wi-Fi", "Dedicated workspace", "Kitchen", "Free Parking", "Free Street Parking", "Washing Machine", "Dryer", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Cooking basics", "Dishes and silverware", "BBQ utensils", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Hot water", "Shower gel", "Hangers", "Bed linen", "Extra pillows and blankets", "Iron", "Closet", "TV", "Crib", "High chair", "Fireplace", "Fire extinguisher", "First aid kit", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "BBQ grill", "Waterfront", "Sea view", "Mountain view", "Self check-in", "Safe", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.7093, "longitude": -17.1161 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": true,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Erika", "rating": 5, "comment": "Ótimo local para uma escapadela de férias, localização absolutamente bonita e anfitrião superprestável.", "date": "June 2026" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "apartamento-precioso-vista-mar": {
+    "id": "apartamento-precioso-vista-mar",
+    "title": "Apartamento Precioso | Varanda ampla e Vista Mar",
+    "description": "Apartamento T2 para 4 hóspedes, com varanda enorme em toda a frente e vista mar aberta. Condomínio com piscina e áreas verdes, AC em toda a casa, Wi-Fi e estacionamento. Zona muito tranquila, perto da praia, supermercados e restaurantes.\n\nO espaço\nBem-vindo ao Apartamento Precioso, no Arco da Calheta — um T2 luminoso e confortável, ideal para famílias, onde a estrela é a varanda enorme em toda a frente do apartamento, com vista mar incrível e espaço para relaxar ao sol, ler ou simplesmente apreciar o pôr do sol.\n\nO apartamento tem capacidade até 4 hóspedes, com 2 quartos, 2 casas de banho completas (uma em suite), sala acolhedora e uma cozinha totalmente equipada para que se sinta em casa. Para maior conforto em qualquer estação, conta com ar condicionado em toda a casa, Wi-Fi, e estacionamento no interior.\n\nInserido num condomínio agradável, poderá ainda usufruir de piscina e áreas verdes — perfeito para dias tranquilos depois de explorar a Madeira.\n\nLocalização excelente: zona calma, com acesso fácil a praia, supermercados e restaurantes (ideal para férias sem stress).\n\nAcesso dos viajantes\nOs hóspedes têm acesso exclusivo a todo o apartamento. O condomínio disponibiliza piscina e zonas ajardinadas (uso conforme regras do condomínio).\n\nOutras coisas a ter em conta\nZona muito tranquila — perfeita para descansar. Não é permitido fumar, festas ou animais de estimação. Ideal para famílias e estadias relaxadas. Horário da piscina: 8:00 até às 21:00 horas.\n\nDados do registo\n172624/AL",
+    "location": "Arco da Calheta, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "guests": 4,
+    "pricePerNight": "€150",
+    "rating": 5,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Portable fans", "Free Parking", "Pool", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Trash compactor", "Cooking basics", "Dishes and silverware", "Dining table", "Hair dryer", "Cleaning products", "Outdoor shower", "Hot water", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Closet", "TV", "Fire extinguisher", "First aid kit", "Waterfront", "Patio or balcony", "Outdoor furniture", "Outdoor dining area", "Sun loungers", "Sea view", "Ocean view", "Mountain view", "Valley view", "Beach view", "Long-term stays allowed", "Host greets you"],
+    "coordinates": { "latitude": 32.7095, "longitude": -17.1459 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Gloria", "rating": 5, "comment": "Tivemos uma estadia maravilhosa neste espaço. O apartamento é encantador, impecável, bem equipado.", "date": "July 2026" },
+      { "author": "Carla", "rating": 5, "comment": "A Catarina é uma boa anfitriã e fez-nos sentir bem-vindos. O apartamento fica numa localização tranquila.", "date": "May 2026" },
+      { "author": "Judith", "rating": 5, "comment": "Tivemos uma estadia incrível nesta bela propriedade na Madeira. A vista para o oceano era absolutamente.", "date": "March 2026" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "casa-moises-filhos-sunset-view": {
+    "id": "casa-moises-filhos-sunset-view",
+    "title": "Casa Moisés & Filhos – Sunset View",
+    "description": "Casa nova nos Canhas com vista panorâmica deslumbrante sobre o mar, a montanha e a costa sul da Madeira. Dispõe de 2 suites, 1 WC adicional e sofá-cama. Tem ar condicionado em toda a casa, Wi-Fi, cozinha completa, máquina de lavar loiça, roupa e secar. Tudo a pensar numa estadia confortável com uma vista verdadeiramente inesquecível.\n\nO espaço\nBem-vindo ao Sunset Viewpoint, uma casa novinha em folha nos Canhas, pensada para oferecer conforto, tranquilidade e uma vista absolutamente inesquecível.\n\nCom uma localização privilegiada, esta propriedade destaca-se pela sua vista panorâmica soberba sobre o mar, a montanha, a vila da Ponta do Sol e o Arco da Calheta. Seja ao acordar, ao relaxar ao final do dia ou ao assistir ao pôr do sol, a paisagem é, sem dúvida, o grande destaque desta casa.\n\nO alojamento dispõe de 2 quartos confortáveis, ambos com casa de banho privativa, proporcionando mais privacidade e comodidade aos hóspedes. Existe ainda uma casa de banho adicional, ideal para maior conveniência durante a estadia. A casa acomoda também mais 2 pessoas através de um sofá-cama, sendo uma excelente opção para famílias ou pequenos grupos.\n\nA cozinha está totalmente equipada para que se sinta em casa, incluindo máquina de lavar loiça, máquina de café, máquina de lavar roupa e máquina de secar roupa, além de tudo o que é necessário para uma estadia prática e confortável. Toda a casa está equipada com ar condicionado, garantindo bem-estar em qualquer altura do ano.\n\nO Sunset Viewpoint é o refúgio ideal para quem procura descansar, desfrutar da beleza da Madeira e ficar num espaço moderno, acolhedor e preparado ao detalhe.\n\nDados do registo\n175778/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire home",
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "guests": 6,
+    "pricePerNight": "€180",
+    "rating": 0,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Heating", "Free Street Parking", "Washing Machine", "Dryer", "Dishwasher", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Trash compactor", "Cooking basics", "Dishes and silverware", "Dining table", "Coffee", "Hair dryer", "Cleaning products", "Shampoo", "Conditioner", "Body soap", "Hot water", "Shower gel", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Crib", "Window guards", "Fire extinguisher", "First aid kit", "Private entrance", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "Sun loungers", "Sea view", "Mountain view", "Ocean view", "Valley view", "Single-story home", "Long-term stays allowed", "Host greets you"],
+    "coordinates": { "latitude": 32.713, "longitude": -17.1178 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "come-together-apartment-sea-view": {
+    "id": "come-together-apartment-sea-view",
+    "title": "Come Together Apartment - Sea View",
+    "description": "Apartamento T1 no Caniço de Baixo, perfeito para casais, amigos ou pequenas famílias (até 3 hóspedes, com sofá-cama). Desfrute da varanda com vista mar lateral, Wi-Fi, cozinha totalmente equipada e estacionamento seguro na garagem. Relaxe na sala com TV plasma enorme após um dia de praia, mergulhos e passeios. Localização premium: restaurantes, praias e atividades a poucos minutos. Conforto, praticidade e Madeira mesmo à porta!\n\nO espaço\nUm T1 luminoso no Caniço de Baixo, pensado para descansar e viver a Madeira com conforto: varanda com vista mar lateral, sala agradável com sofá-cama e TV grande, cozinha equipada para refeições em casa e uma casa de banho ampla com banheira para relaxar. Situado no 2º piso com elevador, oferece ainda estacionamento privado em garagem, Wi-Fi, ventoinha no quarto e ar condicionado portátil para maior comodidade durante todo o ano.\n\nDados do registo\n174628/AL",
+    "location": "Caniço, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "guests": 3,
+    "pricePerNight": "€95",
+    "rating": 5,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Elevator", "Washing Machine", "Air Conditioning", "Ceiling fan", "Portable fans", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Trash compactor", "Cooking basics", "Dishes and silverware", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Body soap", "Bidet", "Hot water", "Shower gel", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Closet", "TV", "Sound system", "Crib", "High chair", "Board games", "Fire extinguisher", "First aid kit", "Waterfront", "Patio or balcony", "Outdoor furniture", "Outdoor dining area", "Sea view", "Ocean view", "Mountain view", "Single-story home", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.6432, "longitude": -16.832 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [
+      { "author": "Shanti", "rating": 5, "comment": "Excelente apartamento em excelente localização! A partir daí, pode chegar rapidamente a qualquer lugar.", "date": "May 2026" }
+    ],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "villa-atlantico": {
+    "id": "villa-atlantico",
+    "title": "Villa Atlântico",
+    "description": "A Villa Atlântico é uma moradia espaçosa e acolhedora que se destaca pelo seu grande jardim, ideal para famílias, amigos ou para quem procura uma estadia tranquila e rodeada de natureza na Madeira. Com 3 quartos, 3 casas de banho, 2 cozinhas completas, 2 salas de estar e sala de jantar, oferece conforto, funcionalidade e espaço para estadias curtas ou prolongadas.\n\nO espaço\nA Villa Atlântico é uma moradia distinta e espaçosa, pensada para quem valoriza conforto, privacidade e a tranquilidade de um cenário verdadeiramente sereno na Madeira. Com 3 quartos, 3 casas de banho, cozinha totalmente equipada, sala de jantar e sala de estar, a propriedade oferece um ambiente acolhedor e harmonioso, ideal para famílias, casais ou grupos de amigos que procuram uma estadia com charme e total comodidade.\n\nRodeada por natureza e envolta numa atmosfera de calma, a moradia destaca-se pela sensação de exclusividade e sossego que proporciona. O amplo jardim, cuidadosamente enquadrado por flores, ervas aromáticas e árvores de fruto, convida a abrandar o ritmo, desfrutar do ar livre e viver momentos de puro relaxamento com total privacidade.\n\nLocalizada nos Moledos, Madalena do Mar, a cerca de 1,5 km da praia, a Villa Atlântico beneficia de uma localização tranquila, perfeita para descansar e, ao mesmo tempo, descobrir a beleza da costa sul da ilha. A apenas 3 minutos a pé, encontra-se um miradouro com uma vista deslumbrante sobre Madalena do Mar, ideal para apreciar sunsets inesquecíveis. Com Wi-Fi gratuito e estacionamento privado, esta é uma verdadeira escapadinha de serenidade para viver a Madeira com tempo, conforto e autenticidade.\n\nAcesso dos viajantes\nO check-in é feito presencialmente, sendo a chegada acompanhada pelo anfitrião, de forma a dar as boas-vindas, apresentar o espaço e esclarecer qualquer dúvida inicial. A propriedade dispõe ainda de espaço para estacionamento de carro, oferecendo maior comodidade durante a estadia.\n\nOutras coisas a ter em conta\nO alojamento está situado numa zona sossegada da Ponta do Sol, a cerca de 1,5 km da praia, sendo uma excelente opção para quem procura descanso e uma boa base para explorar a Madeira. A apenas 3 minutos a pé, existe um miradouro com uma vista maravilhosa, ideal para apreciar o pôr-do-sol e contemplar Madalena do Mar. Recomendamos o uso de carro para maior comodidade nas deslocações. Pedimos aos hóspedes que respeitem o espaço e a tranquilidade da zona envolvente para garantir uma boa experiência para todos.\n\nDados do registo\n13504/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire home",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "guests": 7,
+    "pricePerNight": "€210",
+    "rating": 0,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Washing Machine", "Dishwasher", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Trash compactor", "Cooking basics", "Dishes and silverware", "BBQ utensils", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Bidet", "Hot water", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Crib", "Heating", "Smoke alarm", "Carbon monoxide alarm", "Fire extinguisher", "First aid kit", "Private entrance", "Patio or balcony", "Backyard", "Outdoor furniture", "Outdoor dining area", "BBQ grill", "Sun loungers", "Patio view", "Garden view", "Mountain view", "Ocean view", "Valley view", "Sea view"],
+    "coordinates": { "latitude": 32.70725, "longitude": -17.13701 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 7 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "villa-atlantico-balcony-apartment": {
+    "id": "villa-atlantico-balcony-apartment",
+    "title": "Villa Atlântico Balcony Apartment",
+    "description": "Apartamento acolhedor no andar superior da moradia Villa Atlântico, ideal para casais, pequenas famílias ou para quem procura uma estadia tranquila na Madeira. Dispõe de cozinha, casa de banho, quarto e sala com sofá-cama, oferecendo conforto e funcionalidade. Os grandes destaques são a varanda espaçosa, com rede e mesa exterior, perfeita para fazer refeições ao ar livre, e o grande jardim, ideal para aproveitar o ambiente calmo da propriedade e tornar a estadia ainda mais agradável.\n\nO espaço\nEste alojamento corresponde ao andar superior da moradia e foi pensado para proporcionar uma estadia confortável e prática. O espaço inclui um quarto, uma casa de banho, uma sala com sofá-cama e uma cozinha totalmente equipada, permitindo que os hóspedes se sintam em casa durante a estadia. A ampla varanda exterior é um dos pontos fortes da propriedade, ideal para momentos de descanso, pequeno-almoço ao ar livre ou refeições em ambiente descontraído.\n\nNo exterior, os hóspedes podem desfrutar de um grande jardim, ideal para aproveitar o ambiente calmo da propriedade e tornar a estadia ainda mais agradável.\n\nAcesso dos viajantes\nO alojamento corresponde ao andar superior da moradia, com entrada independente/privada. O check-in é feito presencialmente, sendo a chegada acompanhada pelo anfitrião, de forma a dar as boas-vindas, apresentar o espaço e esclarecer qualquer dúvida inicial. A propriedade dispõe ainda de espaço para estacionamento de carro, oferecendo maior comodidade durante a estadia.\n\nOutras coisas a ter em conta\nO alojamento está situado numa zona sossegada da Ponta do Sol, a cerca de 1,5 km da praia, sendo uma excelente opção para quem procura descanso e uma boa base para explorar a Madeira. A apenas 3 minutos a pé, existe um miradouro com uma vista maravilhosa, ideal para apreciar o pôr-do-sol e contemplar a Madalena do Mar. Recomendamos o uso de carro para maior comodidade nas deslocações. Pedimos aos hóspedes que respeitem o espaço e a tranquilidade da zona envolvente para garantir uma boa experiência para todos.\n\nDados do registo\n13504/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "guests": 3,
+    "pricePerNight": "€100",
+    "rating": 0,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Washing Machine", "Dishwasher", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Blender", "Trash compactor", "Cooking basics", "Dishes and silverware", "BBQ utensils", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Hot water", "Shower gel", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Crib", "Heating", "Fire extinguisher", "First aid kit", "Patio or balcony", "Backyard", "Outdoor furniture", "Hammock", "Outdoor dining area", "BBQ grill", "Sun loungers", "Garden view", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.708, "longitude": -17.1381 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "cantinho-de-santa-teresa": {
+    "id": "cantinho-de-santa-teresa",
+    "title": "Cantinho de Santa Teresa",
+    "description": "Desfrute de uma estadia confortável neste apartamento central com um quarto em Canhas, localizado no Edifício Santa Teresa. Dispõe de ar condicionado, estacionamento privado, uma casa de banho completa e uma cozinha totalmente equipada. A uma curta distância a pé, encontrará uma farmácia, cabeleireiro, cafés e vários restaurantes, tornando-a uma base prática e conveniente para explorar a Madeira.\n\nO espaço\nBem-vindo a este apartamento confortável e bem equipado, com um quarto, localizado no Edifício Santa Teresa, no coração de Canhas, na Madeira. Concebido para proporcionar uma estadia relaxante e conveniente, o apartamento dispõe de um quarto acolhedor, uma casa de banho completa, uma área de estar luminosa e uma cozinha totalmente equipada com tudo o que precisa para preparar refeições durante a sua estadia.\n\nSaia para a espaçosa varanda privada, mobilada com uma mesa e cadeiras, onde pode desfrutar do seu café da manhã, fazer refeições ao ar livre ou simplesmente relaxar ao ar fresco.\n\nPara o seu conforto e comodidade, o apartamento também inclui ar condicionado, uma máquina de lavar roupa, estacionamento privado e uma máquina de café italiana para os amantes do café.\n\nA sua localização central permite um acesso fácil a restaurantes, cafés, uma farmácia, um cabeleireiro e outros serviços essenciais, todos a uma curta distância a pé.\n\nAcesso dos viajantes\nOs hóspedes terão acesso exclusivo ao apartamento inteiro, incluindo o quarto, a casa de banho, a área de estar, a cozinha totalmente equipada e a espaçosa varanda privada. Também está disponível um lugar de estacionamento privado. O acesso ao apartamento é independente, permitindo que os hóspedes façam o check-in e desfrutem da sua estadia com total flexibilidade e privacidade.\n\nDados do registo\n175961/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "guests": 3,
+    "pricePerNight": "€90",
+    "rating": 0,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Air Conditioning", "Free Parking", "Free Street Parking", "Washing Machine", "Dryer", "Elevator", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Blender", "Cooking basics", "Dishes and silverware", "Dining table", "Coffee", "Hair dryer", "Cleaning products", "Bidet", "Hot water", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Iron", "Closet", "TV", "Crib", "Fire extinguisher", "First aid kit", "Patio or balcony", "Outdoor furniture", "Outdoor dining area", "Single-story home", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.6973, "longitude": -17.117 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  },
+
+  "canhas-ocean-view": {
+    "id": "canhas-ocean-view",
+    "title": "Canhas Ocean View",
+    "description": "O Canhas Ocean View é um apartamento com dois quartos espaçoso e confortável, com 2 casas de banho e uma bonita vista mar. Localizado no centro dos Canhas, fica perto de restaurantes, cafés, lojas e outros serviços essenciais. Luminoso, acolhedor e bem situado, é ideal para casais, famílias ou pequenos grupos que queiram explorar a Madeira com conforto e conveniência.\n\nO espaço\nO Canhas Ocean View é um apartamento T2 espaçoso, luminoso e confortável, ideal para uma estadia relaxante na Madeira. Dispõe de 2 quartos, 2 casas de banho, áreas amplas e uma agradável vista mar, criando um ambiente acolhedor e tranquilo.\n\nO apartamento conta ainda com uma mesa exterior para refeições ao ar livre, perfeita para aproveitar o bom clima da ilha, e uma cozinha totalmente equipada com tudo o que é necessário para uma estadia prática e confortável. É uma excelente opção para casais, famílias ou pequenos grupos que valorizem espaço, conforto e uma localização conveniente nos Canhas.\n\nAcesso dos viajantes\nOs hóspedes terão acesso a todo o apartamento, incluindo os 2 quartos, as 2 casas de banho, a cozinha totalmente equipada, a sala de estar e a área exterior com mesa para refeições. Todo o espaço foi preparado para garantir conforto, privacidade e uma estadia tranquila. Os hóspedes poderão usufruir da propriedade de forma exclusiva durante toda a estadia.\n\nDados do registo\n176573/AL",
+    "location": "Canhas, Madeira",
+    "type": "Entire apartment",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "guests": 4,
+    "pricePerNight": "€130",
+    "rating": 0,
+    "superhost": false,
+    "amenities": ["Wi-Fi", "Kitchen", "Free Parking", "Washing Machine", "Dishwasher", "Elevator", "Hot Tub", "Refrigerator", "Freezer", "Microwave", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Blender", "Trash compactor", "Cooking basics", "Dishes and silverware", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Bidet", "Hot water", "Shower gel", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Crib", "Portable fans", "Fire extinguisher", "First aid kit", "Private entrance", "Patio or balcony", "Outdoor furniture", "Outdoor dining area", "Sea view", "Ocean view", "Mountain view", "Valley view", "Single-story home", "Gated community", "Solar panels", "Long-term stays allowed"],
+    "coordinates": { "latitude": 32.6979, "longitude": -17.12 },
+    "host": {
+      "name": "Catarina",
+      "since": 2024,
+      "superhost": false,
+      "description": "Professional host dedicated to making your stay perfect."
+    },
+    "reviews": [],
+    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
+    "media": { "imageCount": 0, "imageExt": "jpg" }
+  }
+}
