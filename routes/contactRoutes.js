@@ -1,8 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const { getContactPage, submitContactForm } = require('../controllers/contactController');
+const { getContactPage } = require('../controllers/contactController');
 
-router.get('/',  getContactPage);
-router.post('/', submitContactForm);
+router.get('/', getContactPage);
 
 module.exports = router;

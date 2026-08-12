@@ -99,6 +99,25 @@
       margin-bottom: 1.5rem;
     }
 
+    .form-alert {
+      padding: 0.9rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.98rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-alert-success {
+      background: #e6f4ea;
+      color: #1e6b34;
+      border: 1px solid #b6e0c3;
+    }
+
+    .form-alert-error {
+      background: #fdecea;
+      color: #a12a24;
+      border: 1px solid #f3c1bd;
+    }
+
     .form-group {
       margin-bottom: 1.5rem;
     }
@@ -200,7 +219,12 @@
       <!-- Right Side: Contact Form -->
       <div class="contact-form">
         <h2>Send Us a Message</h2>
-        <form action="/contact" method="POST">
+        <p class="form-alert form-alert-success" id="form-success" style="display:none">Thanks — your message was sent. We'll get back to you soon.</p>
+        <p class="form-alert form-alert-error" id="form-error" style="display:none">Something went wrong and your message wasn't sent. Please try again, or email us directly at geral@meetmyhomes.com.</p>
+        <form id="contact-form">
+          <input type="hidden" name="access_key" value="<%= web3formsKey %>">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="form-group">
             <label for="name">Name (required)</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -216,12 +240,48 @@
             <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
           </div>
 
-          <button type="submit">Send</button>
+          <button type="submit" id="contact-submit-btn">Send</button>
         </form>
       </div>
     </div>
   </section>
 
   <%- include('partials/footer') %>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('contact-submit-btn');
+      const successEl = document.getElementById('form-success');
+      const errorEl = document.getElementById('form-error');
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const result = await response.json();
+        if (result.success) {
+          successEl.style.display = 'block';
+          form.reset();
+        } else {
+          console.error('Web3Forms submission failed:', result.message);
+          errorEl.style.display = 'block';
+        }
+      } catch (err) {
+        console.error('Web3Forms submission error:', err);
+        errorEl.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+      }
+    });
+  </script>
 </body>
 </html>

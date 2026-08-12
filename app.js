@@ -30,7 +30,7 @@ app.use((req, res, next) => {
     `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com https://cdnjs.cloudflare.com`,
     `img-src 'self' data: blob: https://*.googleapis.com https://*.gstatic.com https://www.google.com ${cloudinaryImgSrc}`,
     `font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com`,
-    `connect-src 'self' https://maps.googleapis.com https://translate.googleapis.com https://translate-pa.googleapis.com`,
+    `connect-src 'self' https://maps.googleapis.com https://translate.googleapis.com https://translate-pa.googleapis.com https://api.web3forms.com`,
     `media-src 'self' blob: ${cloudinaryImgSrc}`,
     `frame-src 'self' https://www.google.com`,
   ].join('; '));
