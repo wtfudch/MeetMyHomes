@@ -37,6 +37,33 @@
     .view-details-btn:hover { background:#E61E4D; }
     @media (max-width:768px) { .listing-container { flex-direction:column; } .image-section { min-width:100%; } }
 
+    /* Overview map */
+    .listings-map-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    #listings-map {
+      height: 420px;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8f9fa;
+    }
+    .map-loading {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+    }
+    .map-info-window { font-family: 'Roboto', sans-serif; }
+    .map-info-window h3 { margin: 0 0 4px; font-size: 0.95rem; }
+    .map-info-window p { margin: 0 0 8px; font-size: 0.85rem; color: #666; }
+    .map-info-window a { color: #FF385C; font-weight: 600; text-decoration: none; font-size: 0.85rem; }
+
     /* Search filters */
     .filters-bar {
       background: #fff;
@@ -103,6 +130,16 @@
 
   <div class="page-container">
     <h1 class="page-title">Home Rentals</h1>
+
+    <div class="listings-map-section">
+      <div id="listings-map"
+           data-listings='<%- JSON.stringify(listings
+             .filter(l => l.coordinates && l.coordinates.latitude && l.coordinates.longitude)
+             .map(l => ({ id: l.id, title: l.title, location: l.location, lat: l.coordinates.latitude, lng: l.coordinates.longitude }))
+           ) %>'>
+        <div class="map-loading">Loading map…</div>
+      </div>
+    </div>
 
     <div class="filters-bar" id="filters-bar">
       <div class="filters-row">
@@ -288,5 +325,8 @@
       applyFilters();
     });
   </script>
+
+  <script src="/js/listingsMap.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= googleMapsApiKey %>&loading=async&libraries=marker&v=beta&callback=initListingsMap" async defer></script>
 </body>
 </html>

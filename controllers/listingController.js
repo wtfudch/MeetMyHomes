@@ -1,6 +1,7 @@
 const listingsData       = require('../data/listings.json');
 const { buildListingMedia } = require('../config/media');
 const { getAmenityIcon } = require('../config/amenityIcons');
+const { getBusyRangesForListing } = require('../config/calendarSync');
 
 // Enrich each listing with generated image URLs, amenity icons and a numeric
 // price (parsed once from "€160" style strings) so the search filters on the
@@ -36,11 +37,31 @@ const getAllListings = (req, res) => {
 };
 
 // ── GET /listings/:id ───────────────────────────────────────────────────────
-const getListingById = (req, res) => {
+const getListingById = async (req, res) => {
   const listing = listings[req.params.id];
   if (!listing) return res.status(404).render('404', { title: 'Listing not found' });
 
-  res.render('listings/listing', { title: listing.title, listing });
+  // getBusyRangesForListing() already fails soft internally (bad/slow feeds
+  // just contribute no ranges), but guard here too so nothing about the sync
+  // can ever take down the listing page itself.
+  let busyRanges = [];
+  try {
+    busyRanges = await getBusyRangesForListing(listing);
+  } catch (err) {
+    console.error(`Unexpected calendar sync error for ${listing.id}:`, err);
+  }
+
+  try {
+    res.render('listings/listing', {
+      title: listing.title,
+      listing,
+      busyRanges,
+      web3formsKey: process.env.WEB3FORMS_ACCESS_KEY,
+    });
+  } catch (err) {
+    console.error(`Failed to render listing ${listing.id}:`, err);
+    res.status(500).render('404', { title: 'Something went wrong' });
+  }
 };
 
 module.exports = { getAllListings, getListingById, listings };

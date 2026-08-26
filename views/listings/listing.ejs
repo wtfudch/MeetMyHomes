@@ -19,6 +19,10 @@
     .contact-info p { margin:10px 0; font-size:16px; }
     .contact-btn { float:right; padding:10px 20px; background:#f8f9fa; color:#2c3e50; text-decoration:none; border-radius:25px; font-size:1.1rem; font-weight:600; border:2px solid #79a9ee; cursor:pointer; transition:background .3s,transform .2s; }
     .contact-btn:hover { background:#dfe6e9; transform:translateY(-2px); }
+    .whatsapp-btn { float:right; display:inline-flex; align-items:center; gap:8px; padding:10px 20px; margin-right:12px; background:#25D366; color:#fff; text-decoration:none; border-radius:25px; font-size:1.1rem; font-weight:600; border:2px solid #25D366; cursor:pointer; transition:background .3s,transform .2s; }
+    .whatsapp-btn:hover { background:#1ebe5a; transform:translateY(-2px); }
+    .whatsapp-btn i { font-size:1.2rem; }
+    .modal-whatsapp-btn { float:none; display:flex; justify-content:center; margin:20px 0 0; }
   </style>
 </head>
 <body>
@@ -37,32 +41,104 @@
       <div class="price-section">
         <span class="price"><%= listing.pricePerNight %></span>
         <span class="text-muted"> / night</span>
+        <% const rawHostPhone = listing.host.phone || '(+351) 964 696 600'; %>
+        <% const whatsappNumber = rawHostPhone.replace(/[^\d]/g, ''); %>
+        <% const whatsappMessage = encodeURIComponent(`Olá! Tenho interesse no alojamento "${listing.title}".`); %>
+        <a href="https://wa.me/<%= whatsappNumber %>?text=<%= whatsappMessage %>"
+           target="_blank" rel="noopener" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
         <button class="contact-btn" id="contact-btn">Contact Host</button>
       </div>
     </div>
 
-    <!-- Gallery -->
-    <div class="gallery-section">
-      <div class="thumbnail-grid">
-        <% listing.images.slice(0, 5).forEach((image, index) => { %>
-          <div class="grid-item">
-            <img src="<%= image %>"
-                 class="grid-thumb <%= index === 0 ? 'active' : '' %>"
-                 data-index="<%= index %>"
-                 alt="Photo <%= index + 1 %>"
-                 loading="<%= index === 0 ? 'eager' : 'lazy' %>">
-          </div>
-        <% }); %>
-        <% if (listing.images.length > 5) { %>
-          <div class="grid-item see-more-container">
-            <button class="see-more-btn" id="see-more-btn">
-              <span>See More</span>
-              <i class="fas fa-chevron-right"></i>
-              <div class="photo-count">+<%= listing.images.length - 5 %></div>
-            </button>
-          </div>
-        <% } %>
+    <!-- Gallery + booking widget -->
+    <div class="gallery-booking-row">
+      <div class="gallery-section">
+        <div class="thumbnail-grid">
+          <% listing.images.slice(0, 5).forEach((image, index) => { %>
+            <div class="grid-item">
+              <img src="<%= image %>"
+                   class="grid-thumb <%= index === 0 ? 'active' : '' %>"
+                   data-index="<%= index %>"
+                   alt="Photo <%= index + 1 %>"
+                   loading="<%= index === 0 ? 'eager' : 'lazy' %>">
+            </div>
+          <% }); %>
+          <% if (listing.images.length > 5) { %>
+            <div class="grid-item see-more-container">
+              <button class="see-more-btn" id="see-more-btn">
+                <span>See More</span>
+                <i class="fas fa-chevron-right"></i>
+                <div class="photo-count">+<%= listing.images.length - 5 %></div>
+              </button>
+            </div>
+          <% } %>
+        </div>
       </div>
+
+      <!-- Availability & Booking -->
+      <aside class="booking-widget">
+        <h2>Availability</h2>
+
+        <div class="availability-calendar" id="availability-calendar" data-busy='<%- JSON.stringify(busyRanges || []) %>'>
+          <div class="calendar-header">
+            <button type="button" class="calendar-nav-btn" id="calendar-prev" aria-label="Previous month"><i class="fas fa-chevron-left"></i></button>
+            <span class="calendar-month-label" id="calendar-month-label"></span>
+            <button type="button" class="calendar-nav-btn" id="calendar-next" aria-label="Next month"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="calendar-weekdays">
+            <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+          </div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+          <div class="calendar-legend">
+            <span><i class="calendar-dot available"></i> Free</span>
+            <span><i class="calendar-dot booked"></i> Booked</span>
+            <span><i class="calendar-dot selected"></i> Selected</span>
+          </div>
+        </div>
+
+        <form id="booking-request-form" class="booking-request-form">
+          <input type="hidden" name="access_key" value="<%= web3formsKey %>">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="subject" value="Booking request — <%= listing.title %>">
+          <input type="hidden" name="listing" value="<%= listing.title %>">
+          <input type="hidden" name="check_in" id="booking-checkin">
+          <input type="hidden" name="check_out" id="booking-checkout">
+
+          <p class="selected-dates-summary" id="selected-dates-summary">Select check-in &amp; check-out</p>
+
+          <details class="booking-details-toggle">
+            <summary>Request to book →</summary>
+
+            <div class="form-group">
+              <label for="booking-name">Name (required)</label>
+              <input type="text" id="booking-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="booking-email">Email (required)</label>
+              <input type="email" id="booking-email" name="email" placeholder="Your email" required>
+            </div>
+            <div class="form-group">
+              <label for="booking-phone">Phone</label>
+              <input type="tel" id="booking-phone" name="phone" placeholder="Your phone (optional)">
+            </div>
+            <div class="form-group">
+              <label for="booking-guests">Guests</label>
+              <input type="number" id="booking-guests" name="guests" min="1" max="<%= listing.guests || 20 %>" placeholder="Number of guests">
+            </div>
+            <div class="form-group">
+              <label for="booking-message">Message</label>
+              <textarea id="booking-message" name="message" rows="3" placeholder="Anything else? (optional)"></textarea>
+            </div>
+
+            <p class="form-alert form-alert-success" id="booking-success" style="display:none">Thanks — request sent! We'll confirm and get back to you.</p>
+            <p class="form-alert form-alert-error" id="booking-error" style="display:none">Something went wrong. Please try again, or call us directly.</p>
+
+            <button type="submit" class="booking-submit-btn" id="booking-submit-btn" disabled>Select dates to request booking</button>
+          </details>
+        </form>
+      </aside>
     </div>
 
     <!-- Photo Modal -->
@@ -78,6 +154,10 @@
           <p><strong>Email:</strong> <%= listing.host.email || 'geral@meetmyhomes.com' %></p>
           <p><strong>Phone:</strong> <%= listing.host.phone || '(+351) 964 696 600' %></p>
         </div>
+        <a href="https://wa.me/<%= whatsappNumber %>?text=<%= whatsappMessage %>"
+           target="_blank" rel="noopener" class="whatsapp-btn modal-whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
       </div>
     </div>
 
@@ -233,6 +313,7 @@
   <%- include('../partials/footer') %>
 
   <script src="/js/listing.js"></script>
+  <script src="/js/calendar.js"></script>
   <script>
     document.getElementById('contact-btn').addEventListener('click', () => {
       document.getElementById('contact-modal').style.display = 'block';
