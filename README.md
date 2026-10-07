@@ -155,10 +155,54 @@ Já não há nenhuma chave escrita no código novo — tudo vem de `process.env`
    ```
    GOOGLE_MAPS_API_KEY=...
    CLOUDINARY_CLOUD_NAME=...
+   WEB3FORMS_ACCESS_KEY=...
    NODE_ENV=production
    ```
-   (`PORT` é definido automaticamente pelo Render — não precisas de o definir.)
+   (`PORT` é definido automaticamente pelo Render — não precisas de o definir.
+   `WEB3FORMS_ACCESS_KEY` é a chave que faz chegar ao teu email o formulário de
+   contacto e os pedidos de reserva — sem ela esses formulários falham.)
 5. Liga o teu domínio em **Settings → Custom Domain**.
+
+---
+
+## 6. Calendário de disponibilidade e pedidos de reserva
+
+Cada página de alojamento tem um calendário que bloqueia as datas já ocupadas
+e um formulário de "pedido de reserva" (chega-te por email via Web3Forms; a
+confirmação é feita por ti, fora do site).
+
+**De onde vêm as datas ocupadas:** da folha de Excel de reservas (uma linha por
+reserva: nome do alojamento, data de entrada, data de saída). Para atualizar:
+
+```bash
+npm run import-reservations -- "C:\caminho\para\reservas.xlsx"
+```
+
+Isto reescreve `data/bookings.json`. Depois faz commit e push (o Render publica
+sozinho). O comando mostra no fim o que ficou de fora: nomes sem
+correspondência, linhas incompletas, reservas sobrepostas no mesmo alojamento e
+alojamentos que não aparecem na folha (esses mostram todas as datas livres).
+
+- A correspondência entre o nome na folha e o alojamento do site está em
+  `data/reservations-names.json` (`"Nome na folha": "id-do-alojamento"`).
+  Para ignorar um nome de propósito, põe `null` como valor.
+- **Reserva que cobre mais do que um alojamento** (por exemplo, o Arco
+  Apartment e a Casa Neves, que ficam no mesmo prédio): dá-lhe um nome próprio
+  na folha e junta os ids numa lista, e a reserva bloqueia todos eles:
+  `"Arco Apartment + Casa Neves": ["arco-apartment", "casa-neves"]`.
+  Até esse nome existir no ficheiro, o comando mostra essas linhas em "NOT
+  IMPORTED" em vez de as perder.
+- **Casa completa e metades** (`data/linked-listings.json`): a casa completa
+  bloqueia as suas metades e cada metade bloqueia a casa completa, mas as
+  metades não se bloqueiam entre si. Hoje: Bella Vista Home (Studio + casa de 3
+  quartos) e Villa Atlântico (Garden + Balcony). Se uma reserva da casa
+  completa se sobrepuser a uma de uma metade, o comando assinala-o e a da casa
+  completa tem prioridade (só aparecem os conflitos de hoje em diante).
+- O dia de saída fica livre para uma nova entrada, e pode ser escolhido como
+  saída por quem chega antes de outra reserva começar.
+- Opcional: um alojamento também pode ter links `.ics` do Airbnb/Booking em
+  `data/listings.json` (`"calendarSync": { "airbnbIcal": "...", "bookingIcal": "..." }`);
+  são lidos ao vivo e somados às reservas da folha.
 
 ---
 

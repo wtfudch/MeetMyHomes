@@ -139,7 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.disabled = true;
       } else if (isBusy) {
         cell.classList.add('booked');
-        cell.disabled = true;
+        // A day on which another booking starts can still be a check-out day:
+        // the guest leaves in the morning. So once a check-in is picked, a
+        // booked day stays clickable as long as every night before it is free.
+        const canCheckOutHere = checkIn && !checkOut && iso > checkIn && isRangeAvailable(checkIn, iso);
+        if (canCheckOutHere) {
+          cell.classList.add('checkout-only');
+          cell.addEventListener('click', () => handleDayClick(iso));
+        } else {
+          cell.disabled = true;
+        }
       } else {
         cell.classList.add('available');
         cell.addEventListener('click', () => handleDayClick(iso));

@@ -1,16 +1,33 @@
 /**
  * config/calendarSync.js
  *
- * Fetches each listing's Airbnb/Booking.com "export calendar" (.ics) feed
- * and turns it into a list of busy date ranges, so the availability
- * calendar on the listing page can grey out dates that are already booked
- * on those platforms.
+ * Builds the list of busy date ranges the availability calendar on each
+ * listing page greys out. Two sources are merged:
  *
- * A listing opts in by having a `calendarSync` object in data/listings.json:
- *   "calendarSync": { "airbnbIcal": "https://...ics", "bookingIcal": "https://...ics" }
- * Either key is optional. Listings without `calendarSync` simply show no
- * synced busy dates (the calendar still works, just without that data).
+ * 1. data/bookings.json — generated from the reservations spreadsheet with
+ *    `npm run import-reservations` (see scripts/import-reservations.js).
+ * 2. Optional Airbnb/Booking.com "export calendar" (.ics) feeds, fetched live.
+ *    A listing opts in with a `calendarSync` object in data/listings.json:
+ *      "calendarSync": { "airbnbIcal": "https://...ics", "bookingIcal": "https://...ics" }
+ *    Either key is optional.
+ *
+ * Listings that share the same physical space (a whole house and its parts,
+ * see config/linkedListings.js) also inherit each other's busy dates.
+ *
+ * A listing with no source at all simply shows every future date as free.
  */
+
+const listingsData = require('../data/listings.json');
+const { getRelatedIds } = require('./linkedListings');
+
+// Reservations imported from the spreadsheet: { listingId: [{ start, end }] }.
+// Loaded once at startup; a missing file just means "no imported bookings yet".
+let sheetBookings = {};
+try {
+  sheetBookings = require('../data/bookings.json').bookings || {};
+} catch (err) {
+  if (err.code !== 'MODULE_NOT_FOUND') throw err;
+}
 
 const CACHE_TTL_MS = 3 * 60 * 60 * 1000; // 3 hours — plenty fresh for a booking calendar, avoids hammering Airbnb/Booking on every page view
 const cache = new Map(); // url -> { fetchedAt, ranges }
@@ -93,17 +110,27 @@ async function fetchIcalRanges(url) {
   }
 }
 
-/**
- * Returns the merged busy ranges for a listing, from every calendar source
- * it has configured (Airbnb and/or Booking.com). Fails soft: a broken or
- * slow feed never breaks the page, it just contributes no ranges.
- */
-async function getBusyRangesForListing(listing) {
-  const sync = listing.calendarSync || {};
+// Busy ranges of one listing on its own: spreadsheet bookings plus any
+// Airbnb/Booking.com feeds it has configured.
+async function getOwnBusyRanges(id) {
+  const imported = sheetBookings[id] || [];
+
+  const sync = (listingsData[id] && listingsData[id].calendarSync) || {};
   const urls = [sync.airbnbIcal, sync.bookingIcal].filter(Boolean);
-  if (urls.length === 0) return [];
+  if (urls.length === 0) return imported;
 
   const results = await Promise.all(urls.map(fetchIcalRanges));
+  return [...imported, ...results.flat()];
+}
+
+/**
+ * Returns the merged busy ranges for a listing: its own bookings plus those
+ * of every listing sharing its space. Fails soft: a broken or slow feed
+ * never breaks the page, it just contributes no ranges.
+ */
+async function getBusyRangesForListing(listing) {
+  const ids = [listing.id, ...getRelatedIds(listing.id)];
+  const results = await Promise.all(ids.map(getOwnBusyRanges));
   return results.flat();
 }
 

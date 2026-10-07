@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "import-reservations": "node scripts/import-reservations.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
@@ -15,7 +16,8 @@
   },
   "devDependencies": {
     "cloudinary": "^2.5.1",
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "read-excel-file": "^9.3.10"
   },
   "engines": {
     "node": ">=18.0.0"
