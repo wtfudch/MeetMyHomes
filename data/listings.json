@@ -146,7 +146,7 @@
       { "author": "Emma", "rating": 5, "comment": "Excelente estadia, o apartamento foi perfeito para uma semana de férias para 4. Limpo, acolhedor, vista para o mar, piscina e varanda ensolarada.", "date": "October 2025" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 41, "imageExt": "jpg" }
+    "media": { "imageCount": 21, "imageExt": "jpg" }
   },
 
   "villa-atlantico-garden-apartment": {
@@ -263,7 +263,7 @@
       { "author": "Fiona Lynn", "rating": 5, "comment": "Passámos duas semanas maravilhosas no apartamento. É um alojamento simples e acolhedor.", "date": "May 2026" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 2 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 8, "imageExt": "jpg" }
   },
 
   "bella-vista-home": {
@@ -292,7 +292,7 @@
       { "author": "Thea", "rating": 5, "comment": "Uma localização absolutamente fantástica e uma casa muito agradável!", "date": "May 2026" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 8 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 28, "imageExt": "jpg" }
   },
 
   "bella-vista-spacious-3-bedroom-home": {
@@ -320,7 +320,7 @@
       { "author": "Erika", "rating": 5, "comment": "Ótimo local para uma escapadela de férias, localização absolutamente bonita e anfitrião superprestável.", "date": "June 2026" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 22, "imageExt": "jpg" }
   },
 
   "apartamento-precioso-vista-mar": {
@@ -350,7 +350,7 @@
       { "author": "Judith", "rating": 5, "comment": "Tivemos uma estadia incrível nesta bela propriedade na Madeira. A vista para o oceano era absolutamente.", "date": "March 2026" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 16, "imageExt": "jpg" }
   },
 
   "casa-moises-filhos-sunset-view": {
@@ -376,7 +376,7 @@
     },
     "reviews": [],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 13, "imageExt": "jpg" }
   },
 
   "come-together-apartment-sea-view": {
@@ -404,7 +404,7 @@
       { "author": "Shanti", "rating": 5, "comment": "Excelente apartamento em excelente localização! A partir daí, pode chegar rapidamente a qualquer lugar.", "date": "May 2026" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 10, "imageExt": "jpg" }
   },
 
   "villa-atlantico": {
@@ -508,7 +508,7 @@
     },
     "reviews": [],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 19, "imageExt": "jpg" }
   },
   "solar-do-arco": {
     "id": "solar-do-arco",
@@ -710,9 +710,6 @@
       "No parties or events",
       "Quiet hours after 10 PM"
     ],
-    "media": {
-      "imageCount": 0,
-      "imageExt": "jpg"
-    }
+    "media": { "imageCount": 20, "imageExt": "jpg" }
   }
 }

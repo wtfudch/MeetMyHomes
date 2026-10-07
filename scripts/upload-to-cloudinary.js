@@ -24,6 +24,13 @@
  *
  * 4. Run:  node scripts/upload-to-cloudinary.js
  *
+ *    Or only some listings/properties (much faster than re-sending everything):
+ *      node scripts/upload-to-cloudinary.js bella-vista-home adif-sea-view-canhas
+ *
+ *    Add --dry-run to see what WOULD be uploaded without sending anything:
+ *      node scripts/upload-to-cloudinary.js --dry-run
+ *      node scripts/upload-to-cloudinary.js --dry-run bella-vista-home
+ *
  * The script prints a summary at the end comparing how many files it found
  * locally vs. how many data/*.json expects — fix any mismatches before
  * trusting the live site.
@@ -38,6 +45,19 @@ const properties = require('../data/properties.json');
 const listings = require('../data/listings.json');
 
 const SOURCE_ROOT = path.join(__dirname, '..', '..', 'media-to-upload');
+
+// Optional command-line arguments: --dry-run, and/or the ids to upload
+// (no ids = everything).
+const args = process.argv.slice(2);
+const dryRun = args.includes('--dry-run');
+const onlyIds = args.filter(a => !a.startsWith('--'));
+const wanted = id => onlyIds.length === 0 || onlyIds.includes(id);
+
+const unknownIds = onlyIds.filter(id => !(id in properties) && !(id in listings));
+if (unknownIds.length) {
+  console.error(`❌ Unknown id(s): ${unknownIds.join(', ')}. They must match an "id" in data/properties.json or data/listings.json.`);
+  process.exit(1);
+}
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -67,6 +87,7 @@ function listFiles(dir) {
 const VIDEO_EXTENSIONS = new Set(['.mov', '.mp4', '.avi', '.mkv', '.webm']);
 
 async function uploadFile(localPath, publicId, resourceType) {
+  if (dryRun) return; // nothing is sent in a dry run
   await cloudinary.uploader.upload(localPath, {
     public_id: publicId,
     resource_type: resourceType,
@@ -85,7 +106,7 @@ async function uploadFolder(localDir, cloudinaryFolder, resourceType) {
     process.stdout.write(`  ⬆ ${file} → ${publicId} ... `);
     try {
       await uploadFile(fullPath, publicId, resourceType);
-      console.log('OK');
+      console.log(dryRun ? 'dry run' : 'OK');
     } catch (err) {
       console.log('FAILED');
       console.error(`     ${err.message}`);
@@ -97,8 +118,11 @@ async function uploadFolder(localDir, cloudinaryFolder, resourceType) {
 async function run() {
   const report = [];
 
+  if (dryRun) console.log('\n🔍 DRY RUN — nothing will be sent to Cloudinary.');
+
   console.log('\n📦 Uploading PROPERTY media (for sale)\n');
   for (const [id, prop] of Object.entries(properties)) {
+    if (!wanted(id)) continue;
     console.log(`→ ${id}`);
 
     const imgDir = path.join(SOURCE_ROOT, 'images', id);
@@ -118,7 +142,7 @@ async function run() {
       process.stdout.write(`  ⬆ ${file} → ${publicId} ... `);
       try {
         await uploadFile(path.join(videoDir, file), publicId, 'video');
-        console.log('OK');
+        console.log(dryRun ? 'dry run' : 'OK');
         foundVideos++;
       } catch (err) {
         console.log('FAILED');
@@ -137,6 +161,7 @@ async function run() {
 
   console.log('\n🏠 Uploading LISTING media (rentals)\n');
   for (const [id, listing] of Object.entries(listings)) {
+    if (!wanted(id)) continue;
     console.log(`→ ${id}`);
     const imgDir = path.join(SOURCE_ROOT, 'images', id);
     const foundImages = await uploadFolder(imgDir, `meetmyhomes/images/listings/${id}`, 'image');
@@ -170,6 +195,8 @@ async function run() {
   } else {
     console.log('\n✅ Everything matches. Set CLOUDINARY_CLOUD_NAME in Render and deploy!');
   }
+
+  if (dryRun) console.log('\n🔍 That was a dry run — nothing was uploaded. Run again without --dry-run to upload.');
 }
 
 run().catch(err => {

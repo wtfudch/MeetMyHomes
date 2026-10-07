@@ -95,16 +95,41 @@ media-to-upload/
 ```
 
 Os IDs das pastas têm de corresponder exatamente aos IDs em
-`data/properties.json` / `data/listings.json`.
+`data/properties.json` / `data/listings.json`, e os ficheiros chamam-se
+`<id>-1.jpg`, `<id>-2.jpg`, ... A **foto 1 é a capa** (a que aparece na lista de
+alojamentos); para mudar a capa, troca os nomes de duas fotos.
+
+Dica: reduz as fotos antes (cerca de 2400 px no lado maior, JPG) — o plano
+gratuito do Cloudinary recusa imagens acima de 10 MB e o upload fica muito mais
+rápido. A pasta `_mapeamento-fotos.csv` (na raiz de `media-to-upload`) diz que
+ficheiro original deu origem a cada foto; as pastas que começam por `_` nunca
+são enviadas.
 
 ### Correr a migração
+Primeiro um **teste que não envia nada** (mostra o que seria enviado e confirma
+que o número de fotos bate certo com o `data/listings.json`):
+
 ```bash
-node scripts/upload-to-cloudinary.js
+node scripts/upload-to-cloudinary.js --dry-run
 ```
 
-O script sobe tudo e no final mostra um resumo a comparar quantos ficheiros
-*esperava* (segundo o JSON) com quantos *encontrou* localmente — ficas logo a
-saber se falta alguma foto antes de publicares.
+Depois o envio a sério — de tudo, ou só de alguns alojamentos (muito mais
+rápido quando só há fotos novas):
+
+```bash
+node scripts/upload-to-cloudinary.js
+node scripts/upload-to-cloudinary.js bella-vista-home adif-sea-view-canhas
+```
+
+O script sobe os ficheiros e no final mostra um resumo a comparar quantos
+ficheiros *esperava* (segundo o JSON) com quantos *encontrou* localmente — ficas
+logo a saber se falta alguma foto antes de publicares.
+
+**Para um alojamento novo:** põe as fotos em `media-to-upload/images/<id>/`,
+atualiza `"media": { "imageCount": N, "imageExt": "jpg" }` desse alojamento em
+`data/listings.json` (N = número de fotos), faz o upload **primeiro** e só depois
+o commit/push — se o site for publicado antes das fotos estarem no Cloudinary,
+aparecem imagens partidas.
 
 ### Vídeos: nota importante
 Os teus vídeos originais são `.mov` (formato da Apple), que não funciona bem
