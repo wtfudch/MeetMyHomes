@@ -89,36 +89,6 @@
     "media": { "imageCount": 42, "imageExt": "jpg" }
   },
 
-  "white-apartment": {
-    "id": "white-apartment",
-    "title": "White Apartment – Bright & Modern",
-    "description": "O White Apartment é um T1 moderno, luminoso e acolhedor, onde o conforto se combina com o bom gosto. Destaca-se pela decoração elegante, linhas contemporâneas e uma atmosfera serena — ideal para quem procura qualidade e tranquilidade no centro do Funchal.\n\nLocalizado numa zona premium da cidade, este apartamento encontra-se num edifício recente com elevador, estacionamento privativo e excelente acessibilidade a pé a restaurantes, cafés, supermercados e transportes públicos.\n\nCom aproximadamente 84 m² de área privativa, inclui uma ampla varanda com zona de estar ao ar livre, perfeita para aproveitar o sol ou relaxar no final do dia.\n\nO apartamento é composto por um quarto com cama de casal confortável, uma casa de banho com banheira, sala de estar com sofá e zona de refeições, e uma cozinha totalmente equipada com placa vitrocerâmica, forno, microondas, máquina de café, frigorífico, máquina de lavar roupa e loiça, entre outros utensílios. Inclui ainda Wi-Fi de alta velocidade, TV com canais internacionais, roupa de cama e toalhas.\n\nO White Apartment é ideal para estadias curtas ou prolongadas, tanto em lazer como em trabalho, oferecendo o equilíbrio perfeito entre elegância, funcionalidade e uma localização excecional.\n\nDados do registo\n162435/AL",
-    "location": "Funchal, Madeira",
-    "locationDescription": "O apartamento encontra-se numa das zonas mais privilegiadas do Funchal. Aqui, combina-se a proximidade ao centro com a calma de uma área residencial bem cuidada. A poucos passos encontrará cafés, restaurantes, mercearias, padarias e outros serviços essenciais. A zona é bem servida por transportes públicos e convida a explorar o melhor da cidade a pé, com comodidade e segurança.",
-    "type": "Entire apartment",
-    "bedrooms": 1,
-    "bathrooms": 1,
-    "guests": 3,
-    "pricePerNight": "€186",
-    "rating": 5,
-    "superhost": false,
-    "amenities": ["Wi-Fi", "Kitchen", "Refrigerator", "Microwave", "Cooking basics", "Dishes and silverware", "Freezer", "Dishwasher", "Stove", "Oven", "Kettle", "Coffee maker", "Wine glasses", "Toaster", "Dining table", "Coffee", "Bathtub", "Hair dryer", "Cleaning products", "Shampoo", "Body soap", "Bidet", "Hot water", "Shower gel", "Washing Machine", "Essentials", "Hangers", "Bed linen", "Extra pillows and blankets", "Blackout blinds", "Iron", "Drying rack", "Closet", "TV", "Sound system", "Crib", "Air Conditioning", "Heating", "Fire extinguisher", "First aid kit", "Sea view", "Ocean view", "Waterfront", "Private entrance", "Patio or balcony", "Outdoor furniture", "Outdoor dining area", "Free Street Parking", "Elevator", "Single-story home", "Luggage drop-off allowed", "Long-term stays allowed", "Self check-in"],
-    "coordinates": { "latitude": 32.6402, "longitude": -16.9327 },
-    "host": {
-      "name": "Catarina",
-      "since": 2024,
-      "superhost": false,
-      "description": "Professional host dedicated to making your stay perfect."
-    },
-    "reviews": [
-      { "author": "Fay", "rating": 5, "comment": "Se está a pensar em reservar este apartamento, faça-o, é ainda melhor pessoalmente. É uma ótima base para explorar o resto da ilha, com cozinha completa e um pôr do sol lindo na varanda.", "date": "February 2026" },
-      { "author": "Giacomo", "rating": 5, "comment": "O apartamento é simplesmente deslumbrante, com uma vista incrível sobre o Oceano Atlântico. Muito espaçoso, muito limpo e super equipado. A anfitriã foi gentil e atenciosa, com check-in flexível.", "date": "October 2025" },
-      { "author": "Richard", "rating": 5, "comment": "Este belo apartamento fica numa encosta logo acima dos Jardins de Lido, com uma varanda virada a sul e vista maravilhosa para o mar. Imaculadamente limpo, bem equipado e tranquilo.", "date": "August 2025" }
-    ],
-    "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 29, "imageExt": "jpg" }
-  },
-
   "cantinho-da-flor": {
     "id": "cantinho-da-flor",
     "title": "Cantinho da Flor – Garden Apartment",
