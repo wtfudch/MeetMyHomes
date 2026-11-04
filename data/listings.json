@@ -145,7 +145,7 @@
       { "author": "Ian", "rating": 5, "comment": "A Susy é incrível! A casa estava impecável, muito bem equipada e era fácil encontrar tudo. Recomendamos vivamente a Moradia em todos os aspetos.", "date": "March 2023" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 26, "imageExt": "jpg" }
   },
 
   "casa-refugio-dos-canhas": {
@@ -175,7 +175,7 @@
       { "author": "Beth", "rating": 5, "comment": "Já ficámos em muitos AirBnBs e este é o nosso favorito de sempre! A casa era muito agradável.", "date": "July 2025" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 6 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 48, "imageExt": "jpg" }
   },
 
   "vista-ventura": {
@@ -203,7 +203,7 @@
       { "author": "Jay", "rating": 5, "comment": "A casa era incrível e a vista é ABSOLUTAMENTE BONITA!! Um lugar perfeito para relaxar em família.", "date": "February 2026" }
     ],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 4 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 17, "imageExt": "jpg" }
   },
 
   "bella-vista-studio": {
@@ -400,7 +400,7 @@
     },
     "reviews": [],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 7 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 51, "imageExt": "jpg" }
   },
 
   "villa-atlantico-balcony-apartment": {
@@ -426,7 +426,7 @@
     },
     "reviews": [],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 27, "imageExt": "jpg" }
   },
 
   "cantinho-de-santa-teresa": {
@@ -452,7 +452,7 @@
     },
     "reviews": [],
     "houseRules": ["No smoking", "No pets", "Check-in after 3 PM", "Check-out before 11 AM", "Max 3 guests", "No parties or events", "Quiet hours after 10 PM"],
-    "media": { "imageCount": 0, "imageExt": "jpg" }
+    "media": { "imageCount": 13, "imageExt": "jpg" }
   },
 
   "canhas-ocean-view": {
@@ -575,10 +575,7 @@
       "No parties or events",
       "Quiet hours after 10 PM"
     ],
-    "media": {
-      "imageCount": 0,
-      "imageExt": "jpg"
-    }
+    "media": { "imageCount": 33, "imageExt": "jpg" }
   },
   "adif-sea-view-canhas": {
     "id": "adif-sea-view-canhas",

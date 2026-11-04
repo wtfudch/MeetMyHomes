@@ -85,6 +85,7 @@ function listFiles(dir) {
 }
 
 const VIDEO_EXTENSIONS = new Set(['.mov', '.mp4', '.avi', '.mkv', '.webm']);
+const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.heic', '.avif']);
 
 async function uploadFile(localPath, publicId, resourceType) {
   if (dryRun) return; // nothing is sent in a dry run
@@ -97,7 +98,12 @@ async function uploadFile(localPath, publicId, resourceType) {
 }
 
 async function uploadFolder(localDir, cloudinaryFolder, resourceType) {
-  const files = listFiles(localDir);
+  // Only real image files: stray files (e.g. an old .json) would just fail to upload
+  const files = listFiles(localDir).filter(f => {
+    const isImage = IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase());
+    if (!isImage) console.log(`  (skipping non-image file: ${f})`);
+    return isImage;
+  });
   for (const file of files) {
     const ext = path.extname(file);
     const baseName = path.basename(file, ext);
