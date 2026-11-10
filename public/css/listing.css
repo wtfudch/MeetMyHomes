@@ -160,6 +160,12 @@ h2 {
   margin-top: 15px;
 }
 
+.price-from {
+  font-size: 0.95rem;
+  color: #717171;
+  margin-right: 4px;
+}
+
 .price {
   font-size: 1.5rem;
   font-weight: 600;

@@ -30,6 +30,7 @@
     .property-meta { color:#717171; margin-bottom:15px; }
     .property-price { font-size:1.3rem; font-weight:600; margin:15px 0; }
     .price-period { color:#717171; font-size:1rem; }
+    .price-from { color:#717171; font-size:.95rem; font-weight:400; margin-right:2px; }
     .superhost-badge { display:inline-block; background:#FF385C; color:#fff; padding:4px 10px; border-radius:4px; font-size:.8rem; margin-bottom:15px; }
     .amenities { margin:20px 0; }
     .amenity-item { display:flex; align-items:center; gap:8px; margin-bottom:8px; color:#333; }
@@ -175,7 +176,7 @@
         </div>
 
         <div class="filter-field">
-          <label>Price per night (€)</label>
+          <label>Starting price per night (€)</label>
           <div class="price-range-inputs">
             <input type="number" id="filter-price-min" min="0" placeholder="Min">
             <span>–</span>
@@ -223,6 +224,7 @@
             <p class="property-meta"><%= listing.location %> · <%= listing.type %></p>
             <% if (listing.superhost) { %><span class="superhost-badge">Superhost</span><% } %>
             <div class="property-price">
+              <span class="price-from">From</span>
               <span><%= listing.pricePerNight %></span>
               <span class="price-period"> / night</span>
             </div>
