@@ -270,8 +270,8 @@ mostrar ícones de imagem quebrada. Substitui estes ficheiros pelos teus
 verdadeiros quando tiveres:
 
 - `mmhlogo.png` — logótipo
-- `home-hero-bg.jpg` — fundo da hero section da homepage
-- `about-bg.jpg` — fundo da hero section da página "Sobre"
+- `home-hero-bg.jpg` — a foto do ecrã principal; é a mesma usada no fundo das
+  páginas "Sobre" (About) e "Contacto" (Contact), por isso basta trocar este ficheiro
 - `about-us-image.jpg` — foto da equipa/escritório
 - `fallback.jpg` — imagem genérica para quando um imóvel ainda não tem fotos
 
