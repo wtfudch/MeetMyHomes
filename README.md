@@ -231,6 +231,19 @@ alojamentos que não aparecem na folha (esses mostram todas as datas livres).
 
 ---
 
+## 7. Página "Partners" (parceiros com desconto)
+
+A página `/partners` (entre Rentals e About no menu) mostra as empresas parceiras
+com o link do site e o código promocional, com um botão "Copy". Está tudo em
+`data/partners.json` — para acrescentar, mudar um código ou remover um parceiro,
+edita só esse ficheiro (um bloco por parceiro: `name`, `category`, `description`,
+`url`, e `promoCode`). Um parceiro com `"bookThroughUs": "texto"` em vez de
+`promoCode` mostra o aviso "Book through us" com os botões Contact us e WhatsApp
+(é o caso da VMT Madeira, que funciona por reserva através de nós). Os ícones são
+nomes do [Font Awesome](https://fontawesome.com/search?o=r&m=free) (`fa-car`, `fa-ship`, ...).
+
+---
+
 ## O que foi corrigido nesta reorganização
 
 - **Repositório pesado** → fotos/vídeos saíram do Git; ficam no Cloudinary.

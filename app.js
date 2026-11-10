@@ -56,6 +56,7 @@ app.use((req, res, next) => {
 app.use('/',               require('./routes/homeRoutes'));
 app.use('/properties',     require('./routes/propertyRoutes'));
 app.use('/listings',       require('./routes/listingsRoutes'));
+app.use('/partners',       require('./routes/partnersRoutes'));
 app.use('/contact',        require('./routes/contactRoutes'));
 app.use('/about',          require('./routes/aboutRoutes'));
 app.use('/privacy-policy', require('./routes/privacyRoutes'));

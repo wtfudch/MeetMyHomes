@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partners - MeetMyHomes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background-color: #E5E3DC; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Hero */
+    .partners-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/home-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+      border-radius: 20px;
+    }
+    .partners-hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+    .partners-hero .lead { font-size: 1.3rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+
+    /* Cards */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .partner-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .partner-top { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .partner-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 14px; background: #fff0f3; color: #FF385C;
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    }
+    .partner-card h2 { font-size: 1.4rem; margin: 0; color: #2c3e50; }
+    .partner-category { font-size: 0.85rem; color: #717171; }
+    .partner-card p.partner-desc { font-size: 1rem; color: #555; margin: 0 0 1.25rem; }
+
+    .promo-box {
+      border: 2px dashed #FF385C; border-radius: 12px; background: #fff8f9;
+      padding: 0.9rem 1rem; margin-bottom: 1.25rem;
+    }
+    .promo-label { display: block; font-size: 0.8rem; font-weight: 600; color: #717171; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .promo-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 0.75rem; }
+    .promo-code { font-family: 'Courier New', monospace; font-size: 1.25rem; font-weight: 700; color: #2c3e50; overflow-wrap: anywhere; }
+    .copy-btn {
+      border: none; background: #FF385C; color: #fff; border-radius: 8px; padding: 0.5rem 0.9rem;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background 0.2s;
+    }
+    .copy-btn:hover { background: #E61E4D; }
+    .copy-btn.copied { background: #1e8449; }
+
+    .book-through-us {
+      border-radius: 12px; background: #f3f8fd; border: 1px solid #cfe1f5;
+      padding: 0.9rem 1rem; margin-bottom: 1.25rem; font-size: 0.98rem; color: #2c3e50;
+    }
+    .book-through-us strong { display: block; margin-bottom: 0.25rem; }
+
+    .partner-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.2rem; border-radius: 25px;
+      font-size: 0.98rem; font-weight: 600; text-decoration: none; border: 2px solid transparent; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #FF385C; color: #fff; }
+    .btn-primary:hover { background: #E61E4D; }
+    .btn-outline { background: #fff; color: #2c3e50; border-color: #2c3e50; }
+    .btn-outline:hover { background: #f2f2f2; }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover { background: #1ebe5a; }
+
+    @media (max-width: 768px) {
+      .partners-hero { border-radius: 15px; padding: 4rem 0; }
+      .partners-hero h1 { font-size: 2rem; }
+      .partners-hero .lead { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section class="partners-hero">
+    <div class="container">
+      <h1>Our Partners</h1>
+      <p class="lead">Local companies we trust, with discounts for you. Use our promo codes when you book.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="partners-grid">
+      <% partners.forEach(partner => { %>
+        <article class="partner-card">
+          <div class="partner-top">
+            <div class="partner-icon"><i class="fas <%= partner.icon %>"></i></div>
+            <div>
+              <h2 class="notranslate" translate="no"><%= partner.name %></h2>
+              <span class="partner-category"><%= partner.category %></span>
+            </div>
+          </div>
+
+          <p class="partner-desc"><%= partner.description %></p>
+
+          <% if (partner.promoCode) { %>
+            <div class="promo-box">
+              <span class="promo-label">Promo code</span>
+              <div class="promo-row">
+                <span class="promo-code notranslate" translate="no"><%= partner.promoCode %></span>
+                <button type="button" class="copy-btn" data-code="<%= partner.promoCode %>"><i class="fas fa-copy"></i> Copy</button>
+              </div>
+            </div>
+          <% } %>
+
+          <% if (partner.bookThroughUs) { %>
+            <div class="book-through-us">
+              <strong>Book through us</strong>
+              <%= partner.bookThroughUs %>
+            </div>
+          <% } %>
+
+          <div class="partner-actions">
+            <a href="<%= partner.url %>" target="_blank" rel="noopener noreferrer" class="btn <%= partner.bookThroughUs ? 'btn-outline' : 'btn-primary' %>">
+              <i class="fas fa-arrow-up-right-from-square"></i> Visit website
+            </a>
+            <% if (partner.bookThroughUs) { %>
+              <a href="/contact?hl=<%= getCurrentLanguage() %>" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact us</a>
+              <a href="https://wa.me/351964696600?text=<%= encodeURIComponent('Hi! I would like to book ' + partner.name + ' through MeetMyHomes.') %>"
+                 target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <% } %>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const code = btn.dataset.code;
+        const original = btn.innerHTML;
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch (err) {
+          // Clipboard API unavailable (e.g. older browser): select the text so it can be copied by hand
+          const range = document.createRange();
+          range.selectNodeContents(btn.parentElement.querySelector('.promo-code'));
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          return;
+        }
+        btn.classList.add('copied');
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = original; }, 1800);
+      });
+    });
+  </script>
+</body>
+</html>

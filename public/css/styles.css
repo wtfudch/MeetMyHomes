@@ -74,6 +74,21 @@ nav .nav-links a.nav-link:hover {
   text-decoration: none;
 }
 
+/* Small screens: let the menu wrap instead of forcing the page wider than the phone */
+@media (max-width: 900px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  nav .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 /* Hero Section */
 .hero {
   background-image: url('https://via.placeholder.com/1200x400');

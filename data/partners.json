@@ -1,0 +1,29 @@
+[
+  {
+    "id": "carxop",
+    "name": "Carxop Rent",
+    "category": "Car rental",
+    "icon": "fa-car",
+    "description": "Car rental in Madeira, with pickup at the airport, at their Funchal headquarters or at your accommodation.",
+    "url": "https://www.carxop-rent.com/index.asp",
+    "promoCode": "MEETMYHOMES"
+  },
+  {
+    "id": "reisrent",
+    "name": "Reis Rent",
+    "category": "Car rental",
+    "icon": "fa-car",
+    "description": "Car rental in Madeira, with pickup at Madeira International Airport or in Funchal.",
+    "url": "https://www.reisrent.pt/en/",
+    "promoCode": "RRPROMO03"
+  },
+  {
+    "id": "vmt-madeira",
+    "name": "VMT Madeira",
+    "category": "Boat trips & experiences",
+    "icon": "fa-ship",
+    "description": "Catamaran trips with whale and dolphin watching, sunset cruises, the Desertas Islands, kayak and sport fishing.",
+    "url": "https://www.vmtmadeira.com/en/",
+    "bookThroughUs": "Book through us — we have tickets available. Get in touch and we'll take care of your reservation."
+  }
+]
